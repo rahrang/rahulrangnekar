@@ -1,28 +1,41 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react';
+import styled from 'styled-components';
+
+import { Tag } from 'components/projects/Tags';
+import { ColumnContainer, RowContainer } from 'components/reusable/Containers';
+import BackButton from 'components/reusable/buttons/BackButton';
 
 export default function Template({ data }) {
-  const { markdownRemark: project } = data;
   const {
-    html,
-    frontmatter: { title, tags }
-  } = project;
+    markdownRemark: {
+      html,
+      frontmatter: { title, tags }
+    }
+  } = data;
+
   return (
     <div>
-      <h1>{title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-      <div>{tags.join(", ")}</div>
+      <BackButton text="projects" to="/projects" />
+      <ColumnContainer ai="flex-start" className="m-v-1">
+        <h1>{title}</h1>
+        <div className="markdown" dangerouslySetInnerHTML={{ __html: html }} />
+        <RowContainer>
+          {tags.map((t, i) => <Tag key={`project-tag-${i}`} text={t} />)}
+        </RowContainer>
+      </ColumnContainer>
+      <BackButton text="projects" to="/projects" />
     </div>
   );
 }
 
 export const projectQuery = graphql`
-  query ProjectByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query ProjectByKey($key: String!) {
+    markdownRemark(frontmatter: { key: { eq: $key } }) {
       html
       frontmatter {
         title
-        path
+        key
+        description
         tags
       }
     }

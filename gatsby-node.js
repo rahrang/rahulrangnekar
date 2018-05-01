@@ -2,23 +2,14 @@ const path = require('path');
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
-  const projectTemplate = path.resolve('src/components/projects/template.js');
-  const postTemplate = path.resolve('src/components/blog/template.js');
 
   return graphql(`
     {
       allMarkdownRemark {
         edges {
           node {
-            html
-            id
             frontmatter {
-              title
-              subtitle
-              description
-              type
-              path
-              tags
+              key
             }
           }
         }
@@ -27,26 +18,13 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   `).then(res => {
     if (res.errors) return Promise.reject(res.errors);
 
+    const component = path.resolve('src/components/projects/template.js');
     const { edges } = res.data.allMarkdownRemark;
-
-    const projects = getType(edges, 'project');
-    projects.forEach(({ node }) => makePage(node, projectTemplate, createPage));
-
-    const blogPosts = getType(edges, 'blog');
-    blogPosts.forEach(({ node }) => makePage(node, postTemplate, createPage));
+    edges.forEach(({ node }) => {
+      const { key } = node.frontmatter;
+      const context = { key };
+      const path = `/projects/${key}`;
+      createPage({ path, component, context });
+    });
   });
-};
-
-const getType = (edges, t) => {
-  return edges.filter(
-    ({
-      node: {
-        frontmatter: { type }
-      }
-    }) => type === t
-  );
-};
-
-const makePage = (node, component, createPage) => {
-  return createPage({ path: node.frontmatter.path, component });
 };
