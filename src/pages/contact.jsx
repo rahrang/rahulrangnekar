@@ -7,7 +7,12 @@ import { RowContainer, ColumnContainer } from 'components/reusable/Containers';
 
 const ContactPage = () => (
   <div>
-    <form name="contact" action="POST" netlify netlify-honeypot="bot-field">
+    <form
+      name="contact"
+      action="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
       <ColumnContainer ai="baseline">
         <ShortText
           classNames="hidden"

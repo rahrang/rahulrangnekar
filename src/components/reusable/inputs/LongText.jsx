@@ -25,7 +25,9 @@ LongText.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  width: PropTypes.num,
+  height: PropTypes.num
 };
 
 export default LongText;
