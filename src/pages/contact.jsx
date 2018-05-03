@@ -4,9 +4,10 @@ import Link from 'gatsby-link';
 import ShortText from 'components/reusable/inputs/ShortText';
 import LongText from 'components/reusable/inputs/LongText';
 import { RowContainer, ColumnContainer } from 'components/reusable/Containers';
+import { FadeIn } from 'components/reusable/ui/';
 
-const ContactPage = () => (
-  <div>
+let ContactPage = () => (
+  <FadeIn>
     <form
       name="contact"
       method="POST"
@@ -18,7 +19,7 @@ const ContactPage = () => (
           Don't fill this out if you're human.
           <input type="hidden" name="bot-field" />
         </label>
-        <RowContainer>
+        <RowContainer jc="baseline">
           <ShortText
             name="name"
             placeholder="Rahul Rangnekar"
@@ -40,7 +41,7 @@ const ContactPage = () => (
       </ColumnContainer>
       <button>Send</button>
     </form>
-  </div>
+  </FadeIn>
 );
 
 export default ContactPage;
