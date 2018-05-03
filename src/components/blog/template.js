@@ -1,5 +1,5 @@
-import React from 'react';
-import Helmet from 'react-helmet';
+import React from "react";
+import Helmet from "react-helmet";
 
 export default function Template({ data }) {
   const { markdownRemark: post } = data;
@@ -11,7 +11,7 @@ export default function Template({ data }) {
     <div>
       <h1>{title}</h1>
       <div dangerouslySetInnerHTML={{ __html: html }} />
-      <div>{tags.join(', ')}</div>
+      <div>{tags.join(", ")}</div>
     </div>
   );
 }

@@ -5,9 +5,9 @@ import styled from 'styled-components';
 import { ColumnContainer } from 'components/reusable/Containers';
 import { Label } from './Label';
 
-const ShortText = ({ label, name, placeholder, type, width, classNames }) => {
+const ShortText = ({ label, name, placeholder, type, width }) => {
   return (
-    <ColumnContainer className={`m-v-h m-r-1 ${classNames}`} ai="baseline">
+    <ColumnContainer className="m-v-h m-r-1" ai="baseline">
       <Label>{label}</Label>
       <Input
         className="m-0 p-v-q p-h-q"
@@ -25,8 +25,7 @@ ShortText.propTypes = {
   name: PropTypes.string,
   placeholder: PropTypes.string,
   type: PropTypes.string,
-  width: PropTypes.num,
-  classNames: PropTypes.string
+  width: PropTypes.num
 };
 
 export default ShortText;

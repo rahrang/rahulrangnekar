@@ -9,16 +9,15 @@ const ContactPage = () => (
   <div>
     <form
       name="contact"
-      action="POST"
+      method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
       <ColumnContainer ai="baseline">
-        <ShortText
-          classNames="hidden"
-          name="bot-field"
-          label="Don't fill this out if you're a human."
-        />
+        <label className="hidden">
+          Don't fill this out if you're human.
+          <input type="hidden" name="bot-field" />
+        </label>
         <RowContainer>
           <ShortText
             name="name"
