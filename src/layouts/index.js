@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 import Header from '../components/header';
-import 'styles/index.css';
-import 'styles/box-sizing.css';
+import 'styles/index.scss';
+import 'styles/box-sizing.scss';
+import 'styles/markdown.scss';
 
 const Layout = ({ children, data }) => (
   <div>

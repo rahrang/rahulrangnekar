@@ -1,0 +1,277 @@
+@import 'box-sizing-mixins';
+
+/* Margins */
+
+.m-0 {
+  @include m-all(0);
+}
+
+.m-v-0 {
+  @include m-v(0);
+}
+.m-v-q {
+  @include m-v(0.25);
+}
+.m-v-h {
+  @include m-v(0.5);
+}
+.m-v-1 {
+  @include m-v(1);
+}
+.m-v-1q {
+  @include m-v(1.25);
+}
+.m-v-1h {
+  @include m-v(1.5);
+}
+.m-v-2 {
+  @include m-v(2);
+}
+
+.m-h-0 {
+  @include m-h(0);
+}
+.m-h-q {
+  @include m-h(0.25);
+}
+.m-h-h {
+  @include m-h(0.5);
+}
+.m-h-1 {
+  @include m-h(1);
+}
+.m-h-1q {
+  @include m-h(1.25);
+}
+.m-h-1h {
+  @include m-h(1.5);
+}
+.m-h-2 {
+  @include m-h(2);
+}
+
+.m-t-0 {
+  @include m-t(0);
+}
+.m-t-q {
+  @include m-t(0.25);
+}
+.m-t-h {
+  @include m-t(0.5);
+}
+.m-t-1 {
+  @include m-t(1);
+}
+.m-t-1q {
+  @include m-t(1.25);
+}
+.m-t-1h {
+  @include m-t(1.5);
+}
+.m-t-2 {
+  @include m-t(2);
+}
+
+.m-b-0 {
+  @include m-b(0);
+}
+.m-b-q {
+  @include m-b(0.25);
+}
+.m-b-h {
+  @include m-b(0.5);
+}
+.m-b-1 {
+  @include m-b(1);
+}
+.m-b-1q {
+  @include m-b(1.25);
+}
+.m-b-1h {
+  @include m-b(1.5);
+}
+.m-b-2 {
+  @include m-b(2);
+}
+
+.m-l-0 {
+  @include m-l(0);
+}
+.m-l-q {
+  @include m-l(0.25);
+}
+.m-l-h {
+  @include m-l(0.5);
+}
+.m-l-1 {
+  @include m-l(1);
+}
+.m-l-1q {
+  @include m-l(1.25);
+}
+.m-l-1h {
+  @include m-l(1.5);
+}
+.m-l-2 {
+  @include m-l(2);
+}
+
+.m-r-0 {
+  @include m-r(0);
+}
+.m-r-q {
+  @include m-r(0.25);
+}
+.m-r-h {
+  @include m-r(0.5);
+}
+.m-r-1 {
+  @include m-r(1);
+}
+.m-r-1q {
+  @include m-r(1.25);
+}
+.m-r-1h {
+  @include m-r(1.5);
+}
+.m-r-2 {
+  @include m-r(2);
+}
+
+/* Paddings */
+
+.p-0 {
+  @include p-all(0);
+}
+
+.p-v-0 {
+  @include p-v(0);
+}
+.p-v-q {
+  @include p-v(0.25);
+}
+.p-v-h {
+  @include p-v(0.5);
+}
+.p-v-1 {
+  @include p-v(1);
+}
+.p-v-1q {
+  @include p-v(1.25);
+}
+.p-v-1h {
+  @include p-v(1.5);
+}
+.p-v-2 {
+  @include p-v(2);
+}
+
+.p-h-0 {
+  @include p-h(0);
+}
+.p-h-q {
+  @include p-h(0.25);
+}
+.p-h-h {
+  @include p-h(0.5);
+}
+.p-h-1 {
+  @include p-h(1);
+}
+.p-h-1q {
+  @include p-h(1.25);
+}
+.p-h-1h {
+  @include p-h(1.5);
+}
+.p-h-2 {
+  @include p-h(2);
+}
+
+.p-t-0 {
+  @include p-t(0);
+}
+.p-t-q {
+  @include p-t(0.25);
+}
+.p-t-h {
+  @include p-t(0.5);
+}
+.p-t-1 {
+  @include p-t(1);
+}
+.p-t-1q {
+  @include p-t(1.25);
+}
+.p-t-1h {
+  @include p-t(1.5);
+}
+.p-t-2 {
+  @include p-t(2);
+}
+
+.p-b-0 {
+  @include p-b(0);
+}
+.p-b-q {
+  @include p-b(0.25);
+}
+.p-b-h {
+  @include p-b(0.5);
+}
+.p-b-1 {
+  @include p-b(1);
+}
+.p-b-1q {
+  @include p-b(1.25);
+}
+.p-b-1h {
+  @include p-b(1.5);
+}
+.p-b-2 {
+  @include p-b(2);
+}
+
+.p-l-0 {
+  @include p-l(0);
+}
+.p-l-q {
+  @include p-l(0.25);
+}
+.p-l-h {
+  @include p-l(0.5);
+}
+.p-l-1 {
+  @include p-l(1);
+}
+.p-l-1q {
+  @include p-l(1.25);
+}
+.p-l-1h {
+  @include p-l(1.5);
+}
+.p-l-2 {
+  @include p-l(2);
+}
+
+.p-r-0 {
+  @include p-r(0);
+}
+.p-r-q {
+  @include p-r(0.25);
+}
+.p-r-h {
+  @include p-r(0.5);
+}
+.p-r-1 {
+  @include p-r(1);
+}
+.p-r-1q {
+  @include p-r(1.25);
+}
+.p-r-1h {
+  @include p-r(1.5);
+}
+.p-r-2 {
+  @include p-r(2);
+}

@@ -1,0 +1,35 @@
+@import 'variables';
+@import 'box-sizing-mixins';
+
+body,
+p,
+ul,
+ol,
+li {
+  color: #1d2731;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $main-alt;
+}
+
+a {
+  color: $accent;
+}
+
+a:active {
+  color: $accent-alt;
+}
+
+.hidden {
+  display: none;
+}
+
+.font-small {
+  font-size: 0.7rem;
+}
