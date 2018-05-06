@@ -1,33 +1,33 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import styled from "styled-components";
 
-import ProjectCard from 'components/projects/ProjectCard';
-import { LinkTag } from 'components/projects/Tags';
-import TagContainer from 'components/projects/TagContainer';
-import { RowContainer, ColumnContainer } from 'components/reusable/Containers';
-import PageHeader from 'components/reusable/PageHeader';
-import Select from 'components/reusable/inputs/Select';
-import EmptyState from 'components/reusable/EmptyState';
+import ProjectCard from "components/projects/ProjectCard";
+import { LinkTag } from "components/projects/Tags";
+import TagContainer from "components/projects/TagContainer";
+import { RowContainer, ColumnContainer } from "components/reusable/Containers";
+import PageHeader from "components/reusable/PageHeader";
+import Select from "components/reusable/inputs/Select";
+import EmptyState from "components/reusable/EmptyState";
 import {
   getParams,
   setParams,
   getUniqueTags,
   filterByStatus,
   filterByTag
-} from 'utils/helpers';
+} from "utils/helpers";
 
 const STATUS_OPTIONS = [
   {
-    label: 'All',
-    value: 'all'
+    label: "All",
+    value: "all"
   },
   {
-    label: 'Ongoing',
-    value: 'ongoing'
+    label: "Ongoing",
+    value: "ongoing"
   },
   {
-    label: 'Deprecated',
-    value: 'deprecated'
+    label: "Deprecated",
+    value: "deprecated"
   }
 ];
 
@@ -36,10 +36,10 @@ class ProjectsPage extends Component {
     super(props);
     this.state = {
       data: this.props.data.allMarkdownRemark.edges,
-      tag: '',
+      tag: "",
       // start: '',
       // end: '',
-      status: ''
+      status: ""
     };
     this.data = this.props.data.allMarkdownRemark.edges;
     this.uniqueTags = getUniqueTags(this.data);
@@ -58,6 +58,12 @@ class ProjectsPage extends Component {
       location: { search: nSearch }
     } = nextProps;
     if (search !== nSearch) this.filterData(nextProps);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { tag, status } = this.state;
+    const { tag: pTag, status: pStatus } = prevState;
+    if (tag !== pTag || status !== pStatus) this.setParams(this.props);
   }
 
   filterData = props => {
@@ -80,20 +86,16 @@ class ProjectsPage extends Component {
     }
   };
 
-  setTag = async tag => {
+  setTag = tag => {
     const { tag: t } = this.state;
     if (tag === t) {
-      await this.setState({ tag: '' });
+      this.setState({ tag: "" });
     } else {
-      await this.setState({ tag });
+      this.setState({ tag });
     }
-    this.setParams(this.props);
   };
 
-  setStatus = async status => {
-    await this.setState({ status });
-    this.setParams(this.props);
-  };
+  setStatus = status => this.setState({ status });
 
   createCard = (edge, i) => {
     const {
@@ -125,7 +127,7 @@ class ProjectsPage extends Component {
             name="status"
             options={STATUS_OPTIONS}
             selectedValue={status}
-            resetValue={'all'}
+            resetValue={"all"}
             onSelect={this.setStatus}
           />
           <TagContainer onClear={this.setTag}>{this.createTags()}</TagContainer>
@@ -134,7 +136,7 @@ class ProjectsPage extends Component {
           {data.length ? (
             <RowContainer>{data.map(this.createCard)}</RowContainer>
           ) : (
-            <EmptyState text="No projects were found. Please clear the filters and try again!" />
+            <EmptyState text="No projects were found. Change the filters!" />
           )}
         </CardsContainer>
       </ProjectsContainer>

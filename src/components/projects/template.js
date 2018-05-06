@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { Tag } from 'components/projects/Tags';
-import { ColumnContainer, RowContainer } from 'components/reusable/Containers';
-import BackButton from 'components/reusable/buttons/BackButton';
+import { Tag } from "components/projects/Tags";
+import { ColumnContainer, RowContainer } from "components/reusable/Containers";
+import BackButton from "components/reusable/buttons/BackButton";
 
 export default function Template({ data }) {
   const {

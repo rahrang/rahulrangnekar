@@ -1,4 +1,3 @@
-import { parse, stringify } from 'query-string';
 import isEmpty from 'lodash/isEmpty';
 import toPairs from 'lodash/toPairs';
 import fromPairs from 'lodash/fromPairs';
@@ -50,4 +49,25 @@ export const filterByTag = (data, tag) => {
     includes(tags, tag)
   );
   return fd;
+};
+
+const parse = qs => {
+  const res = {};
+  if (isEmpty(qs) || isUndefined(qs)) return res;
+  const arr = qs.slice(1).split('&');
+  arr.forEach(pair => {
+    const [k, v] = pair.split('=');
+    res[k] = v;
+  });
+  return res;
+};
+
+const stringify = params => {
+  if (isEmpty(params) || isUndefined(params)) return '';
+  let res = [];
+  Object.entries(params).forEach(pair => {
+    const str = pair.join('=');
+    res.push(str);
+  });
+  return res.join('&');
 };
