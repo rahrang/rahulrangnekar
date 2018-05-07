@@ -34,7 +34,7 @@ const Select = ({ name, options, selectedValue, onSelect }) => {
 };
 
 const Name = styled.span`
-  color: #328cc1;
+  color: #0b3c5d;
   text-transform: capitalize;
 `;
 

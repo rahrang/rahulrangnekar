@@ -19,7 +19,7 @@ let ProjectCard = ({ title, description, tags, timespan, index, pKey }) => {
 
   return (
     <FadeIn>
-      <CardLink className="m-v-2 m-h-2" to={`/projects/${pKey}`}>
+      <CardLink className="m-v-1 m-h-1" to={`/projects/${pKey}`}>
         <ImageContainer>
           <Image src={`${IMAGE_PATH}${pKey}`} width="100%" />
         </ImageContainer>

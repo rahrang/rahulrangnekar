@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import fadeIn from 'react-animations/lib/fade-in';
-import slideInDown from 'react-animations/lib/slide-in-down';
+import slideInLeft from 'react-animations/lib/slide-in-left';
 
 // Fade In
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -12,12 +12,12 @@ const FadeInDiv = styled.div`
 
 export const FadeIn = ({ children }) => <FadeInDiv>{children}</FadeInDiv>;
 
-// Slide In Down
-const slideInDownAnimation = keyframes`${slideInDown}`;
-const SlideInDownDiv = styled.div`
-  animation: 1s ${slideInDownAnimation};
+// Slide In Left
+const slideInLeftAnimation = keyframes`${slideInLeft}`;
+const SlideInLeftDiv = styled.div`
+  animation: 0.75s ${slideInLeftAnimation};
 `;
 
-export const SlideInDown = ({ children }) => (
-  <SlideInDownDiv>{children}</SlideInDownDiv>
+export const SlideInLeft = ({ children }) => (
+  <SlideInLeftDiv>{children}</SlideInLeftDiv>
 );
