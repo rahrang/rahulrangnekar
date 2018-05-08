@@ -2,15 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import NavLink from './NavLink';
 import { ColumnContainer } from 'components/reusable/Containers';
 
 import NAVBAR_LINKS from './constants';
 
 const Navbar = ({ siteTitle }) => {
   return (
-    <Container ai="flex-start" className="p-h-1">
+    <Container ai="flex-start" jc="flex-start" className="p-h-1 p-v-2">
       <Header>{siteTitle}</Header>
-      <div className="p-h-1">{NAVBAR_LINKS.map(n => <p>{n.text}</p>)}</div>
+      <ColumnContainer className="p-h-1" ai="flex-start">
+        {NAVBAR_LINKS.map(n => <NavLink {...n} />)}
+      </ColumnContainer>
     </Container>
   );
 };

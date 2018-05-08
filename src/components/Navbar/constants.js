@@ -1,10 +1,20 @@
 export default [
   {
     text: 'home',
-    to: '/'
+    to: '/',
+    exact: true
   },
   {
     text: 'projects',
-    to: '/projects'
+    to: '/projects',
+    exact: false
   }
 ];
+
+/*
+  Blog
+  Books & Guides
+  Services
+  Social / Feed
+  Courses
+*/
