@@ -25,7 +25,7 @@ ShortText.propTypes = {
   name: PropTypes.string,
   placeholder: PropTypes.string,
   type: PropTypes.string,
-  width: PropTypes.num
+  width: PropTypes.number
 };
 
 export default ShortText;
