@@ -18,9 +18,10 @@ const Navbar = ({ siteTitle }) => {
 const Container = ColumnContainer.extend`
   background-color: #0b3c5d;
   height: 100vh;
-  position: sticky;
+  max-width: 275px;
+  position: fixed;
   top: 0;
-  flex: 20%;
+  left: 0;
 `;
 
 const Header = styled.h1`

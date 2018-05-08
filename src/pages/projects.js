@@ -1,33 +1,33 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import ProjectCard from "components/projects/ProjectCard";
-import { LinkTag } from "components/projects/Tags";
-import TagContainer from "components/projects/TagContainer";
-import { RowContainer, ColumnContainer } from "components/reusable/Containers";
-import PageHeader from "components/reusable/PageHeader";
-import Select from "components/reusable/inputs/Select";
-import EmptyState from "components/reusable/EmptyState";
+import ProjectCard from 'components/projects/ProjectCard';
+import { LinkTag } from 'components/projects/Tags';
+import TagContainer from 'components/projects/TagContainer';
+import { RowContainer, ColumnContainer } from 'components/reusable/Containers';
+import PageHeader from 'components/reusable/PageHeader';
+import Select from 'components/reusable/inputs/Select';
+import EmptyState from 'components/reusable/EmptyState';
 import {
   getParams,
   setParams,
   getUniqueTags,
   filterByStatus,
   filterByTag
-} from "utils/helpers";
+} from 'utils/helpers';
 
 const STATUS_OPTIONS = [
   {
-    label: "All",
-    value: "all"
+    label: 'All',
+    value: 'all'
   },
   {
-    label: "Ongoing",
-    value: "ongoing"
+    label: 'Ongoing',
+    value: 'ongoing'
   },
   {
-    label: "Deprecated",
-    value: "deprecated"
+    label: 'Deprecated',
+    value: 'deprecated'
   }
 ];
 
@@ -36,10 +36,10 @@ class ProjectsPage extends Component {
     super(props);
     this.state = {
       data: this.props.data.allMarkdownRemark.edges,
-      tag: "",
+      tag: '',
       // start: '',
       // end: '',
-      status: ""
+      status: ''
     };
     this.data = this.props.data.allMarkdownRemark.edges;
     this.uniqueTags = getUniqueTags(this.data);
@@ -89,7 +89,7 @@ class ProjectsPage extends Component {
   setTag = tag => {
     const { tag: t } = this.state;
     if (tag === t) {
-      this.setState({ tag: "" });
+      this.setState({ tag: '' });
     } else {
       this.setState({ tag });
     }
@@ -121,13 +121,19 @@ class ProjectsPage extends Component {
         <PageHeader
           title="My Projects"
           description="I work on projects of all natures to provide value to my communities, learn new skills, improve myself, and enjoy life!"
+          style={{ alignSelf: 'start' }}
         />
-        <ColumnContainer className="m-v-2" ai="flex-start" jc="flex-start">
+        <ColumnContainer
+          className="m-v-2"
+          ai="flex-start"
+          jc="flex-start"
+          style={{ alignSelf: 'end' }}
+        >
           <Select
             name="status"
             options={STATUS_OPTIONS}
             selectedValue={status}
-            resetValue={"all"}
+            resetValue={'all'}
             onSelect={this.setStatus}
           />
           <TagContainer onClear={this.setTag}>{this.createTags()}</TagContainer>
@@ -147,8 +153,8 @@ class ProjectsPage extends Component {
 const ProjectsContainer = styled.div`
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  width: 100%;
 `;
 
 const CardsContainer = ColumnContainer.extend`

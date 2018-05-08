@@ -11,7 +11,7 @@ import 'styles/box-sizing.scss';
 import 'styles/markdown.scss';
 
 const Layout = ({ children, data }) => (
-  <RowContainer ai="flex-start" jc="flex-start">
+  <div>
     <Helmet
       title="Rahul Rangnekar"
       meta={[
@@ -20,8 +20,10 @@ const Layout = ({ children, data }) => (
       ]}
     />
     <Navbar siteTitle={data.site.siteMetadata.title} />
-    <Container className="p-h-1h p-v-1">{children()}</Container>
-  </RowContainer>
+    <Container ai="flex-start" className="p-h-1h p-v-1">
+      {children()}
+    </Container>
+  </div>
 );
 
 Layout.propTypes = {
@@ -29,7 +31,7 @@ Layout.propTypes = {
 };
 
 const Container = ColumnContainer.extend`
-  flex: 80%;
+  margin-left: 275px;
 `;
 
 export default Layout;
