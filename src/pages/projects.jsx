@@ -5,7 +5,7 @@ import ProjectCard from 'components/projects/ProjectCard';
 import { LinkTag } from 'components/projects/Tags';
 import TagContainer from 'components/projects/TagContainer';
 import { RowContainer, ColumnContainer } from 'components/reusable/Containers';
-import PageHeader from 'components/reusable/PageHeader';
+import PageHeader from 'components/reusable/texts/PageHeader';
 import Select from 'components/reusable/inputs/Select';
 import EmptyState from 'components/reusable/EmptyState';
 import {
@@ -117,7 +117,7 @@ class ProjectsPage extends Component {
   render() {
     const { data, status } = this.state;
     return (
-      <ProjectsContainer>
+      <ProjectsContainer className="p-h-1h p-v-1">
         <PageHeader
           title="My Projects"
           description="I work on projects of all natures to provide value to my communities, learn new skills, improve myself, and enjoy life!"

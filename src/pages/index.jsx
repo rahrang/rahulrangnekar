@@ -1,38 +1,36 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
-const IndexPage = ({ data }) => (
-  <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-    <ul>
-      {data.allMarkdownRemark.edges.map(post => (
-        <li key={post.node.id}>
-          <Link to={`/projects/${post.node.frontmatter.key}`}>
-            {post.node.frontmatter.title}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+import LandingImage from 'components/reusable/images/LandingImage';
+import {
+  LandingHeader as Header,
+  LandingMessage as Message
+} from 'components/reusable/texts/';
 
-export const pageQuery = graphql`
-  query IndexQuery {
-    allMarkdownRemark(limit: 10) {
-      edges {
-        node {
-          id
-          frontmatter {
-            key
-            title
-          }
-        }
-      }
-    }
-  }
-`;
+const IndexPage = ({ data }) => {
+  const imgInfo = {
+    src:
+      'https://res.cloudinary.com/rahrang-dev/image/upload/f_auto,fl_force_strip,q_auto:best/website/landing_images/home.jpg',
+    alt: 'Rahul Rangnekar'
+  };
+
+  const content = (
+    <React.Fragment>
+      <Header className="m-b-h">Rahul Rangnekar</Header>
+      <Message>Software Engineer &amp;&amp; Writer</Message>
+    </React.Fragment>
+  );
+
+  return (
+    <div>
+      <LandingImage
+        imgInfo={imgInfo}
+        title="Rahul Rangnekar"
+        content={content}
+        position={{ top: '35%', left: '50px' }}
+      />
+    </div>
+  );
+};
 
 export default IndexPage;

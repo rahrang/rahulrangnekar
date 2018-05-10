@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { ColumnContainer } from 'components/reusable/Containers';
-import Image from 'components/reusable/Image';
+import Image from 'components/reusable/images/Image';
 
 const EmptyState = ({ text }) => {
   return (

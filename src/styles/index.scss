@@ -1,5 +1,4 @@
 @import 'variables';
-@import 'box-sizing-mixins';
 
 body,
 p,
@@ -26,10 +25,35 @@ a:active {
   color: $accent-alt;
 }
 
+/* utility classes */
+
 .hidden {
   display: none;
 }
 
 .font-small {
   font-size: 0.7rem;
+}
+
+.in-b {
+  display: inline-block;
+}
+
+/*** CHANGE HIGHLIGHT COLOR ***/
+
+::selection {
+  background-color: $main;
+  color: $off-white;
+}
+
+/*** Mozilla based browsers ***/
+::-moz-selection {
+  background-color: $main;
+  color: $off-white;
+}
+
+/*** For Webkit ***/
+::-webkit-selection {
+  background-color: $main;
+  color: $off-white;
 }
