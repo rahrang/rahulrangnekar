@@ -3,6 +3,7 @@ module.exports = {
     title: 'Rahul Rangnekar'
   },
   plugins: [
+    'gatsby-plugin-react-next',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-resolve-src',
     'gatsby-plugin-styled-components',

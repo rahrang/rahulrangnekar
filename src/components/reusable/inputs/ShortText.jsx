@@ -7,7 +7,7 @@ import { Label } from './Label';
 
 const ShortText = ({ label, name, placeholder, type, width }) => {
   return (
-    <ColumnContainer className="m-v-h m-r-1" ai="baseline">
+    <ColumnContainer className="m-v-h m-r-q" ai="baseline">
       <Label>{label}</Label>
       <Input
         className="m-0 p-v-q p-h-q"
@@ -31,14 +31,15 @@ ShortText.propTypes = {
 export default ShortText;
 
 const Input = styled.input`
+  background-color: rgba(0, 0, 0, 0);
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #0b3c5d;
   outline: none;
   width: ${props => (props.width ? `${props.width}px` : '250px')};
 
   transition: all 0.5s linear;
 
   &:focus {
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid #d9b310;
   }
 `;
