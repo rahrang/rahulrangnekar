@@ -7,14 +7,18 @@ import TagContainer from 'components/projects/TagContainer';
 import { RowContainer, ColumnContainer } from 'components/reusable/Containers';
 import PageHeader from 'components/reusable/texts/PageHeader';
 import Select from 'components/reusable/inputs/Select';
+import DateRangeSelect from 'components/reusable/inputs/dates/DateRangeSelect';
 import EmptyState from 'components/reusable/EmptyState';
 import {
   getParams,
   setParams,
   getUniqueTags,
   filterByStatus,
-  filterByTag
+  filterByTag,
+  filterByStartDate,
+  filterByEndDate
 } from 'utils/helpers';
+import { asString, DEFAULT_START, DEFAULT_END } from 'utils/dateHelpers';
 
 const STATUS_OPTIONS = [
   {
@@ -30,15 +34,14 @@ const STATUS_OPTIONS = [
     value: 'deprecated'
   }
 ];
-
 class ProjectsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: this.props.data.allMarkdownRemark.edges,
       tag: '',
-      // start: '',
-      // end: '',
+      start: '',
+      end: '',
       status: ''
     };
     this.data = this.props.data.allMarkdownRemark.edges;
@@ -61,9 +64,10 @@ class ProjectsPage extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { tag, status } = this.state;
-    const { tag: pTag, status: pStatus } = prevState;
-    if (tag !== pTag || status !== pStatus) this.setParams(this.props);
+    const { tag, status, start, end } = this.state;
+    const { tag: pTag, status: pStatus, start: pStart, end: pEnd } = prevState;
+    if (tag !== pTag || status !== pStatus || start !== pStart || end !== pEnd)
+      this.setParams(this.props);
   }
 
   filterData = props => {
@@ -71,6 +75,8 @@ class ProjectsPage extends Component {
     let data = this.data;
     data = filterByStatus(data, params.status);
     data = filterByTag(data, params.tag);
+    data = filterByStartDate(data, params.start);
+    data = filterByEndDate(data, params.end);
     this.setState({ data });
   };
 
@@ -88,12 +94,11 @@ class ProjectsPage extends Component {
 
   setTag = tag => {
     const { tag: t } = this.state;
-    if (tag === t) {
-      this.setState({ tag: '' });
-    } else {
-      this.setState({ tag });
-    }
+    if (tag === t) this.setState({ tag: '' });
+    else this.setState({ tag });
   };
+
+  setDate = (type, date) => this.setState({ [type]: date });
 
   setStatus = status => this.setState({ status });
 
@@ -115,7 +120,7 @@ class ProjectsPage extends Component {
   };
 
   render() {
-    const { data, status } = this.state;
+    const { data, status, start, end } = this.state;
     return (
       <ProjectsContainer className="p-h-1h p-v-1">
         <PageHeader
@@ -133,8 +138,13 @@ class ProjectsPage extends Component {
             name="status"
             options={STATUS_OPTIONS}
             selectedValue={status}
-            resetValue={'all'}
+            resetValue="all"
             onSelect={this.setStatus}
+          />
+          <DateRangeSelect
+            start={start || DEFAULT_START}
+            end={end || DEFAULT_END}
+            onSelect={this.setDate}
           />
           <TagContainer onClear={this.setTag}>{this.createTags()}</TagContainer>
         </ColumnContainer>

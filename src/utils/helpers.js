@@ -6,6 +6,8 @@ import isUndefined from 'lodash/isUndefined';
 import isEqual from 'lodash/isEqual';
 import includes from 'lodash/includes';
 
+import { isBefore, isAfter } from './dateHelpers';
+
 export const getParams = props => parse(props.location.search);
 
 export const setParams = (props, stateParams) => {
@@ -36,7 +38,7 @@ export const getUniqueTags = data => {
 };
 
 export const filterByStatus = (data, status) => {
-  if (isUndefined(status)) return data;
+  if (isUndefined(status) || isEmpty(data)) return data;
   const fd = data.filter(({ node: { frontmatter: { status: s } } }) =>
     isEqual(s, status)
   );
@@ -44,9 +46,25 @@ export const filterByStatus = (data, status) => {
 };
 
 export const filterByTag = (data, tag) => {
-  if (isUndefined(tag)) return data;
+  if (isUndefined(tag) || isEmpty(data)) return data;
   const fd = data.filter(({ node: { frontmatter: { tags } } }) =>
     includes(tags, tag)
+  );
+  return fd;
+};
+
+export const filterByStartDate = (data, date) => {
+  if (isEmpty(date) || isEmpty(data)) return data;
+  const fd = data.filter(({ node: { frontmatter: { timespan } } }) =>
+    isAfter(timespan[0], date)
+  );
+  return fd;
+};
+
+export const filterByEndDate = (data, date) => {
+  if (isEmpty(date) || isEmpty(data)) return data;
+  const fd = data.filter(({ node: { frontmatter: { timespan } } }) =>
+    isBefore(timespan[1], date)
   );
   return fd;
 };

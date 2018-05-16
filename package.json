@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Rahul Rangnekar <rrangnekar96@gmail.com>",
   "dependencies": {
+    "date-fns": "^1.29.0",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
@@ -23,15 +24,13 @@
     "styled-components": "^3.2.6",
     "typography-theme-noriega": "^0.15.10"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "flow": "yarn run format && yarn run build && yarn run serve",
+    "flow": "yarn run build && yarn run serve",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
