@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { RowContainer } from 'components/reusable/Containers';
 import ClearButton from 'components/reusable/buttons/ClearButton';
 
-const Select = ({ name, options, selectedValue, onSelect }) => {
+const Select = ({ name, options, selectedValue, onSelect, noClear, width }) => {
   const onChange = e => {
     const { value } = e.target;
     return onSelect(value === 'all' ? '' : value);
@@ -19,16 +19,17 @@ const Select = ({ name, options, selectedValue, onSelect }) => {
 
   return (
     <RowContainer ai="flex-end">
-      <Name className="">{name}</Name>
+      {!!name.length && <Name>{name}</Name>}
       <SelectInput
         className="m-h-h font-small"
         name={name}
         onChange={onChange}
         value={selectedValue}
+        width={width}
       >
         {options.map(createOption)}
       </SelectInput>
-      <ClearButton onClick={() => onSelect('')} />
+      {!noClear && <ClearButton onClick={() => onSelect('')} />}
     </RowContainer>
   );
 };
@@ -49,7 +50,7 @@ const SelectInput = styled.select`
   text-transform: uppercase;
   transition: all 0.25s;
   height: 25px;
-  width: 150px;
+  width: ${props => (props.width ? `${props.width}px` : '150px')};
 
   &:hover {
     background-color: #328cc1;
@@ -61,12 +62,18 @@ Select.propTypes = {
   name: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string,
-      value: PropTypes.string
+      label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     })
   ),
-  selectedValue: PropTypes.string,
-  onSelect: PropTypes.func
+  selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  onSelect: PropTypes.func,
+  noClear: PropTypes.bool.isRequired,
+  width: PropTypes.number
+};
+
+Select.defaultProps = {
+  noClear: false
 };
 
 export default Select;

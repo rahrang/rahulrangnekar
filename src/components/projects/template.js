@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { Tag } from "components/projects/Tags";
-import { ColumnContainer, RowContainer } from "components/reusable/Containers";
-import BackButton from "components/reusable/buttons/BackButton";
+import { Tag } from 'components/projects/Tags';
+import { ColumnContainer, RowContainer } from 'components/reusable/Containers';
+import BackButton from 'components/reusable/buttons/BackButton';
 
 export default function Template({ data }) {
   const {
@@ -14,7 +14,7 @@ export default function Template({ data }) {
   } = data;
 
   return (
-    <div>
+    <div className="p-v-1 p-h-1">
       <BackButton text="projects" to="/projects" />
       <ColumnContainer ai="flex-start" className="m-v-1">
         <h1>{title}</h1>
