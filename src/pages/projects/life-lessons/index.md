@@ -1,6 +1,6 @@
 ---
-title: '365 Lessons in 2018'
-key: '365-lessons'
+title: 'Life Lessons in 2018'
+key: 'life-lessons'
 description: 'A lesson a day in a Medium series.'
 tags: ['writing', 'medium']
 timespan: ['01-2018', '12-2018']
