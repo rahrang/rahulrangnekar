@@ -35,7 +35,7 @@ const Select = ({ name, options, selectedValue, onSelect, noClear, width }) => {
 };
 
 const Name = styled.span`
-  color: #0b3c5d;
+  color: #4b75b9;
   text-transform: capitalize;
 `;
 
@@ -44,7 +44,7 @@ const SelectInput = styled.select`
   background-color: #f8f8f8;
   border: none;
   border-radius: 0;
-  border-bottom: 3px solid #328cc1;
+  border-bottom: 3px solid #4b75b9;
   cursor: pointer;
   outline: none;
   text-transform: uppercase;
@@ -53,7 +53,7 @@ const SelectInput = styled.select`
   width: ${props => (props.width ? `${props.width}px` : '150px')};
 
   &:hover {
-    background-color: #328cc1;
+    background-color: #4b75b9;
     color: #fff;
   }
 `;

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
 
 export const Tag = ({ text }) => (
   <TagWrapper className="m-h-q m-v-q p-h-q font-small">{text}</TagWrapper>
@@ -19,19 +18,19 @@ export const LinkTag = ({ text, onClick, isActive }) => (
 
 const TagWrapper = styled.span`
   background-color: #f8f8f8;
-  color: #328cc1;
+  color: #4b75b9;
   border-radius: 3px;
   text-transform: uppercase;
 `;
 
 const LinkTagWrapper = TagWrapper.extend`
-  background-color: ${props => props.isActive && '#328cc1'};
+  background-color: ${props => props.isActive && '#4b75b9'};
   color: ${props => props.isActive && '#f8f8f8'};
   cursor: pointer;
   transition: all ease-in-out 0.25s;
 
   &:hover {
-    background-color: #328cc1;
+    background-color: #4b75b9;
     color: #f8f8f8;
   }
 `;

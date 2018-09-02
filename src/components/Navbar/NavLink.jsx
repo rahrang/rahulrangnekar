@@ -9,7 +9,7 @@ const NavLink = ({ text, to, exact }) => {
       className="m-v-h"
       to={to}
       exact={exact}
-      activeStyle={{ color: '#d9b310' }}
+      activeStyle={{ color: '#f0ce3b' }}
     >
       {text}
     </Link>
@@ -17,7 +17,7 @@ const NavLink = ({ text, to, exact }) => {
 };
 
 const Link = styled(GatsbyLink)`
-  color: white;
+  color: #f8f8f8;
   font-weight: bold;
   letter-spacing: 0.0625rem;
   text-decoration: none;

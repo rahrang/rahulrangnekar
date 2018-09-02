@@ -10,15 +10,14 @@ const BackButton = ({ text, to }) => (
 );
 
 const Button = styled(Link)`
-  /* border-bottom: 1px solid #328cc1; */
   cursor: pointer;
-  color: #328cc1;
+  color: #0b3c5d;
   text-decoration: none;
   text-transform: uppercase;
   transition: all ease-in-out 0.25s;
 
   &:hover {
-    color: #d9b310;
+    color: #f0ce3b;
   }
 `;
 

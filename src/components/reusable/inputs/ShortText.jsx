@@ -10,7 +10,7 @@ const ShortText = ({ label, name, placeholder, type, width }) => {
     <ColumnContainer className="m-v-h m-r-q" ai="baseline">
       <Label>{label}</Label>
       <Input
-        className="m-0 p-v-q p-h-q"
+        className="m-b-h p-v-q p-h-q"
         name={name}
         placeholder={placeholder}
         type={type || 'text'}
@@ -33,13 +33,13 @@ export default ShortText;
 const Input = styled.input`
   background-color: rgba(0, 0, 0, 0);
   border: none;
-  border-bottom: 2px solid #0b3c5d;
+  border-bottom: 2px solid #4b75b9;
   outline: none;
   width: ${props => (props.width ? `${props.width}px` : '250px')};
 
   transition: all 0.5s linear;
 
   &:focus {
-    border-bottom: 2px solid #d9b310;
+    border-bottom: 2px solid #f0ce3b;
   }
 `;

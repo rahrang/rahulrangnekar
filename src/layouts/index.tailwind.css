@@ -1,0 +1,39 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ */
+@tailwind preflight;
+
+/**
+  * This injects any component classes registered by plugins.
+  */
+@tailwind components;
+
+/**
+  * Here you would add any of your custom component classes; stuff that you'd
+  * want loaded *before* the utilities so that the utilities could still
+  * override them.
+  */
+
+/**
+  * This injects all of Tailwind's utility classes, generated based on your
+  * config file.
+  */
+@tailwind utilities;
+
+/**
+  * Here you would add any custom utilities you need that don't come out of the
+  * box with Tailwind.
+  */
+
+:root {
+  --yellow: #f0ce3b;
+  --black: #1d2731;
+  --blue-darker: #16458f;
+  --blue-dark: #2f5da6;
+  --blue: #4b75b9;
+  --blue-light: #6f95d0;
+  --blue-lighter: #9fbae6;
+  --off-white: #f8f8f8;
+  --maroon: #7b0d1e;
+}

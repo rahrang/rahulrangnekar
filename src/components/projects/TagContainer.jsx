@@ -18,7 +18,7 @@ const TagContainer = ({ children, onClear }) => {
 };
 
 const Name = styled.span`
-  color: #0b3c5d;
+  color: #4b75b9;
   text-transform: capitalize;
 `;
 

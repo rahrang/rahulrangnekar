@@ -35,7 +35,7 @@ const Navbar = ({ siteTitle, isOpen, toggle }) => {
 export default Navbar;
 
 const Container = ColumnContainer.extend`
-  background-color: #0b3c5d;
+  background-color: #4b75b9;
   height: 100vh;
   max-width: ${NAVBAR_WIDTH}px;
   position: fixed;
@@ -53,12 +53,12 @@ const CloseContainer = styled.div`
   transition: all 0.25s;
 
   &:hover {
-    fill: #d9b310;
+    fill: #f0ce3b;
   }
 `;
 
 const Hamburger = styled.div`
-  background-color: #0b3c5d;
+  background-color: #4b75b9;
   border-radius: 5px;
   cursor: pointer;
   fill: white;
@@ -69,12 +69,12 @@ const Hamburger = styled.div`
   transition: all 0.25s;
 
   &:hover {
-    fill: #d9b310;
+    fill: #f0ce3b;
   }
 `;
 
 const Header = styled.h1`
-  color: white;
+  color: #f8f8f8;
 `;
 
 Navbar.propTypes = {

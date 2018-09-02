@@ -10,15 +10,15 @@ const ClearButton = ({ text, onClick }) => (
 
 const Button = styled.span`
   background-color: #f8f8f8;
-  border: 1px solid red;
+  border: 1px solid #7b0d1e;
   border-radius: 3px;
   cursor: pointer;
-  color: red;
+  color: #7b0d1e;
   text-transform: uppercase;
   transition: all ease-in-out 0.25s;
 
   &:hover {
-    background-color: red;
+    background-color: #7b0d1e;
     color: #f8f8f8;
   }
 `;

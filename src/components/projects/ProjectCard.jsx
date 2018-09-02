@@ -10,7 +10,7 @@ import { Tag } from './Tags';
 const IMAGE_PATH =
   'https://res.cloudinary.com/rahrang-dev/image/upload/c_scale,w_300,f_auto,fl_force_strip,q_100/website/projects/';
 
-let ProjectCard = ({ title, description, tags, timespan, index, pKey }) => {
+const ProjectCard = ({ title, description, tags, timespan, index, pKey }) => {
   const createTags = () => {
     return tags.sort((a, b) => (a > b ? 1 : -1)).map((t, i) => {
       return <Tag key={`${pKey}_${i}`} text={t} />;

@@ -12,6 +12,8 @@ const Icon = ({ iid, scale, maxHeight, maxWidth }) => {
     return {};
   };
 
+  if (!iid) return null;
+
   return (
     <SVG
       xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +38,7 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  iid: 'angellist'
+  iid: ''
 };
 
 export default Icon;

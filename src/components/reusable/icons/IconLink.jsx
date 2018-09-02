@@ -22,7 +22,7 @@ const Anchor = styled.a`
   transition: all 0.25s;
 
   &:hover {
-    fill: #d9b310;
+    fill: #2f5da6;
   }
 `;
 

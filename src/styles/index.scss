@@ -1,42 +1,107 @@
 @import 'variables';
 
 body,
-p,
 ul,
 ol,
 li {
-  color: #1d2731;
+  color: $main;
+}
+
+p {
+  font-weight: 300;
 }
 
 h1,
 h2,
-h3,
+h3 {
+  color: $blue;
+}
+
 h4,
 h5,
 h6 {
-  color: $main-alt;
+  color: $off-white;
 }
 
-a {
-  color: $accent;
+/* font-weight classes */
+.fw-100 {
+  font-weight: 100;
 }
 
-a:active {
-  color: $accent-alt;
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+/* color classes */
+.c-blue {
+  color: $blue;
+}
+
+.c-blue-lightest {
+  color: $blue-lightest;
+}
+
+.c-blue-light {
+  color: $blue-light;
+}
+
+.c-blue-dark {
+  color: $blue-dark;
+}
+
+.c-blue-darkest {
+  color: $blue-darkest;
+}
+
+.c-off-white {
+  color: $off-white;
 }
 
 /* utility classes */
+
+.full-width {
+  width: 100%;
+}
 
 .hidden {
   display: none;
 }
 
 .font-small {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.0125rem;
 }
 
 .in-b {
   display: inline-block;
+}
+
+/* button classes */
+
+.btn-primary {
+  background-color: $blue;
+  color: $off-white;
+
+  &:hover {
+    background-color: $blue-dark;
+  }
+}
+
+.btn-alternate {
+  background-color: $off-white;
+  color: $blue;
+
+  &:hover {
+    background-color: $off-white-hover;
+  }
+}
+
+.btn-full-width {
+  width: 100%;
 }
 
 /*** CHANGE HIGHLIGHT COLOR ***/

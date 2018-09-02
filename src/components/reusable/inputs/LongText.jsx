@@ -10,10 +10,9 @@ const LongText = ({ label, name, placeholder, type, width, height }) => {
     <ColumnContainer className="m-v-h" ai="baseline">
       <Label>{label}</Label>
       <Input
-        className="m-v-q p-v-q p-h-q"
+        className="m-b-h p-v-q p-h-q"
         name={name}
         placeholder={placeholder}
-        type={type || 'text'}
         width={width}
         height={height}
       />
@@ -35,7 +34,7 @@ export default LongText;
 const Input = styled.textarea`
   background-color: rgba(0, 0, 0, 0);
   border: none;
-  border-bottom: 2px solid #0b3c5d;
+  border-bottom: 2px solid #4b75b9;
   outline: none;
   resize: none;
   height: ${props => (props.height ? `${props.height}px` : '200px')};
@@ -44,6 +43,6 @@ const Input = styled.textarea`
   transition: all 0.5s linear;
 
   &:focus {
-    border-bottom: 2px solid #d9b310;
+    border-bottom: 2px solid #f0ce3b;
   }
 `;

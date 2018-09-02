@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import Navbar, { NAVBAR_WIDTH } from 'components/Navbar/';
 import { ColumnContainer } from 'components/reusable/Containers';
 
-import 'styles/index.scss';
-import 'styles/box-sizing.scss';
+// import 'styles/index.scss';
+// import 'styles/box-sizing.scss';
 import 'styles/markdown.scss';
 
 const ALT_STYLE_PATHS = ['/', '/contact'];
@@ -69,7 +69,7 @@ const Container = ColumnContainer.extend`
 const TopBar = styled.hr`
   border: none;
   height: 5px;
-  background-color: #d9b310;
+  background-color: #f0ce3b;
   position: fixed;
   top: 0;
   left: 0;

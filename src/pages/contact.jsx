@@ -3,13 +3,13 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 import LandingImage from 'components/reusable/images/LandingImage';
+import { Button } from 'components/reusable/buttons/LinkButton';
 import {
   LandingHeader as Header,
   LandingMessage as Message
 } from 'components/reusable/texts/';
 import ShortText from 'components/reusable/inputs/ShortText';
 import LongText from 'components/reusable/inputs/LongText';
-import SendButton from 'components/reusable/buttons/SendButton';
 import IconLink from 'components/reusable/icons/IconLink';
 import { RowContainer, ColumnContainer } from 'components/reusable/Containers';
 import { FadeIn } from 'components/reusable/ui/';
@@ -56,7 +56,9 @@ const ContactPage = () => {
             width={500}
           />
         </ColumnContainer>
-        <SendButton width="100%" />
+        <Button primary width="100%">
+          Send It
+        </Button>
       </Form>
     </FadeIn>
   );

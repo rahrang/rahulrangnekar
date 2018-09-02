@@ -48,7 +48,7 @@ DateSelect.propTypes = {
 };
 
 const Name = styled.span`
-  color: #0b3c5d;
+  color: #4b75b9;
   text-transform: capitalize;
   min-width: 50px;
 `;
