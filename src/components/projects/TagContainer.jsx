@@ -1,26 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
-import { RowContainer, ColumnContainer } from 'components/reusable/Containers';
 import ClearButton from 'components/reusable/buttons/ClearButton';
 
 const TagContainer = ({ children, onClear }) => {
   return (
-    <ColumnContainer className="m-v-h" ai="flex-start">
-      <Name>Tags</Name>
-      <RowContainer jc="flex-start">
+    <div className="flex flex-col flex-wrap items-start justify-center my-2">
+      <span className="text-blue capitalize">Tags</span>
+      <div className="flex flex-row flex-wrap items-center justify-start">
         {children}
         <ClearButton onClick={() => onClear('')} />
-      </RowContainer>
-    </ColumnContainer>
+      </div>
+    </div>
   );
 };
-
-const Name = styled.span`
-  color: #4b75b9;
-  text-transform: capitalize;
-`;
 
 TagContainer.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),

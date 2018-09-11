@@ -11,7 +11,6 @@ import {
 import ShortText from 'components/reusable/inputs/ShortText';
 import LongText from 'components/reusable/inputs/LongText';
 import IconLink from 'components/reusable/icons/IconLink';
-import { RowContainer, ColumnContainer } from 'components/reusable/Containers';
 import { FadeIn } from 'components/reusable/ui/';
 
 const ContactPage = () => {
@@ -23,20 +22,20 @@ const ContactPage = () => {
 
   const content = (
     <FadeIn>
-      <Header className="m-b-h">Send me a Message</Header>
-      <Form
-        className="p-v-1 p-h-1"
+      <Header className="mb-2">Send me a Message</Header>
+      <form
+        className="bg-off-white p-4 rounded shadow"
         name="contact"
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
       >
-        <ColumnContainer ai="baseline">
+        <div className="flex flex-col flex-wrap items-baseline justify-center">
           <label className="hidden">
             Don't fill this out if you're human.
             <input type="hidden" name="bot-field" />
           </label>
-          <RowContainer jc="baseline">
+          <div className="flex flex-row flex-wrap items-center justify-center">
             <ShortText
               name="name"
               placeholder="Rahul Rangnekar"
@@ -48,18 +47,18 @@ const ContactPage = () => {
               label="Email Address"
               type="email"
             />
-          </RowContainer>
+          </div>
           <LongText
             name="message"
             placeholder="Hello, Rahul! I loved visiting your website -- good luck in the future!"
             label="Message"
             width={500}
           />
-        </ColumnContainer>
+        </div>
         <Button primary width="100%">
           Send It
         </Button>
-      </Form>
+      </form>
     </FadeIn>
   );
 
@@ -74,11 +73,5 @@ const ContactPage = () => {
     </div>
   );
 };
-
-const Form = styled.form`
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-`;
 
 export default ContactPage;

@@ -15,6 +15,18 @@
   * override them.
   */
 
+:root {
+  --yellow: #f0ce3b;
+  --black: #1d2731;
+  --blue-darker: #16458f;
+  --blue-dark: #2f5da6;
+  --blue: #4b75b9;
+  --blue-light: #6f95d0;
+  --blue-lighter: #9fbae6;
+  --off-white: #f8f8f8;
+  --maroon: #7b0d1e;
+}
+
 /**
   * This injects all of Tailwind's utility classes, generated based on your
   * config file.
@@ -26,14 +38,41 @@
   * box with Tailwind.
   */
 
-:root {
-  --yellow: #f0ce3b;
-  --black: #1d2731;
-  --blue-darker: #16458f;
-  --blue-dark: #2f5da6;
-  --blue: #4b75b9;
-  --blue-light: #6f95d0;
-  --blue-lighter: #9fbae6;
-  --off-white: #f8f8f8;
-  --maroon: #7b0d1e;
+.text-xxs {
+  font-size: 0.65rem;
+}
+
+.markdown p {
+  margin: 1rem 0;
+  line-height: 1.375rem;
+}
+
+.markdown p > a {
+  border-radius: 5px;
+  background-color: var(--yellow);
+  color: var(--off-white);
+  text-decoration: none;
+  transition: all 0.25s;
+  padding: 0.25rem 0.5rem;
+}
+
+.markdown p > a:hover {
+  background-color: var(--yellow);
+}
+
+.markdown p > a.gatsby-resp-image-link {
+  border-top: 3px solid var(--yellow);
+  border-bottom: 3px solid var(--yellow);
+  border-left: none;
+  border-right: none;
+
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+  color: none;
+}
+
+.markdown p code {
+  background-color: var(--off-white);
+  color: var(--yellow);
+  padding: 0.25rem;
 }

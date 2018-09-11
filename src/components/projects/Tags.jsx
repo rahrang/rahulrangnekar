@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 export const Tag = ({ text }) => (
-  <TagWrapper className="m-h-q m-v-q p-h-q font-small">{text}</TagWrapper>
+  <TagWrapper className="mx-1 my-1 px-1 text-xxs">{text}</TagWrapper>
 );
 
 export const LinkTag = ({ text, onClick, isActive }) => (
   <LinkTagWrapper
-    className="m-h-q m-v-q p-h-q font-small"
+    className="mx-1 my-1 px-1 text-xxs"
     onClick={() => onClick(text)}
     isActive={isActive}
   >

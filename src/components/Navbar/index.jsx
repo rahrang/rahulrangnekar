@@ -4,28 +4,27 @@ import styled from 'styled-components';
 
 import NavLink from './NavLink';
 import Icon from 'components/reusable/icons/Icon';
-import { ColumnContainer } from 'components/reusable/Containers';
 
 import { NAVBAR_LINKS } from './constants';
 import Footer from './Footer';
 
-export const NAVBAR_WIDTH = 200;
+export const NAVBAR_WIDTH = 215;
 
 const Navbar = ({ siteTitle, isOpen, toggle }) => {
   return isOpen ? (
-    <Container ai="flex-start" jc="flex-start" className="p-h-1 p-v-2">
+    <div className="bg-blue h-screen fixed pin-t pin-l z-0 flex flex-col flex-wrap items-start justify-start px-4 py-8" style={{maxWidth: `${NAVBAR_WIDTH}px`}}>
       <CloseContainer onClick={() => toggle(false)}>
         <Icon iid="times" maxHeight={20} />
       </CloseContainer>
-      <Header>{siteTitle}</Header>
-      <ColumnContainer className="p-h-1" ai="flex-start">
+      <h1 className="text-off-white mb-8">{siteTitle}</h1>
+      <div className="flex flex-col flex-wrap items-start justify-center px-4">
         {NAVBAR_LINKS.map(n => <NavLink key={n.to} {...n} />)}
-      </ColumnContainer>
+      </div>
       <Footer />
-    </Container>
+    </div>
   ) : (
     <Hamburger onClick={() => toggle(true)}>
-      <div className="p-h-q p-v-q" style={{ height: '35px' }}>
+      <div className="p-1" style={{ height: '35px' }}>
         <Icon iid="bars" maxHeight={25} />
       </div>
     </Hamburger>
@@ -33,16 +32,6 @@ const Navbar = ({ siteTitle, isOpen, toggle }) => {
 };
 
 export default Navbar;
-
-const Container = ColumnContainer.extend`
-  background-color: #4b75b9;
-  height: 100vh;
-  max-width: ${NAVBAR_WIDTH}px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
-`;
 
 const CloseContainer = styled.div`
   cursor: pointer;
@@ -71,10 +60,6 @@ const Hamburger = styled.div`
   &:hover {
     fill: #f0ce3b;
   }
-`;
-
-const Header = styled.h1`
-  color: #f8f8f8;
 `;
 
 Navbar.propTypes = {

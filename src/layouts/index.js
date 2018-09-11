@@ -4,11 +4,8 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
 import Navbar, { NAVBAR_WIDTH } from 'components/Navbar/';
-import { ColumnContainer } from 'components/reusable/Containers';
 
-// import 'styles/index.scss';
-// import 'styles/box-sizing.scss';
-import 'styles/markdown.scss';
+import './index.css';
 
 const ALT_STYLE_PATHS = ['/', '/contact'];
 class Layout extends Component {
@@ -36,8 +33,8 @@ class Layout extends Component {
         <Helmet
           title="Rahul Rangnekar"
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' }
+            { name: 'description', content: '' },
+            { name: 'keywords', content: 'software developer, designer, writer, lover of fun, staying active, and dogs' }
           ]}
         />
         <TopBar className="m-0" />
@@ -47,7 +44,7 @@ class Layout extends Component {
           toggle={this.toggleNavbar}
         />
         <Container
-          ai="flex-start"
+          className="flex flex-col flex-wrap items-start justify-center"
           marginLeft={this.calcMarginLeft(navbarIsOpen)}
         >
           {children()}
@@ -61,7 +58,7 @@ Layout.propTypes = {
   children: PropTypes.func
 };
 
-const Container = ColumnContainer.extend`
+const Container = styled.div`
   margin-left: ${props => `${props.marginLeft}px`};
   transition: all 0.25s;
 `;

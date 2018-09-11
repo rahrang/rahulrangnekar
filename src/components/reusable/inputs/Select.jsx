@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { RowContainer } from 'components/reusable/Containers';
 import ClearButton from 'components/reusable/buttons/ClearButton';
 
 const Select = ({ name, options, selectedValue, onSelect, noClear, width }) => {
@@ -18,10 +17,10 @@ const Select = ({ name, options, selectedValue, onSelect, noClear, width }) => {
   );
 
   return (
-    <RowContainer ai="flex-end">
+    <div className="flex flex-row flex-wrap items-end justify-center">
       {!!name.length && <Name>{name}</Name>}
       <SelectInput
-        className="m-h-h font-small"
+        className="bg-transparent bg-off-white rounded-none uppercase mx-2 text-sm hover:text-off-white hover:bg-blue"
         name={name}
         onChange={onChange}
         value={selectedValue}
@@ -30,7 +29,7 @@ const Select = ({ name, options, selectedValue, onSelect, noClear, width }) => {
         {options.map(createOption)}
       </SelectInput>
       {!noClear && <ClearButton onClick={() => onSelect('')} />}
-    </RowContainer>
+    </div>
   );
 };
 
@@ -40,22 +39,13 @@ const Name = styled.span`
 `;
 
 const SelectInput = styled.select`
-  background-color: transparent;
-  background-color: #f8f8f8;
   border: none;
-  border-radius: 0;
   border-bottom: 3px solid #4b75b9;
   cursor: pointer;
   outline: none;
-  text-transform: uppercase;
   transition: all 0.25s;
   height: 25px;
   width: ${props => (props.width ? `${props.width}px` : '150px')};
-
-  &:hover {
-    background-color: #4b75b9;
-    color: #fff;
-  }
 `;
 
 Select.propTypes = {

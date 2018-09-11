@@ -6,12 +6,7 @@ import Icon from './Icon';
 
 const IconLink = ({ to, iid, scale, maxHeight, maxWidth }) => {
   return (
-    <Anchor
-      className="m-h-q m-v-q"
-      href={to}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Anchor className="m-1" href={to} target="_blank" rel="noopener noreferrer">
       <Icon {...{ iid, scale, maxHeight, maxWidth }} />
     </Anchor>
   );

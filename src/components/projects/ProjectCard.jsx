@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-import { RowContainer } from 'components/reusable/Containers';
 import { FadeIn } from 'components/reusable/ui/';
 import { Tag } from './Tags';
 
@@ -19,18 +18,25 @@ const ProjectCard = ({ title, description, tags, timespan, index, pKey }) => {
 
   return (
     <FadeIn>
-      <CardLink className="m-v-1 m-h-1" to={`/projects/${pKey}`}>
-        <ImageContainer>
-          <Image src={`${IMAGE_PATH}${pKey}`} width="100%" />
+      <CardLink
+        className="m-4 shadow-md flex flex-col items-center rounded-lg no-underline"
+        to={`/projects/${pKey}`}
+      >
+        <ImageContainer className="flex flex-row flex-wrap items-center justify-center">
+          <img
+            className="rounded-t-lg"
+            src={`${IMAGE_PATH}${pKey}`}
+            width="100%"
+          />
         </ImageContainer>
-        <MetaContainer className="p-h-h p-v-q">
+        <MetaContainer className="px-2 pt-1 pb-3">
           <div>
-            <h4 className="m-b-h">{title}</h4>
-            <p className="font-small">{description}</p>
+            <h4 className="mb-2 text-blue">{title}</h4>
+            <p className="text-sm text-black leading-tight">{description}</p>
           </div>
-          <RowContainer ai="flex-start" jc="flex-end">
+          <div className="flex flex-row flex-wrap items-start justify-end">
             {createTags()}
-          </RowContainer>
+          </div>
         </MetaContainer>
       </CardLink>
     </FadeIn>
@@ -45,14 +51,8 @@ ProjectCard.propTypes = {
 };
 
 const CardLink = styled(Link)`
-  border-radius: 0.5rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   height: 400px;
   width: 300px;
-  text-decoration: none;
   transition: all 0.25s;
 
   &:hover {
@@ -60,13 +60,8 @@ const CardLink = styled(Link)`
   }
 `;
 
-const ImageContainer = RowContainer.extend`
+const ImageContainer = styled.div`
   height: 250px;
-`;
-
-const Image = styled.img`
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
 `;
 
 const MetaContainer = styled.div`

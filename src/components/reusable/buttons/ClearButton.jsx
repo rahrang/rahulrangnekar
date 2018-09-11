@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const ClearButton = ({ text, onClick }) => (
-  <Button className="m-h-q m-v-q p-h-q font-small" onClick={onClick}>
+  <Button className="m-1 px-1 text-sm" onClick={onClick}>
     Clear{text && ` ${text}`}
   </Button>
 );

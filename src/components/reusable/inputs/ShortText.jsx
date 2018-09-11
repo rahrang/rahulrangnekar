@@ -2,21 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { ColumnContainer } from 'components/reusable/Containers';
 import { Label } from './Label';
 
 const ShortText = ({ label, name, placeholder, type, width }) => {
   return (
-    <ColumnContainer className="m-v-h m-r-q" ai="baseline">
+    <div className="flex flex-col flex-wrap align-baseline justify-center my-2 mr-1">
       <Label>{label}</Label>
       <Input
-        className="m-b-h p-v-q p-h-q"
+        className="bg-transparent mb-2 p-1"
         name={name}
         placeholder={placeholder}
         type={type || 'text'}
         width={width}
       />
-    </ColumnContainer>
+    </div>
   );
 };
 
@@ -31,7 +30,6 @@ ShortText.propTypes = {
 export default ShortText;
 
 const Input = styled.input`
-  background-color: rgba(0, 0, 0, 0);
   border: none;
   border-bottom: 2px solid #4b75b9;
   outline: none;

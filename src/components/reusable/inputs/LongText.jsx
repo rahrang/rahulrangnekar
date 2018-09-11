@@ -2,21 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { ColumnContainer } from 'components/reusable/Containers';
 import { Label } from './Label';
 
 const LongText = ({ label, name, placeholder, type, width, height }) => {
   return (
-    <ColumnContainer className="m-v-h" ai="baseline">
+    <div className="flex flex-col flex-wrap align-baseline justify-center my-2">
       <Label>{label}</Label>
       <Input
-        className="m-b-h p-v-q p-h-q"
+        className="mb-2 p-1"
         name={name}
         placeholder={placeholder}
         width={width}
         height={height}
       />
-    </ColumnContainer>
+    </div>
   );
 };
 

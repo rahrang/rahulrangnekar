@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 
 const Button = ({ children, primary, width }) => (
   <ButtonWrapper
-    className={`${primary ? 'btn-primary' : 'btn-alternate'} p-h-1`}
+    className={`${primary ? 'btn-primary' : 'btn-alternate'} px-4`}
     width={width}
   >
     {children}

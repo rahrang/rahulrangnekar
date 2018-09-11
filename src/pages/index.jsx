@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import LandingImage from 'components/reusable/images/LandingImage';
-import { RowContainer, CircleContainer } from 'components/reusable/Containers';
+import { CircleContainer } from 'components/reusable/Containers';
 import { IntLinkButton } from 'components/reusable/buttons/LinkButton';
 import {
   LandingHeader as Header,
@@ -18,13 +18,13 @@ const IndexPage = ({ data }) => {
 
   const content = (
     <React.Fragment>
-      <Header className="m-b-h">Rahul Rangnekar</Header>
+      <Header className="mb-2">Rahul Rangnekar</Header>
       <Message>Software Developer &amp;&amp; Writer</Message>
       <span>
-        <IntLinkButton className="btn-primary m-h-h p-h-1" to="/contact">
+        <IntLinkButton className="btn-primary mx-2 px-4" to="/contact">
           Contact Me
         </IntLinkButton>
-        <IntLinkButton className="btn-alternate p-h-1" to="/projects">
+        <IntLinkButton className="btn-alternate px-4" to="/projects">
           Check out my Projects
         </IntLinkButton>
       </span>
@@ -39,7 +39,7 @@ const IndexPage = ({ data }) => {
         content={content}
         position={{ top: '35%', left: '50px' }}
       />
-      <SectionGrid className="m-t-2 p-h-1">
+      <SectionGrid className="mt-8 px-2">
         {/* this spans the first row */}
         <HeaderRow>
           <SectionSubheader className="m-b-q">

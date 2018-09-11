@@ -648,6 +648,18 @@ table {
   * override them.
   */
 
+:root {
+  --yellow: #f0ce3b;
+  --black: #1d2731;
+  --blue-darker: #16458f;
+  --blue-dark: #2f5da6;
+  --blue: #4b75b9;
+  --blue-light: #6f95d0;
+  --blue-lighter: #9fbae6;
+  --off-white: #f8f8f8;
+  --maroon: #7b0d1e;
+}
+
 /**
   * This injects all of Tailwind's utility classes, generated based on your
   * config file.
@@ -676,6 +688,10 @@ table {
 
 .bg-yellow {
   background-color: #f0ce3b;
+}
+
+.bg-maroon {
+  background-color: #7b0d1e;
 }
 
 .bg-blue-darker {
@@ -718,6 +734,10 @@ table {
   background-color: #f0ce3b;
 }
 
+.hover\:bg-maroon:hover {
+  background-color: #7b0d1e;
+}
+
 .hover\:bg-blue-darker:hover {
   background-color: #16458f;
 }
@@ -756,6 +776,10 @@ table {
 
 .focus\:bg-yellow:focus {
   background-color: #f0ce3b;
+}
+
+.focus\:bg-maroon:focus {
+  background-color: #7b0d1e;
 }
 
 .focus\:bg-blue-darker:focus {
@@ -806,6 +830,10 @@ table {
   border-color: #f0ce3b;
 }
 
+.border-maroon {
+  border-color: #7b0d1e;
+}
+
 .border-blue-darker {
   border-color: #16458f;
 }
@@ -846,6 +874,10 @@ table {
   border-color: #f0ce3b;
 }
 
+.hover\:border-maroon:hover {
+  border-color: #7b0d1e;
+}
+
 .hover\:border-blue-darker:hover {
   border-color: #16458f;
 }
@@ -884,6 +916,10 @@ table {
 
 .focus\:border-yellow:focus {
   border-color: #f0ce3b;
+}
+
+.focus\:border-maroon:focus {
+  border-color: #7b0d1e;
 }
 
 .focus\:border-blue-darker:focus {
@@ -2716,6 +2752,10 @@ table {
   color: #f0ce3b;
 }
 
+.text-maroon {
+  color: #7b0d1e;
+}
+
 .text-blue-darker {
   color: #16458f;
 }
@@ -2756,6 +2796,10 @@ table {
   color: #f0ce3b;
 }
 
+.hover\:text-maroon:hover {
+  color: #7b0d1e;
+}
+
 .hover\:text-blue-darker:hover {
   color: #16458f;
 }
@@ -2794,6 +2838,10 @@ table {
 
 .focus\:text-yellow:focus {
   color: #f0ce3b;
+}
+
+.focus\:text-maroon:focus {
+  color: #7b0d1e;
 }
 
 .focus\:text-blue-darker:focus {
@@ -3159,15 +3207,42 @@ table {
   * box with Tailwind.
   */
 
-:root {
-  --yellow: #f0ce3b;
-  --black: #1d2731;
-  --blue-darker: #16458f;
-  --blue-dark: #2f5da6;
-  --blue: #4b75b9;
-  --blue-light: #6f95d0;
-  --blue-lighter: #9fbae6;
-  --off-white: #f8f8f8;
+.text-xxs {
+  font-size: .65rem;
+}
+
+.markdown p {
+  margin: 1rem 0;
+  line-height: 1.375rem;
+}
+
+.markdown p > a {
+  border-radius: 5px;
+  background-color: var(--yellow);
+  color: var(--off-white);
+  text-decoration: none;
+  transition: all .25s;
+  padding: .25rem .5rem;
+}
+
+.markdown p > a:hover {
+  background-color: var(--yellow);
+}
+
+.markdown p > a.gatsby-resp-image-link {
+  border-top: 3px solid var(--yellow);
+  border-bottom: 3px solid var(--yellow);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+  color: none;
+}
+
+.markdown p code {
+  background-color: var(--off-white);
+  color: var(--yellow);
+  padding: .25rem;
 }
 
 @media (min-width: 576px) {
@@ -3194,6 +3269,10 @@ table {
 
   .sm\:bg-yellow {
     background-color: #f0ce3b;
+  }
+
+  .sm\:bg-maroon {
+    background-color: #7b0d1e;
   }
 
   .sm\:bg-blue-darker {
@@ -3236,6 +3315,10 @@ table {
     background-color: #f0ce3b;
   }
 
+  .sm\:hover\:bg-maroon:hover {
+    background-color: #7b0d1e;
+  }
+
   .sm\:hover\:bg-blue-darker:hover {
     background-color: #16458f;
   }
@@ -3274,6 +3357,10 @@ table {
 
   .sm\:focus\:bg-yellow:focus {
     background-color: #f0ce3b;
+  }
+
+  .sm\:focus\:bg-maroon:focus {
+    background-color: #7b0d1e;
   }
 
   .sm\:focus\:bg-blue-darker:focus {
@@ -3316,6 +3403,10 @@ table {
     border-color: #f0ce3b;
   }
 
+  .sm\:border-maroon {
+    border-color: #7b0d1e;
+  }
+
   .sm\:border-blue-darker {
     border-color: #16458f;
   }
@@ -3356,6 +3447,10 @@ table {
     border-color: #f0ce3b;
   }
 
+  .sm\:hover\:border-maroon:hover {
+    border-color: #7b0d1e;
+  }
+
   .sm\:hover\:border-blue-darker:hover {
     border-color: #16458f;
   }
@@ -3394,6 +3489,10 @@ table {
 
   .sm\:focus\:border-yellow:focus {
     border-color: #f0ce3b;
+  }
+
+  .sm\:focus\:border-maroon:focus {
+    border-color: #7b0d1e;
   }
 
   .sm\:focus\:border-blue-darker:focus {
@@ -5218,6 +5317,10 @@ table {
     color: #f0ce3b;
   }
 
+  .sm\:text-maroon {
+    color: #7b0d1e;
+  }
+
   .sm\:text-blue-darker {
     color: #16458f;
   }
@@ -5258,6 +5361,10 @@ table {
     color: #f0ce3b;
   }
 
+  .sm\:hover\:text-maroon:hover {
+    color: #7b0d1e;
+  }
+
   .sm\:hover\:text-blue-darker:hover {
     color: #16458f;
   }
@@ -5296,6 +5403,10 @@ table {
 
   .sm\:focus\:text-yellow:focus {
     color: #f0ce3b;
+  }
+
+  .sm\:focus\:text-maroon:focus {
+    color: #7b0d1e;
   }
 
   .sm\:focus\:text-blue-darker:focus {
@@ -5683,6 +5794,10 @@ table {
     background-color: #f0ce3b;
   }
 
+  .md\:bg-maroon {
+    background-color: #7b0d1e;
+  }
+
   .md\:bg-blue-darker {
     background-color: #16458f;
   }
@@ -5721,6 +5836,10 @@ table {
 
   .md\:hover\:bg-yellow:hover {
     background-color: #f0ce3b;
+  }
+
+  .md\:hover\:bg-maroon:hover {
+    background-color: #7b0d1e;
   }
 
   .md\:hover\:bg-blue-darker:hover {
@@ -5763,6 +5882,10 @@ table {
     background-color: #f0ce3b;
   }
 
+  .md\:focus\:bg-maroon:focus {
+    background-color: #7b0d1e;
+  }
+
   .md\:focus\:bg-blue-darker:focus {
     background-color: #16458f;
   }
@@ -5801,6 +5924,10 @@ table {
 
   .md\:border-yellow {
     border-color: #f0ce3b;
+  }
+
+  .md\:border-maroon {
+    border-color: #7b0d1e;
   }
 
   .md\:border-blue-darker {
@@ -5843,6 +5970,10 @@ table {
     border-color: #f0ce3b;
   }
 
+  .md\:hover\:border-maroon:hover {
+    border-color: #7b0d1e;
+  }
+
   .md\:hover\:border-blue-darker:hover {
     border-color: #16458f;
   }
@@ -5881,6 +6012,10 @@ table {
 
   .md\:focus\:border-yellow:focus {
     border-color: #f0ce3b;
+  }
+
+  .md\:focus\:border-maroon:focus {
+    border-color: #7b0d1e;
   }
 
   .md\:focus\:border-blue-darker:focus {
@@ -7705,6 +7840,10 @@ table {
     color: #f0ce3b;
   }
 
+  .md\:text-maroon {
+    color: #7b0d1e;
+  }
+
   .md\:text-blue-darker {
     color: #16458f;
   }
@@ -7745,6 +7884,10 @@ table {
     color: #f0ce3b;
   }
 
+  .md\:hover\:text-maroon:hover {
+    color: #7b0d1e;
+  }
+
   .md\:hover\:text-blue-darker:hover {
     color: #16458f;
   }
@@ -7783,6 +7926,10 @@ table {
 
   .md\:focus\:text-yellow:focus {
     color: #f0ce3b;
+  }
+
+  .md\:focus\:text-maroon:focus {
+    color: #7b0d1e;
   }
 
   .md\:focus\:text-blue-darker:focus {
@@ -8170,6 +8317,10 @@ table {
     background-color: #f0ce3b;
   }
 
+  .lg\:bg-maroon {
+    background-color: #7b0d1e;
+  }
+
   .lg\:bg-blue-darker {
     background-color: #16458f;
   }
@@ -8208,6 +8359,10 @@ table {
 
   .lg\:hover\:bg-yellow:hover {
     background-color: #f0ce3b;
+  }
+
+  .lg\:hover\:bg-maroon:hover {
+    background-color: #7b0d1e;
   }
 
   .lg\:hover\:bg-blue-darker:hover {
@@ -8250,6 +8405,10 @@ table {
     background-color: #f0ce3b;
   }
 
+  .lg\:focus\:bg-maroon:focus {
+    background-color: #7b0d1e;
+  }
+
   .lg\:focus\:bg-blue-darker:focus {
     background-color: #16458f;
   }
@@ -8288,6 +8447,10 @@ table {
 
   .lg\:border-yellow {
     border-color: #f0ce3b;
+  }
+
+  .lg\:border-maroon {
+    border-color: #7b0d1e;
   }
 
   .lg\:border-blue-darker {
@@ -8330,6 +8493,10 @@ table {
     border-color: #f0ce3b;
   }
 
+  .lg\:hover\:border-maroon:hover {
+    border-color: #7b0d1e;
+  }
+
   .lg\:hover\:border-blue-darker:hover {
     border-color: #16458f;
   }
@@ -8368,6 +8535,10 @@ table {
 
   .lg\:focus\:border-yellow:focus {
     border-color: #f0ce3b;
+  }
+
+  .lg\:focus\:border-maroon:focus {
+    border-color: #7b0d1e;
   }
 
   .lg\:focus\:border-blue-darker:focus {
@@ -10192,6 +10363,10 @@ table {
     color: #f0ce3b;
   }
 
+  .lg\:text-maroon {
+    color: #7b0d1e;
+  }
+
   .lg\:text-blue-darker {
     color: #16458f;
   }
@@ -10232,6 +10407,10 @@ table {
     color: #f0ce3b;
   }
 
+  .lg\:hover\:text-maroon:hover {
+    color: #7b0d1e;
+  }
+
   .lg\:hover\:text-blue-darker:hover {
     color: #16458f;
   }
@@ -10270,6 +10449,10 @@ table {
 
   .lg\:focus\:text-yellow:focus {
     color: #f0ce3b;
+  }
+
+  .lg\:focus\:text-maroon:focus {
+    color: #7b0d1e;
   }
 
   .lg\:focus\:text-blue-darker:focus {
@@ -10657,6 +10840,10 @@ table {
     background-color: #f0ce3b;
   }
 
+  .xl\:bg-maroon {
+    background-color: #7b0d1e;
+  }
+
   .xl\:bg-blue-darker {
     background-color: #16458f;
   }
@@ -10695,6 +10882,10 @@ table {
 
   .xl\:hover\:bg-yellow:hover {
     background-color: #f0ce3b;
+  }
+
+  .xl\:hover\:bg-maroon:hover {
+    background-color: #7b0d1e;
   }
 
   .xl\:hover\:bg-blue-darker:hover {
@@ -10737,6 +10928,10 @@ table {
     background-color: #f0ce3b;
   }
 
+  .xl\:focus\:bg-maroon:focus {
+    background-color: #7b0d1e;
+  }
+
   .xl\:focus\:bg-blue-darker:focus {
     background-color: #16458f;
   }
@@ -10775,6 +10970,10 @@ table {
 
   .xl\:border-yellow {
     border-color: #f0ce3b;
+  }
+
+  .xl\:border-maroon {
+    border-color: #7b0d1e;
   }
 
   .xl\:border-blue-darker {
@@ -10817,6 +11016,10 @@ table {
     border-color: #f0ce3b;
   }
 
+  .xl\:hover\:border-maroon:hover {
+    border-color: #7b0d1e;
+  }
+
   .xl\:hover\:border-blue-darker:hover {
     border-color: #16458f;
   }
@@ -10855,6 +11058,10 @@ table {
 
   .xl\:focus\:border-yellow:focus {
     border-color: #f0ce3b;
+  }
+
+  .xl\:focus\:border-maroon:focus {
+    border-color: #7b0d1e;
   }
 
   .xl\:focus\:border-blue-darker:focus {
@@ -12679,6 +12886,10 @@ table {
     color: #f0ce3b;
   }
 
+  .xl\:text-maroon {
+    color: #7b0d1e;
+  }
+
   .xl\:text-blue-darker {
     color: #16458f;
   }
@@ -12719,6 +12930,10 @@ table {
     color: #f0ce3b;
   }
 
+  .xl\:hover\:text-maroon:hover {
+    color: #7b0d1e;
+  }
+
   .xl\:hover\:text-blue-darker:hover {
     color: #16458f;
   }
@@ -12757,6 +12972,10 @@ table {
 
   .xl\:focus\:text-yellow:focus {
     color: #f0ce3b;
+  }
+
+  .xl\:focus\:text-maroon:focus {
+    color: #7b0d1e;
   }
 
   .xl\:focus\:text-blue-darker:focus {

@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 const BackButton = ({ text, to }) => (
-  <Button className="m-v-q p-h-q font-small" to={to}>
+  <Button className="my-1 px-1 text-sm" to={to}>
     &lt; Back{text && ` to ${text}`}
   </Button>
 );

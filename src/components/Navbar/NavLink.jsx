@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const NavLink = ({ text, to, exact }) => {
   return (
     <Link
-      className="m-v-h"
+      className="my-3 text-off-white font-bold uppercase no-underline tracking-wide"
       to={to}
       exact={exact}
       activeStyle={{ color: '#f0ce3b' }}
@@ -17,13 +17,7 @@ const NavLink = ({ text, to, exact }) => {
 };
 
 const Link = styled(GatsbyLink)`
-  color: #f8f8f8;
-  font-weight: bold;
-  letter-spacing: 0.0625rem;
-  text-decoration: none;
-  text-transform: uppercase;
   transition: all 0.25s;
-
   &:hover {
     transform: scale(1.1);
   }

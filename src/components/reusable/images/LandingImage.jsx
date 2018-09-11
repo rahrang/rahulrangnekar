@@ -3,36 +3,25 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { FadeIn } from 'components/reusable/ui/';
-import { RowContainer } from 'components/reusable/Containers';
 
 const LandingImage = ({ imgInfo, content }) => {
   return (
     <FadeIn>
-      <Container jc="baseline">
-        <Image {...imgInfo} />
-        <ContentContainer className="p-h-1h">{content}</ContentContainer>
-      </Container>
+      <div className="flex flex-row flex-wrap items-center justify-start relative">
+        <Image className="w-full" {...imgInfo} />
+        <div className="px-6 absolute">{content}</div>
+      </div>
     </FadeIn>
   );
 };
 
-const Container = RowContainer.extend`
-  /* max-width: 100%; */
-  position: relative;
-`;
-
 const Image = styled.img`
-  width: 100%;
   height: ${props => props.height};
 `;
 
 Image.defaultProps = {
   height: '100%'
 };
-
-const ContentContainer = styled.div`
-  position: absolute;
-`;
 
 LandingImage.propTypes = {
   imgInfo: PropTypes.shape({
