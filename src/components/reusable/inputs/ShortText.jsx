@@ -32,7 +32,6 @@ export default ShortText;
 const Input = styled.input`
   border: none;
   border-bottom: 2px solid #4b75b9;
-  outline: none;
   width: ${props => (props.width ? `${props.width}px` : '250px')};
 
   transition: all 0.5s linear;

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import ProjectCard from 'components/projects/ProjectCard';
 import { LinkTag } from 'components/projects/Tags';
 import TagContainer from 'components/projects/TagContainer';
-import PageHeader from 'components/reusable/texts/PageHeader';
 import Select from 'components/reusable/inputs/Select';
 import DateRangeSelect from 'components/reusable/inputs/dates/DateRangeSelect';
 import EmptyState from 'components/reusable/EmptyState';
@@ -17,7 +16,7 @@ import {
   filterByStartDate,
   filterByEndDate
 } from 'utils/helpers';
-import { asString, DEFAULT_START, DEFAULT_END } from 'utils/dateHelpers';
+import { DEFAULT_START, DEFAULT_END } from 'utils/dateHelpers';
 
 const STATUS_OPTIONS = [
   {
@@ -33,6 +32,7 @@ const STATUS_OPTIONS = [
     value: 'deprecated'
   }
 ];
+
 class ProjectsPage extends Component {
   constructor(props) {
     super(props);
@@ -122,11 +122,10 @@ class ProjectsPage extends Component {
     const { data, status, start, end } = this.state;
     return (
       <ProjectsContainer className="w-full px-6 py-4">
-        <PageHeader
-          title="My Projects"
-          description="I work on projects of all natures to provide value to my communities, learn new skills, improve myself, and enjoy life!"
-          style={{ alignSelf: 'start' }}
-        />
+        <div className="flex flex-col flex-wrap items-start justify-center bg-off-white rounded-lg px-4">
+          <h1 className="mb-4">My Projects</h1>
+          <p>I work on projects of all natures to provide value to my communities, learn new skills, improve myself, and enjoy life!</p>
+        </div>
         <div className="flex flex-col flex-wrap items-start justify-start self-end my-8">
           <Select
             name="status"
@@ -142,7 +141,10 @@ class ProjectsPage extends Component {
           />
           <TagContainer onClear={this.setTag}>{this.createTags()}</TagContainer>
         </div>
-        <div className="flex flex-col flex-wrap items-center justify-center" style={{ gridColumn: '1 / -1'}}>
+        <div
+          className="flex flex-col flex-wrap items-center justify-center"
+          style={{ gridColumn: '1 / -1' }}
+        >
           {data.length ? (
             <div className="flex flex-row flex-wrap items-center justify-center">
               {data.map(this.createCard)}

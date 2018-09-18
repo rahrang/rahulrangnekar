@@ -8,7 +8,7 @@ const LandingImage = ({ imgInfo, content }) => {
   return (
     <FadeIn>
       <div className="flex flex-row flex-wrap items-center justify-start relative">
-        <Image className="w-full" {...imgInfo} />
+        <Image className="w-full m-0" {...imgInfo} />
         <div className="px-6 absolute">{content}</div>
       </div>
     </FadeIn>

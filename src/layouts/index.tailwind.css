@@ -42,6 +42,28 @@
   font-size: 0.65rem;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
+.no-border {
+  border: none;
+}
+
+.border-b-blue {
+  border: none;
+  border-bottom: 4px solid var(--blue);
+}
+
+.border-b-maroon {
+  border: none;
+  border-bottom: 4px solid var(--maroon);
+}
+
+.transition {
+  transition: all 0.25s ease-in-out;
+}
+
 .markdown p {
   margin: 1rem 0;
   line-height: 1.375rem;

@@ -1,13 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'gatsby-link';
 
 import LandingImage from 'components/reusable/images/LandingImage';
-import { CircleContainer } from 'components/reusable/Containers';
-import { IntLinkButton } from 'components/reusable/buttons/LinkButton';
-import {
-  LandingHeader as Header,
-  LandingMessage as Message
-} from 'components/reusable/texts/';
+import Descriptor from 'components/reusable/Descriptor';
 
 const IndexPage = ({ data }) => {
   const imgInfo = {
@@ -16,18 +12,35 @@ const IndexPage = ({ data }) => {
     alt: 'Rahul Rangnekar'
   };
 
+  const iconOpts = {
+    bgSize: 70,
+    iconSize: '2xl',
+    bgColor: 'blue-lighter',
+    iconColor: 'blue-dark'
+  };
+
   const content = (
     <React.Fragment>
-      <Header className="mb-2">Rahul Rangnekar</Header>
-      <Message>Software Developer &amp;&amp; Writer</Message>
-      <span>
-        <IntLinkButton className="btn-primary mx-2 px-4" to="/contact">
+      <h2 className="text-off-white md:text-4xl lg:text-5xl font-normal sm:mb-2 md:mb-4 lg:mb-6">
+        Rahul Rangnekar
+      </h2>
+      <p className="text-off-white shadow-none md:text-base uppercase md:text-base lg:text-lg font-bold tracking-wide">
+        Software Developer &amp;&amp; Writer
+      </p>
+      <div className="sm:my-4 lg:my-8">
+        <Link
+          className="bg-blue-dark hover:bg-blue-darker text-off-white rounded text-xs tracking-wide uppercase p-2 no-underline mx-2 px-4 pointer transition"
+          to="/contact"
+        >
           Contact Me
-        </IntLinkButton>
-        <IntLinkButton className="btn-alternate px-4" to="/projects">
+        </Link>
+        <Link
+          className="bg-off-white hover:bg-blue-dark text-blue-dark hover:text-off-white rounded text-xs tracking-wide uppercase p-2 no-underline mx-2 px-4 pointer transition"
+          to="/projects"
+        >
           Check out my Projects
-        </IntLinkButton>
-      </span>
+        </Link>
+      </div>
     </React.Fragment>
   );
 
@@ -37,55 +50,31 @@ const IndexPage = ({ data }) => {
         imgInfo={imgInfo}
         title="Rahul Rangnekar"
         content={content}
-        position={{ top: '35%', left: '50px' }}
       />
-      <SectionGrid className="mt-8 px-2">
-        {/* this spans the first row */}
-        <HeaderRow>
-          <SectionSubheader className="m-b-q">
-            You have problems?
-          </SectionSubheader>
-          <SectionHeader className="blue-light fw-300">
-            I create solutions.
-          </SectionHeader>
-        </HeaderRow>
-        {/* this is the second row, 3 circles */}
-        <CircleContainer bgColor="#6f95d0">
-          <h4 className="c-off-white">Here</h4>
-          <p className="c-off-white">This is some text.</p>
-        </CircleContainer>
-        <CircleContainer bgColor="#6f95d0">
-          <h4 className="c-off-white">Here</h4>
-          <p className="c-off-white">This is some text.</p>
-        </CircleContainer>
-        <CircleContainer bgColor="#6f95d0">
-          <h4 className="c-off-white">Here</h4>
-          <p className="c-off-white">This is some text.</p>
-        </CircleContainer>
-        <div>Seriously though, just contact me.</div>
-      </SectionGrid>
+      <div className="flex flex-col items-center justify-center">
+        <h3 className="text-blue text-4xl font-thin my-4">
+          I create solutions
+        </h3>
+        <div className="flex flex-row flex-wrap items-center justify-center">
+          <Descriptor
+            iconOpts={{ faIconClass: 'fas fa-lightbulb', ...iconOpts }}
+            header="Ideate"
+            description="Find problems in my life."
+          />
+          <Descriptor
+            iconOpts={{ faIconClass: 'fas fa-code', ...iconOpts }}
+            header="Design & Develop"
+            description="Find ways to solve them with web applications."
+          />
+          <Descriptor
+            iconOpts={{ faIconClass: 'fas fa-pen-alt', ...iconOpts }}
+            header="Write"
+            description="Write about my experiences."
+          />
+        </div>
+      </div>
     </div>
   );
 };
 
 export default IndexPage;
-
-const SectionGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-`;
-
-const HeaderRow = styled.div`
-  grid-column: 1 / -1;
-  justify-self: center;
-  text-align: center;
-`;
-
-const SectionSubheader = styled.h3`
-  font-size: 1.25rem;
-`;
-
-const SectionHeader = styled.h2`
-  font-size: 2.5rem;
-`;

@@ -42,7 +42,6 @@ const SelectInput = styled.select`
   border: none;
   border-bottom: 3px solid #4b75b9;
   cursor: pointer;
-  outline: none;
   transition: all 0.25s;
   height: 25px;
   width: ${props => (props.width ? `${props.width}px` : '150px')};

@@ -9,7 +9,7 @@ import { Tag } from './Tags';
 const IMAGE_PATH =
   'https://res.cloudinary.com/rahrang-dev/image/upload/c_scale,w_300,f_auto,fl_force_strip,q_100/website/projects/';
 
-const ProjectCard = ({ title, description, tags, timespan, index, pKey }) => {
+const ProjectCard = ({ title, description, tags, status, pKey }) => {
   const createTags = () => {
     return tags.sort((a, b) => (a > b ? 1 : -1)).map((t, i) => {
       return <Tag key={`${pKey}_${i}`} text={t} />;
@@ -19,7 +19,9 @@ const ProjectCard = ({ title, description, tags, timespan, index, pKey }) => {
   return (
     <FadeIn>
       <CardLink
-        className="m-4 shadow-md flex flex-col items-center rounded-lg no-underline"
+        className={`m-4 shadow-md flex flex-col items-center rounded-lg no-underline ${
+          status === 'ongoing' ? 'border-b-blue' : 'border-b-maroon'
+        }`}
         to={`/projects/${pKey}`}
       >
         <ImageContainer className="flex flex-row flex-wrap items-center justify-center">
@@ -47,7 +49,8 @@ ProjectCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
-  timeSpan: PropTypes.arrayOf(PropTypes.string)
+  timeSpan: PropTypes.arrayOf(PropTypes.string),
+  status: PropTypes.string
 };
 
 const CardLink = styled(Link)`

@@ -1,7 +1,7 @@
 ---
 title: 'The Yelp Elite Project'
 key: 'yelp-dataset'
-description: "An analysis and website of Yelp's public dataset to determine what makes a Yelp user Elite"
+description: "An analysis and website of Yelp's public dataset to determine what makes a Yelp user Elite."
 tags: ['software', 'web', 'data', 'yelp']
 timespan: ['08-2017', '10-2017']
 status: 'deprecated'

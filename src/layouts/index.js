@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Navbar, { NAVBAR_WIDTH } from 'components/Navbar/';
 
 import './index.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const ALT_STYLE_PATHS = ['/', '/contact'];
 class Layout extends Component {
@@ -34,7 +35,11 @@ class Layout extends Component {
           title="Rahul Rangnekar"
           meta={[
             { name: 'description', content: '' },
-            { name: 'keywords', content: 'software developer, designer, writer, lover of fun, staying active, and dogs' }
+            {
+              name: 'keywords',
+              content:
+                'software developer, designer, writer, lover of fun, staying active, and dogs'
+            }
           ]}
         />
         <TopBar className="m-0" />

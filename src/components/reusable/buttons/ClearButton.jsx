@@ -1,26 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import _isEmpty from 'lodash/isEmpty';
 
 const ClearButton = ({ text, onClick }) => (
-  <Button className="m-1 px-1 text-sm" onClick={onClick}>
-    Clear{text && ` ${text}`}
+  <Button
+    className="bg-off-white border border-solid text-maroon hover:bg-maroon hover:text-off-white rounded-50 m-1 px-2 py-1 text-xxs uppercase"
+    onClick={onClick}
+  >
+    {_isEmpty(text) ? <i className="fas fa-times" /> : text}
   </Button>
 );
 
 const Button = styled.span`
-  background-color: #f8f8f8;
-  border: 1px solid #7b0d1e;
-  border-radius: 3px;
   cursor: pointer;
-  color: #7b0d1e;
-  text-transform: uppercase;
   transition: all ease-in-out 0.25s;
-
-  &:hover {
-    background-color: #7b0d1e;
-    color: #f8f8f8;
-  }
 `;
 
 ClearButton.propTypes = {

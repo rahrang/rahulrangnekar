@@ -3,7 +3,6 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 import LandingImage from 'components/reusable/images/LandingImage';
-import { Button } from 'components/reusable/buttons/LinkButton';
 import {
   LandingHeader as Header,
   LandingMessage as Message
@@ -55,9 +54,12 @@ const ContactPage = () => {
             width={500}
           />
         </div>
-        <Button primary width="100%">
+        <button
+          className="bg-blue text-off-white hover:bg-blue-dark w-full py-1 rounded transition"
+          type="button"
+        >
           Send It
-        </Button>
+        </button>
       </form>
     </FadeIn>
   );

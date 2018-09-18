@@ -34,7 +34,6 @@ const Input = styled.textarea`
   background-color: rgba(0, 0, 0, 0);
   border: none;
   border-bottom: 2px solid #4b75b9;
-  outline: none;
   resize: none;
   height: ${props => (props.height ? `${props.height}px` : '200px')};
   width: ${props => (props.width ? `${props.width}px` : '250px')};
