@@ -1,27 +1,15 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import styled from 'styled-components';
 
-import LandingImage from 'components/reusable/images/LandingImage';
-import {
-  LandingHeader as Header,
-  LandingMessage as Message
-} from 'components/reusable/texts/';
 import ShortText from 'components/reusable/inputs/ShortText';
 import LongText from 'components/reusable/inputs/LongText';
-import IconLink from 'components/reusable/icons/IconLink';
 import { FadeIn } from 'components/reusable/ui/';
 
 const ContactPage = () => {
-  const imgInfo = {
-    src:
-      'https://res.cloudinary.com/rahrang-dev/image/upload/f_auto,fl_force_strip,q_auto:best/website/landing_images/contact-4.jpg',
-    alt: 'Rahul Rangnekar'
-  };
-
   const content = (
     <FadeIn>
-      <Header className="mb-2">Send me a Message</Header>
+      <h2 className="text-off-white md:text-4xl lg:text-5xl font-normal mb-1">
+        Send me a Message
+      </h2>
       <form
         className="bg-off-white p-4 rounded shadow"
         name="contact"
@@ -66,12 +54,14 @@ const ContactPage = () => {
 
   return (
     <div>
-      <LandingImage
-        imgInfo={imgInfo}
-        title="Rahul Rangnekar"
-        content={content}
-        position={{ top: '47%', left: '40%' }}
-      />
+      <div className="flex flex-row flex-wrap items-center relative justify-end">
+        <img
+          className="w-full m-0 h-full"
+          src="https://res.cloudinary.com/rahrang-dev/image/upload/f_auto,fl_force_strip,q_auto:best/website/landing_images/contact-4.jpg"
+          alt="Rahul Rangnekar"
+        />
+        <div className="px-6 absolute">{content}</div>
+      </div>
     </div>
   );
 };

@@ -16,12 +16,12 @@ const ProjectCard = ({ title, description, tags, status, pKey }) => {
     });
   };
 
+  const borderClass = `border-b-${status === 'ongoing' ? 'blue' : 'maroon'}`;
+
   return (
     <FadeIn>
       <CardLink
-        className={`m-4 shadow-md flex flex-col items-center rounded-lg no-underline ${
-          status === 'ongoing' ? 'border-b-blue' : 'border-b-maroon'
-        }`}
+        className={`m-4 shadow-md flex flex-col items-center rounded-lg no-underline transition ${borderClass}`}
         to={`/projects/${pKey}`}
       >
         <ImageContainer className="flex flex-row flex-wrap items-center justify-center">
@@ -56,7 +56,6 @@ ProjectCard.propTypes = {
 const CardLink = styled(Link)`
   height: 400px;
   width: 300px;
-  transition: all 0.25s;
 
   &:hover {
     transform: scale(1.05);
@@ -73,7 +72,7 @@ const MetaContainer = styled.div`
 `;
 
 CardLink.propTypes = {
-  to: PropTypes.string
+  to: PropTypes.string.isRequired
 };
 
 export default ProjectCard;

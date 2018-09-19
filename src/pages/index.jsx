@@ -1,17 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import Link from 'gatsby-link';
 
-import LandingImage from 'components/reusable/images/LandingImage';
+import { FadeIn } from 'components/reusable/ui/';
 import Descriptor from 'components/reusable/Descriptor';
 
 const IndexPage = ({ data }) => {
-  const imgInfo = {
-    src:
-      'https://res.cloudinary.com/rahrang-dev/image/upload/f_auto,fl_force_strip,q_auto:best/website/landing_images/home-5',
-    alt: 'Rahul Rangnekar'
-  };
-
   const iconOpts = {
     bgSize: 70,
     iconSize: '2xl',
@@ -46,11 +39,16 @@ const IndexPage = ({ data }) => {
 
   return (
     <div className="full-width">
-      <LandingImage
-        imgInfo={imgInfo}
-        title="Rahul Rangnekar"
-        content={content}
-      />
+      <FadeIn>
+        <div className="flex flex-row flex-wrap items-center relative justify-start">
+          <img
+            className="w-full m-0 h-full"
+            src="https://res.cloudinary.com/rahrang-dev/image/upload/f_auto,fl_force_strip,q_auto:best/website/landing_images/home-5"
+            alt="Rahul Rangnekar"
+          />
+          <div className="px-6 absolute">{content}</div>
+        </div>
+      </FadeIn>
       <div className="flex flex-col items-center justify-center">
         <h3 className="text-blue text-4xl font-thin my-4">
           I create solutions
