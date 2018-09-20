@@ -38,7 +38,7 @@ const DateSelect = ({ dateString, type, onSelect }) => {
         selectedValue={getYear(dateString)}
         width={60}
       />
-      <ClearButton text={type} onClick={() => onSelect(type, '')} />
+      <ClearButton onClick={() => onSelect(type, '')} />
     </div>
   );
 };

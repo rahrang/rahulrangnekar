@@ -34,8 +34,6 @@ const Input = styled.input`
   border-bottom: 2px solid #4b75b9;
   width: ${props => (props.width ? `${props.width}px` : '250px')};
 
-  transition: all 0.5s linear;
-
   &:focus {
     border-bottom: 2px solid #f0ce3b;
   }

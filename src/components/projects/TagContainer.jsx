@@ -5,7 +5,7 @@ import ClearButton from 'components/reusable/buttons/ClearButton';
 
 const TagContainer = ({ children, onClear }) => (
   <div className="flex flex-col flex-wrap items-start justify-center my-2">
-    <span className="text-blue capitalize">Tags</span>
+    <div className="text-blue mb-2">Tags</div>
     <div className="flex flex-row flex-wrap items-center justify-start">
       {children}
       <ClearButton onClick={() => onClear('')} />

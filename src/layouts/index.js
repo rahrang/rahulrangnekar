@@ -30,7 +30,7 @@ class Layout extends Component {
     const { children, data } = this.props;
     const { navbarIsOpen } = this.state;
     return (
-      <div>
+      <div style={{ minWidth: 360 }}>
         <Helmet
           title="Rahul Rangnekar"
           meta={[

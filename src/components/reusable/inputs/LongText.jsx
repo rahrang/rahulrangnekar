@@ -6,13 +6,12 @@ import { Label } from './Label';
 
 const LongText = ({ label, name, placeholder, type, width, height }) => {
   return (
-    <div className="flex flex-col flex-wrap align-baseline justify-center my-2">
+    <div className="flex flex-col flex-wrap align-baseline justify-center my-2 w-full">
       <Label>{label}</Label>
       <Input
-        className="mb-2 p-1"
+        className="mb-2 p-1 w-full"
         name={name}
         placeholder={placeholder}
-        width={width}
         height={height}
       />
     </div>
@@ -35,10 +34,8 @@ const Input = styled.textarea`
   border: none;
   border-bottom: 2px solid #4b75b9;
   resize: none;
-  height: ${props => (props.height ? `${props.height}px` : '200px')};
+  height: ${props => (props.height ? `${props.height}px` : '150px')};
   width: ${props => (props.width ? `${props.width}px` : '250px')};
-
-  transition: all 0.5s linear;
 
   &:focus {
     border-bottom: 2px solid #f0ce3b;
