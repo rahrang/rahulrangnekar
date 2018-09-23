@@ -1,40 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import _isEmpty from 'lodash/isEmpty';
 
-import { Label } from './Label';
+import Label from './Label';
 
-const ShortText = ({ label, name, placeholder, type, width }) => {
-  return (
-    <div className="flex flex-col flex-wrap align-baseline justify-center my-2 mr-1">
-      <Label>{label}</Label>
-      <Input
-        className="bg-transparent mb-2 p-1"
-        name={name}
-        placeholder={placeholder}
-        type={type || 'text'}
-        width={width}
-      />
-    </div>
-  );
-};
+const ShortText = ({ label, name, placeholder, type }) => (
+  <div className="flex flex-col flex-wrap align-baseline justify-center my-2 mr-1">
+    {!_isEmpty(label) && <Label>{label}</Label>}
+    <input
+      className="bg-transparent mb-2 p-1 w-48 text-sm"
+      name={name}
+      placeholder={placeholder}
+      type={type}
+    />
+  </div>
+);
 
 ShortText.propTypes = {
   label: PropTypes.string,
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  type: PropTypes.string,
-  width: PropTypes.number
+  type: PropTypes.string
+};
+
+ShortText.defaultProps = {
+  label: '',
+  placeholder: '',
+  type: 'text'
 };
 
 export default ShortText;
-
-const Input = styled.input`
-  border: none;
-  border-bottom: 2px solid #4b75b9;
-  width: ${props => (props.width ? `${props.width}px` : '250px')};
-
-  &:focus {
-    border-bottom: 2px solid #f0ce3b;
-  }
-`;

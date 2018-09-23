@@ -18,7 +18,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   `).then(res => {
     if (res.errors) return Promise.reject(res.errors);
 
-    const component = path.resolve('src/components/projects/template.js');
+    const component = path.resolve('src/components/projects/template.jsx');
     const { edges } = res.data.allMarkdownRemark;
     edges.forEach(({ node }) => {
       const { key } = node.frontmatter;

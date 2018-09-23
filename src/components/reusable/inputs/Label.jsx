@@ -1,9 +1,7 @@
-import styled from 'styled-components';
+import React from 'react';
 
-const Label = styled.label`
-  color: #4b75b9;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-`;
+const Label = ({ children }) => (
+  <label className="text-blue text-xs uppercase">{children}</label>
+);
 
-export { Label };
+export default Label;

@@ -16,7 +16,9 @@ const ProjectCard = ({ title, description, tags, status, pKey }) => {
     });
   };
 
-  const borderClass = `border-b-${status === 'ongoing' ? 'blue' : 'maroon'}`;
+  const borderClass = `border-b-${
+    status === 'ongoing' ? 'blue-4' : 'maroon-4'
+  }`;
 
   return (
     <FadeIn>
@@ -24,14 +26,20 @@ const ProjectCard = ({ title, description, tags, status, pKey }) => {
         className={`m-4 shadow-md flex flex-col items-center rounded-lg no-underline transition ${borderClass}`}
         to={`/projects/${pKey}`}
       >
-        <ImageContainer className="flex flex-row flex-wrap items-center justify-center">
+        <div
+          className="flex flex-row flex-wrap items-center justify-center"
+          style={{ height: 250 }}
+        >
           <img
             className="rounded-t-lg"
             src={`${IMAGE_PATH}${pKey}`}
             width="100%"
           />
-        </ImageContainer>
-        <MetaContainer className="px-2 pt-1 pb-3">
+        </div>
+        <div
+          className="px-2 pt-1 pb-3"
+          style={{ display: 'grid', gridTemplateColumns: '3fr 2fr' }}
+        >
           <div>
             <h4 className="mb-2 text-blue">{title}</h4>
             <p className="text-sm text-black leading-tight">{description}</p>
@@ -39,18 +47,22 @@ const ProjectCard = ({ title, description, tags, status, pKey }) => {
           <div className="flex flex-row flex-wrap items-start justify-end">
             {createTags()}
           </div>
-        </MetaContainer>
+        </div>
       </CardLink>
     </FadeIn>
   );
 };
 
 ProjectCard.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
-  timeSpan: PropTypes.arrayOf(PropTypes.string),
-  status: PropTypes.string
+  timeSpan: PropTypes.arrayOf(PropTypes.string).isRequired,
+  status: PropTypes.string.isRequired
+};
+
+ProjectCard.defaultProps = {
+  tags: []
 };
 
 const CardLink = styled(Link)`
@@ -60,15 +72,6 @@ const CardLink = styled(Link)`
   &:hover {
     transform: scale(1.05);
   }
-`;
-
-const ImageContainer = styled.div`
-  height: 250px;
-`;
-
-const MetaContainer = styled.div`
-  display: grid;
-  grid-template-columns: 3fr 2fr;
 `;
 
 CardLink.propTypes = {

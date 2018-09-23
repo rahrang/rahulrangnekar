@@ -22,9 +22,9 @@ MonthSelect.propTypes = {
   options: PropTypes.shape({
     label: PropTypes.number,
     value: PropTypes.number
-  }),
-  selectedValue: PropTypes.number,
-  onSelect: PropTypes.func
+  }).isRequired,
+  selectedValue: PropTypes.number.isRequired,
+  onSelect: PropTypes.func.isRequired
 };
 
 export default MonthSelect;

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 import ClearButton from 'components/reusable/buttons/ClearButton';
 import { getMonth, getYear, formatMonth } from 'utils/dateHelpers';
@@ -44,8 +43,8 @@ const DateSelect = ({ dateString, type, onSelect }) => {
 };
 
 DateSelect.propTypes = {
-  date: PropTypes.string,
-  type: PropTypes.oneOf(['start', 'end'])
+  date: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['start', 'end']).isRequired
 };
 
 export default DateSelect;

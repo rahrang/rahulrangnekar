@@ -22,12 +22,11 @@ const ClearButton = ({ text, onClick }) =>
 
 ClearButton.propTypes = {
   text: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func.isRequired
 };
 
 ClearButton.defaultProps = {
-  text: '',
-  onClick: () => null
+  text: ''
 };
 
 export default ClearButton;

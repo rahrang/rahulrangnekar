@@ -13,9 +13,9 @@ const DateRangeSelect = ({ onSelect, start, end }) => {
 };
 
 DateRangeSelect.propTypes = {
-  onSelect: PropTypes.func,
-  start: PropTypes.string,
-  end: PropTypes.string
+  onSelect: PropTypes.func.isRequired,
+  start: PropTypes.string.isRequired,
+  end: PropTypes.string.isRequired
 };
 
 export default DateRangeSelect;

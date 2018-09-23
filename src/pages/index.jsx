@@ -22,13 +22,13 @@ const IndexPage = ({ data }) => {
       </p>
       <div className="sm:my-4 lg:my-8">
         <Link
-          className="bg-blue-dark hover:bg-blue-darker text-off-white rounded text-xs tracking-wide uppercase p-2 no-underline mx-2 px-4 pointer transition"
+          className="bg-blue-dark hover:bg-blue-darker text-off-white rounded text-xs tracking-wide uppercase p-2 no-underline mx-2 px-4 cursor-pointer transition"
           to="/contact"
         >
           Contact Me
         </Link>
         <Link
-          className="bg-off-white hover:bg-blue-dark text-blue-dark hover:text-off-white rounded text-xs tracking-wide uppercase p-2 no-underline mx-2 px-4 pointer transition"
+          className="bg-off-white hover:bg-blue-dark text-blue-dark hover:text-off-white rounded text-xs tracking-wide uppercase p-2 no-underline mx-2 px-4 cursor-pointer transition"
           to="/projects"
         >
           Check out my Projects
@@ -38,7 +38,7 @@ const IndexPage = ({ data }) => {
   );
 
   return (
-    <div className="full-width">
+    <div className="w-full">
       <FadeIn>
         <div className="flex flex-row flex-wrap items-center relative justify-start">
           <img

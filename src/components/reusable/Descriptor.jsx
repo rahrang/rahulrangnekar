@@ -28,7 +28,7 @@ Descriptor.propTypes = {
     bgSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     iconColor: PropTypes.string,
     iconSize: PropTypes.string
-  }),
+  }).isRequired,
   header: PropTypes.string,
   description: PropTypes.string
 };

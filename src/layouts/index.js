@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import styled from 'styled-components';
 
 import Navbar, { NAVBAR_WIDTH } from 'components/Navbar/';
 
@@ -42,42 +41,27 @@ class Layout extends Component {
             }
           ]}
         />
-        <TopBar className="m-0" />
+        <hr className="no-border h-1 bg-yellow fixed pin w-full z-30 m-0" />
         <Navbar
           siteTitle={data.site.siteMetadata.title}
           isOpen={navbarIsOpen}
           toggle={this.toggleNavbar}
         />
-        <Container
-          className="flex flex-col flex-wrap items-start justify-center"
-          marginLeft={this.calcMarginLeft(navbarIsOpen)}
+        <div
+          className="flex flex-col flex-wrap items-start justify-center transition"
+          style={{ marginLeft: this.calcMarginLeft(navbarIsOpen) }}
+          // marginLeft={this.calcMarginLeft(navbarIsOpen)}
         >
           {children()}
-        </Container>
+        </div>
       </div>
     );
   }
 }
 
 Layout.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.func.isRequired
 };
-
-const Container = styled.div`
-  margin-left: ${props => `${props.marginLeft}px`};
-  transition: all 0.25s;
-`;
-
-const TopBar = styled.hr`
-  border: none;
-  height: 5px;
-  background-color: #f0ce3b;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-`;
 
 export default Layout;
 
