@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ClearButton from 'components/reusable/buttons/ClearButton';
-import { getMonth, getYear, formatMonth } from 'utils/dateHelpers';
+import ClearButton from '../../buttons/ClearButton';
+import { getMonth, getYear, formatMonth } from '../../../../utils/dateHelpers';
 import MonthSelect from './MonthSelect';
 import YearSelect from './YearSelect';
 
@@ -43,8 +43,12 @@ const DateSelect = ({ dateString, type, onSelect }) => {
 };
 
 DateSelect.propTypes = {
-  date: PropTypes.string.isRequired,
+  date: PropTypes.string,
   type: PropTypes.oneOf(['start', 'end']).isRequired
+};
+
+DateSelect.defaultProps = {
+  date: undefined
 };
 
 export default DateSelect;

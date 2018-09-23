@@ -1,10 +1,11 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
-import { FadeIn } from 'components/reusable/ui/';
-import Descriptor from 'components/reusable/Descriptor';
+import Layout from '../components/layouts/';
+import { FadeIn } from '../components/reusable/ui/';
+import Descriptor from '../components/reusable/Descriptor';
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ location }) => {
   const iconOpts = {
     bgSize: 70,
     iconSize: '2xl',
@@ -38,40 +39,42 @@ const IndexPage = ({ data }) => {
   );
 
   return (
-    <div className="w-full">
-      <FadeIn>
-        <div className="flex flex-row flex-wrap items-center relative justify-start">
-          <img
-            className="w-full m-0 h-full"
-            src="https://res.cloudinary.com/rahrang-dev/image/upload/f_auto,fl_force_strip,q_auto:best/website/landing_images/home-5"
-            alt="Rahul Rangnekar"
-          />
-          <div className="px-6 absolute">{content}</div>
-        </div>
-      </FadeIn>
-      <div className="flex flex-col items-center justify-center">
-        <h3 className="text-blue text-4xl font-thin my-4">
-          I create solutions
-        </h3>
-        <div className="flex flex-row flex-wrap items-center justify-center">
-          <Descriptor
-            iconOpts={{ faIconClass: 'fas fa-lightbulb', ...iconOpts }}
-            header="Ideate"
-            description="Find problems in my life."
-          />
-          <Descriptor
-            iconOpts={{ faIconClass: 'fas fa-code', ...iconOpts }}
-            header="Design & Develop"
-            description="Find ways to solve them with web applications."
-          />
-          <Descriptor
-            iconOpts={{ faIconClass: 'fas fa-pen-alt', ...iconOpts }}
-            header="Write"
-            description="Write about my experiences."
-          />
+    <Layout location={location}>
+      <div className="w-full">
+        <FadeIn>
+          <div className="flex flex-row flex-wrap items-center relative justify-start">
+            <img
+              className="w-full m-0 h-full"
+              src="https://res.cloudinary.com/rahrang-dev/image/upload/f_auto,fl_force_strip,q_auto:best/website/landing_images/home-5"
+              alt="Rahul Rangnekar"
+            />
+            <div className="px-6 absolute">{content}</div>
+          </div>
+        </FadeIn>
+        <div className="flex flex-col items-center justify-center">
+          <h3 className="text-blue text-4xl font-thin my-4">
+            I create solutions
+          </h3>
+          <div className="flex flex-row flex-wrap items-center justify-center">
+            <Descriptor
+              iconOpts={{ faIconClass: 'fas fa-lightbulb', ...iconOpts }}
+              header="Ideate"
+              description="Find problems in my life."
+            />
+            <Descriptor
+              iconOpts={{ faIconClass: 'fas fa-code', ...iconOpts }}
+              header="Design & Develop"
+              description="Find ways to solve them with web applications."
+            />
+            <Descriptor
+              iconOpts={{ faIconClass: 'fas fa-pen-alt', ...iconOpts }}
+              header="Write"
+              description="Write about my experiences."
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

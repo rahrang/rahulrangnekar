@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import { FadeIn } from 'components/reusable/ui/';
+import { FadeIn } from '../reusable/ui/';
 import { Tag } from './Tags';
 
 const IMAGE_PATH =
@@ -31,9 +31,9 @@ const ProjectCard = ({ title, description, tags, status, pKey }) => {
           style={{ height: 250 }}
         >
           <img
-            className="rounded-t-lg"
+            className="rounded-t-lg w-full"
             src={`${IMAGE_PATH}${pKey}`}
-            width="100%"
+            alt={`Project: ${title}`}
           />
         </div>
         <div
@@ -57,7 +57,7 @@ ProjectCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
-  timeSpan: PropTypes.arrayOf(PropTypes.string).isRequired,
+  timespan: PropTypes.arrayOf(PropTypes.string).isRequired,
   status: PropTypes.string.isRequired
 };
 

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Navbar, { NAVBAR_WIDTH } from 'components/Navbar/';
+import Navbar, { NAVBAR_WIDTH } from '../Navbar/';
 
-import './index.css';
+import '../../styles/index.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 const ALT_STYLE_PATHS = ['/', '/contact'];
@@ -26,9 +27,10 @@ class Layout extends Component {
   };
 
   render() {
-    const { children, data } = this.props;
+    const { children } = this.props;
     const { navbarIsOpen } = this.state;
-    return (
+
+    const renderChild = (children, data) => (
       <div style={{ minWidth: 360 }}>
         <Helmet
           title="Rahul Rangnekar"
@@ -50,27 +52,44 @@ class Layout extends Component {
         <div
           className="flex flex-col flex-wrap items-start justify-center transition"
           style={{ marginLeft: this.calcMarginLeft(navbarIsOpen) }}
-          // marginLeft={this.calcMarginLeft(navbarIsOpen)}
         >
-          {children()}
+          {children}
         </div>
       </div>
+    );
+
+    return (
+      <StaticQuery
+        query={graphql`
+          query SiteTitleQuery {
+            site {
+              siteMetadata {
+                title
+              }
+            }
+          }
+        `}
+        render={data => renderChild(children, data)}
+      />
     );
   }
 }
 
 Layout.propTypes = {
-  children: PropTypes.func.isRequired
+  children: PropTypes.node.isRequired,
+  location: PropTypes.shape({
+    host: PropTypes.string,
+    hostname: PropTypes.string,
+    href: PropTypes.string,
+    origin: PropTypes.string,
+    pathname: PropTypes.string,
+    replace: PropTypes.func,
+    search: PropTypes.string
+  })
+};
+
+Layout.defaultProps = {
+  location: {}
 };
 
 export default Layout;
-
-export const query = graphql`
-  query SiteTitleQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;

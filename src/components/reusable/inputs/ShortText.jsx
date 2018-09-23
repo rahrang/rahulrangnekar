@@ -8,7 +8,7 @@ const ShortText = ({ label, name, placeholder, type }) => (
   <div className="flex flex-col flex-wrap align-baseline justify-center my-2 mr-1">
     {!_isEmpty(label) && <Label>{label}</Label>}
     <input
-      className="bg-transparent mb-2 p-1 w-48 text-sm"
+      className="bg-transparent border-b-blue-2 mb-2 p-1 w-48 text-sm"
       name={name}
       placeholder={placeholder}
       type={type}

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ClearButton from 'components/reusable/buttons/ClearButton';
+import ClearButton from '../reusable/buttons/ClearButton';
 
 const TagContainer = ({ children, onClear }) => (
   <div className="flex flex-col flex-wrap items-start justify-center my-2">

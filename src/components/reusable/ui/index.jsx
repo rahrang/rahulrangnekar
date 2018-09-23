@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-
 import fadeIn from 'react-animations/lib/fade-in';
 import slideInLeft from 'react-animations/lib/slide-in-left';
 

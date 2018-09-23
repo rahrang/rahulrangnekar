@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import NavLink from './NavLink';
 
-import NAVBAR_LINKS from 'constants/nav';
+import NAVBAR_LINKS from '../../constants/nav';
 
 export const NAVBAR_WIDTH = 215;
 

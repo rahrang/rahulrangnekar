@@ -1,18 +1,15 @@
 export default [
   {
     text: 'home',
-    to: '/',
-    exact: true
+    to: '/'
   },
   {
     text: 'projects',
-    to: '/projects',
-    exact: false
+    to: '/projects'
   },
   {
     text: 'contact',
-    to: 'contact',
-    exact: true
+    to: '/contact'
   }
 ];
 

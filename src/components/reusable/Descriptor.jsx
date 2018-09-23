@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _isEmpty from 'lodash/isEmpty';
 
-import CircleIcon from 'components/reusable/icons/CircleIcon';
+import CircleIcon from './icons/CircleIcon';
 
 const Descriptor = ({ iconOpts, header, description }) => (
   <div

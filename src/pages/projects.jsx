@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
 
-import ProjectCard from 'components/projects/ProjectCard';
-import { LinkTag } from 'components/projects/Tags';
-import TagContainer from 'components/projects/TagContainer';
-import Select from 'components/reusable/inputs/Select';
-import DateRangeSelect from 'components/reusable/inputs/dates/DateRangeSelect';
-import EmptyState from 'components/reusable/EmptyState';
+import Layout from '../components/layouts/';
+import ProjectCard from '../components/projects/ProjectCard';
+import { LinkTag } from '../components/projects/Tags';
+import TagContainer from '../components/projects/TagContainer';
+import Select from '../components/reusable/inputs/Select';
+import DateRangeSelect from '../components/reusable/inputs/dates/DateRangeSelect';
+import EmptyState from '../components/reusable/EmptyState';
 import {
   getParams,
   setParams,
@@ -15,8 +17,8 @@ import {
   filterByTag,
   filterByStartDate,
   filterByEndDate
-} from 'utils/helpers';
-import { DEFAULT_START, DEFAULT_END } from 'utils/dateHelpers';
+} from '../utils/helpers';
+import { DEFAULT_START, DEFAULT_END } from '../utils/dateHelpers';
 
 const STATUS_OPTIONS = [
   {
@@ -37,13 +39,13 @@ class ProjectsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: this.props.data.allMarkdownRemark.edges,
+      data: props.data.allMarkdownRemark.edges,
       tag: '',
       start: '',
       end: '',
       status: ''
     };
-    this.data = this.props.data.allMarkdownRemark.edges;
+    this.data = props.data.allMarkdownRemark.edges;
     this.uniqueTags = getUniqueTags(this.data);
   }
 
@@ -52,7 +54,7 @@ class ProjectsPage extends Component {
     this.filterData(this.props);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const {
       location: { search }
     } = this.props;
@@ -120,40 +122,48 @@ class ProjectsPage extends Component {
 
   render() {
     const { data, status, start, end } = this.state;
+    const { location, history } = this.props;
     return (
-      <ProjectsContainer className="w-full px-6 py-4">
-        <div className="flex flex-col flex-wrap items-start justify-center bg-off-white rounded-lg px-4">
-          <h1 className="mb-4">My Projects</h1>
-          <p>I work on projects of all natures to provide value to my communities, learn new skills, improve myself, and enjoy life!</p>
-        </div>
-        <div className="flex flex-col flex-wrap items-start justify-start self-end my-8">
-          <Select
-            name="status"
-            options={STATUS_OPTIONS}
-            selectedValue={status}
-            resetValue="all"
-            onSelect={this.setStatus}
-          />
-          <DateRangeSelect
-            start={start || DEFAULT_START}
-            end={end || DEFAULT_END}
-            onSelect={this.setDate}
-          />
-          <TagContainer onClear={this.setTag}>{this.createTags()}</TagContainer>
-        </div>
-        <div
-          className="flex flex-col flex-wrap items-center justify-center"
-          style={{ gridColumn: '1 / -1' }}
-        >
-          {data.length ? (
-            <div className="flex flex-row flex-wrap items-center justify-center">
-              {data.map(this.createCard)}
-            </div>
-          ) : (
-            <EmptyState text="No projects were found. Change the filters!" />
-          )}
-        </div>
-      </ProjectsContainer>
+      <Layout location={location} history={history}>
+        <ProjectsContainer className="w-full px-6 py-4">
+          <div className="flex flex-col flex-wrap items-start justify-center bg-off-white rounded-lg px-4">
+            <h1 className="mb-4">My Projects</h1>
+            <p>
+              I work on projects of all natures to provide value to my
+              communities, learn new skills, improve myself, and enjoy life!
+            </p>
+          </div>
+          <div className="flex flex-col flex-wrap items-start justify-start self-end my-8">
+            <Select
+              name="status"
+              options={STATUS_OPTIONS}
+              selectedValue={status}
+              resetValue="all"
+              onSelect={this.setStatus}
+            />
+            <DateRangeSelect
+              start={start || DEFAULT_START}
+              end={end || DEFAULT_END}
+              onSelect={this.setDate}
+            />
+            <TagContainer onClear={this.setTag}>
+              {this.createTags()}
+            </TagContainer>
+          </div>
+          <div
+            className="flex flex-col flex-wrap items-center justify-center"
+            style={{ gridColumn: '1 / -1' }}
+          >
+            {data.length ? (
+              <div className="flex flex-row flex-wrap items-center justify-center">
+                {data.map(this.createCard)}
+              </div>
+            ) : (
+              <EmptyState text="No projects were found. Change the filters!" />
+            )}
+          </div>
+        </ProjectsContainer>
+      </Layout>
     );
   }
 }

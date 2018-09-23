@@ -53,7 +53,7 @@ export const isValid = arg => !(isUndefined(arg) || isEmpty(arg));
 export const getMonth = date => {
   if (isDate(date)) return date.getMonth();
   if (isString(date)) {
-    const [month, year] = date.split('-');
+    const [month] = date.split('-');
     return parseInt(month);
   }
   return 'invalid date';
@@ -62,7 +62,7 @@ export const getMonth = date => {
 export const getYear = date => {
   if (isDate(date)) return date.getFullYear();
   if (isString(date)) {
-    const [month, year] = date.split('-');
+    const [, year] = date.split('-');
     return parseInt(year);
   }
   return 'invalid date';

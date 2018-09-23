@@ -1,7 +1,8 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
-import { Tag } from 'components/projects/Tags';
-import BackButton from 'components/reusable/buttons/BackButton';
+import { Tag } from './Tags';
+import BackButton from '../reusable/buttons/BackButton';
 
 export default function Template({ data }) {
   const {

@@ -1,3 +1,4 @@
+import { navigate } from 'gatsby';
 import isEmpty from 'lodash/isEmpty';
 import toPairs from 'lodash/toPairs';
 import fromPairs from 'lodash/fromPairs';
@@ -12,14 +13,14 @@ export const getParams = props => parse(props.location.search);
 
 export const setParams = (props, stateParams) => {
   const {
-    history,
     location: { pathname }
   } = props;
   const params = fromPairs(
     toPairs(stateParams).filter(([k, v]) => !isEmpty(v))
   );
   const qs = stringify(params);
-  history.push(`${pathname}?${qs}`);
+  if (isEmpty(params) || isEmpty(qs)) navigate(`${pathname}`);
+  else navigate(`${pathname}?${qs}`);
 };
 
 export const getUniqueTags = data => {

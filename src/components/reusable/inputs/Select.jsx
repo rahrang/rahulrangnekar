@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
-import ClearButton from 'components/reusable/buttons/ClearButton';
+import ClearButton from '../../reusable/buttons/ClearButton';
 
 const Select = ({ name, options, selectedValue, onSelect, noClear }) => {
   const onChange = e => {
