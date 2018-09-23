@@ -7,7 +7,7 @@ import Descriptor from '../components/reusable/Descriptor';
 
 const IndexPage = ({ location }) => {
   const iconOpts = {
-    bgSize: 70,
+    bgSize: 80,
     iconSize: '2xl',
     bgColor: 'blue-lighter',
     iconColor: 'blue-dark'
@@ -15,22 +15,24 @@ const IndexPage = ({ location }) => {
 
   const content = (
     <React.Fragment>
-      <h2 className="text-off-white md:text-4xl lg:text-5xl font-normal sm:mb-2 md:mb-4 lg:mb-6">
+      <h2 className="text-off-white text-xl md:text-3xl lg:text-5xl font-normal my-2 md:my-3 lg:my-4">
         Rahul Rangnekar
       </h2>
-      <p className="text-off-white shadow-none md:text-base uppercase md:text-base lg:text-lg font-bold tracking-wide">
+      <p className="text-off-white shadow-none uppercase text-xs md:text-base lg:text-lg font-bold tracking-wide my-2 md:my-3 lg:my-4">
         Software Developer &amp;&amp; Writer
       </p>
-      <div className="sm:my-4 lg:my-8">
+      <div className="flex flex-col md:flex-row my-2 md:my-3 lg:my-4">
         <Link
-          className="bg-blue-dark hover:bg-blue-darker text-off-white rounded text-xs tracking-wide uppercase p-2 no-underline mx-2 px-4 cursor-pointer transition"
+          className="bg-blue-dark hover:bg-blue-darker text-off-white rounded text-xs tracking-wide uppercase p-2 no-underline mr-2 px-4 cursor-pointer transition"
           to="/contact"
+          style={{ maxWidth: 'fit-content' }}
         >
           Contact Me
         </Link>
         <Link
-          className="bg-off-white hover:bg-blue-dark text-blue-dark hover:text-off-white rounded text-xs tracking-wide uppercase p-2 no-underline mx-2 px-4 cursor-pointer transition"
+          className="bg-off-white hover:bg-blue-dark text-blue-dark hover:text-off-white rounded text-xs tracking-wide uppercase p-2 no-underline mt-1 md:mt-0 md:ml-2 px-4 cursor-pointer transition"
           to="/projects"
+          style={{ maxWidth: 'fit-content' }}
         >
           Check out my Projects
         </Link>
@@ -51,28 +53,40 @@ const IndexPage = ({ location }) => {
             <div className="px-6 absolute">{content}</div>
           </div>
         </FadeIn>
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center pt-2 px-4 pb-4">
           <h3 className="text-blue text-4xl font-thin my-4">
-            I create solutions
+            I create Solutions
           </h3>
-          <div className="flex flex-row flex-wrap items-center justify-center">
+          <div className="flex flex-row flex-wrap items-start justify-center">
             <Descriptor
               iconOpts={{ faIconClass: 'fas fa-lightbulb', ...iconOpts }}
               header="Ideate"
-              description="Find problems in my life."
+              description="I actively search for problems we face in our daily lives, then brainstorm potential solutions within my skillset."
             />
             <Descriptor
               iconOpts={{ faIconClass: 'fas fa-code', ...iconOpts }}
               header="Design & Develop"
-              description="Find ways to solve them with web applications."
+              description="Over several iterations, I create robust, well-designed applications to solve these real-world problems."
             />
             <Descriptor
               iconOpts={{ faIconClass: 'fas fa-pen-alt', ...iconOpts }}
               header="Write"
-              description="Write about my experiences."
+              description="After deploying an application, I write about the project and my experiences to convey my design decisions."
             />
           </div>
         </div>
+        {/* <div className="flex flex-col items-center justify-center bg-off-white pt-2 px-4 pb-4">
+          <h3 className="text-blue text-4xl font-thin my-4">
+            Fresh off the Internet
+          </h3>
+          <div>
+            Here is where I would include my most recent tweets,
+            medium/quora/linkedin articles, youtube videos, etc. As of right
+            now, this section is empty. I'm betting this website being public
+            will light a fire under me to begin creating/contributing in more
+            public settings than I have done in these past few months.
+          </div>
+        </div> */}
       </div>
     </Layout>
   );

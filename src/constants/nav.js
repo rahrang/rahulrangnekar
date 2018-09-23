@@ -4,6 +4,10 @@ export default [
     to: '/'
   },
   {
+    text: 'about',
+    to: '/about'
+  },
+  {
     text: 'projects',
     to: '/projects'
   },
