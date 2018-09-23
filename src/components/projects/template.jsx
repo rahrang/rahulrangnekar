@@ -1,8 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { Tag } from 'components/projects/Tags';
-import { ColumnContainer, RowContainer } from 'components/reusable/Containers';
 import BackButton from 'components/reusable/buttons/BackButton';
 
 export default function Template({ data }) {
@@ -14,15 +12,15 @@ export default function Template({ data }) {
   } = data;
 
   return (
-    <div className="p-v-1 p-h-1">
+    <div className="p-4">
       <BackButton text="projects" to="/projects" />
-      <ColumnContainer ai="flex-start" className="m-v-1">
+      <div className="flex flex-row flex-wrap items-start justify-center my-4">
         <h1>{title}</h1>
         <div className="markdown" dangerouslySetInnerHTML={{ __html: html }} />
-        <RowContainer>
+        <div className="flex flex-row flex-wrap items-center justify-center">
           {tags.map((t, i) => <Tag key={`project-tag-${i}`} text={t} />)}
-        </RowContainer>
-      </ColumnContainer>
+        </div>
+      </div>
       <BackButton text="projects" to="/projects" />
     </div>
   );

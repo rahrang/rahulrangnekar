@@ -1,41 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
-import Icon from './Icon';
-
-const IconLink = ({ to, iid, scale, maxHeight, maxWidth }) => {
+const IconLink = ({
+  iconClass,
+  to,
+  iconColor,
+  iconSize,
+  hoverColor,
+  bgColor,
+  boxSize
+}) => {
   return (
-    <Anchor
-      className="m-h-q m-v-q"
+    <a
+      className={`flex items-center justify-center my-2 mx-3 no-underline bg-${bgColor} text-${iconColor} hover:text-${hoverColor} transition rounded-50`}
       href={to}
       target="_blank"
       rel="noopener noreferrer"
+      style={{ height: boxSize, width: boxSize }}
     >
-      <Icon {...{ iid, scale, maxHeight, maxWidth }} />
-    </Anchor>
+      <i className={`fab fa-${iconClass} text-${iconSize}`} />
+    </a>
   );
 };
 
-const Anchor = styled.a`
-  fill: white;
-  transition: all 0.25s;
-
-  &:hover {
-    fill: #d9b310;
-  }
-`;
-
 IconLink.propTypes = {
+  iconClass: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
-  iid: PropTypes.string,
-  scale: PropTypes.number,
-  maxHeight: PropTypes.number,
-  maxWidth: PropTypes.number
+  iconColor: PropTypes.string,
+  iconSize: PropTypes.string,
+  hoverColor: PropTypes.string,
+  boxSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  bgColor: PropTypes.string
 };
 
 IconLink.defaultProps = {
-  to: '#'
+  iconColor: 'blue',
+  iconSize: 'normal',
+  hoverColor: 'blue',
+  boxSize: 'auto',
+  bgColor: 'transparent'
 };
 
 export default IconLink;

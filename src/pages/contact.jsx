@@ -1,42 +1,31 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import styled from 'styled-components';
 
-import LandingImage from 'components/reusable/images/LandingImage';
-import {
-  LandingHeader as Header,
-  LandingMessage as Message
-} from 'components/reusable/texts/';
 import ShortText from 'components/reusable/inputs/ShortText';
 import LongText from 'components/reusable/inputs/LongText';
-import SendButton from 'components/reusable/buttons/SendButton';
-import IconLink from 'components/reusable/icons/IconLink';
-import { RowContainer, ColumnContainer } from 'components/reusable/Containers';
 import { FadeIn } from 'components/reusable/ui/';
+import IconLink from 'components/reusable/icons/IconLink';
+
+import CONTACT_LINKS from 'constants/contact';
 
 const ContactPage = () => {
-  const imgInfo = {
-    src:
-      'https://res.cloudinary.com/rahrang-dev/image/upload/f_auto,fl_force_strip,q_auto:best/website/landing_images/contact-4.jpg',
-    alt: 'Rahul Rangnekar'
-  };
-
   const content = (
-    <FadeIn>
-      <Header className="m-b-h">Send me a Message</Header>
-      <Form
-        className="p-v-1 p-h-1"
+    <div>
+      <h2 className="text-blue lg:text-off-white text-4xl lg:text-5xl font-normal mb-2 mt-4 lg:mt-0">
+        Send me a Message
+      </h2>
+      <form
+        className="bg-off-white p-4 rounded shadow"
         name="contact"
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
       >
-        <ColumnContainer ai="baseline">
+        <div className="flex flex-col flex-wrap items-baseline justify-center">
           <label className="hidden">
             Don't fill this out if you're human.
             <input type="hidden" name="bot-field" />
           </label>
-          <RowContainer jc="baseline">
+          <div className="flex flex-row flex-wrap items-center justify-start">
             <ShortText
               name="name"
               placeholder="Rahul Rangnekar"
@@ -48,35 +37,54 @@ const ContactPage = () => {
               label="Email Address"
               type="email"
             />
-          </RowContainer>
+          </div>
           <LongText
             name="message"
             placeholder="Hello, Rahul! I loved visiting your website -- good luck in the future!"
             label="Message"
-            width={500}
           />
-        </ColumnContainer>
-        <SendButton width="100%" />
-      </Form>
-    </FadeIn>
+        </div>
+        <button
+          className="bg-blue text-off-white hover:bg-blue-dark w-full py-1 rounded transition"
+          type="button"
+        >
+          Send It
+        </button>
+      </form>
+    </div>
   );
 
   return (
-    <div>
-      <LandingImage
-        imgInfo={imgInfo}
-        title="Rahul Rangnekar"
-        content={content}
-        position={{ top: '47%', left: '40%' }}
-      />
-    </div>
+    <FadeIn>
+      <div className="flex flex-row flex-wrap items-center lg:items-end relative justify-center">
+        <img
+          className="w-full m-0 h-full"
+          src="https://res.cloudinary.com/rahrang-dev/image/upload/f_auto,fl_force_strip,q_auto:best/website/landing_images/contact-4.jpg"
+          alt="Rahul Rangnekar"
+        />
+        <div className="px-6 lg:mr-8 lg:absolute">{content}</div>
+      </div>
+      <div className="my-4 flex flex-col items-center justify-center">
+        <h3 className="text-blue text-3xl font-thin my-4">
+          and say hi online!
+        </h3>
+        <div className="my-2 px-2 flex flex-row flex-wrap items-center justify-center">
+          {CONTACT_LINKS.map(c => (
+            <IconLink
+              {...{
+                iconSize: 'lg',
+                iconColor: 'blue-dark',
+                hoverColor: 'off-white',
+                boxSize: 40,
+                bgColor: 'blue-lighter',
+                ...c
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    </FadeIn>
   );
 };
-
-const Form = styled.form`
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-`;
 
 export default ContactPage;

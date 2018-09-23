@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import styled from 'styled-components';
 
 import Navbar, { NAVBAR_WIDTH } from 'components/Navbar/';
-import { ColumnContainer } from 'components/reusable/Containers';
 
-import 'styles/index.scss';
-import 'styles/box-sizing.scss';
-import 'styles/markdown.scss';
+import './index.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const ALT_STYLE_PATHS = ['/', '/contact'];
 class Layout extends Component {
@@ -32,50 +29,39 @@ class Layout extends Component {
     const { children, data } = this.props;
     const { navbarIsOpen } = this.state;
     return (
-      <div>
+      <div style={{ minWidth: 360 }}>
         <Helmet
           title="Rahul Rangnekar"
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' }
+            { name: 'description', content: '' },
+            {
+              name: 'keywords',
+              content:
+                'software developer, designer, writer, lover of fun, staying active, and dogs'
+            }
           ]}
         />
-        <TopBar className="m-0" />
+        <hr className="no-border h-1 bg-yellow fixed pin w-full z-30 m-0" />
         <Navbar
           siteTitle={data.site.siteMetadata.title}
           isOpen={navbarIsOpen}
           toggle={this.toggleNavbar}
         />
-        <Container
-          ai="flex-start"
-          marginLeft={this.calcMarginLeft(navbarIsOpen)}
+        <div
+          className="flex flex-col flex-wrap items-start justify-center transition"
+          style={{ marginLeft: this.calcMarginLeft(navbarIsOpen) }}
+          // marginLeft={this.calcMarginLeft(navbarIsOpen)}
         >
           {children()}
-        </Container>
+        </div>
       </div>
     );
   }
 }
 
 Layout.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.func.isRequired
 };
-
-const Container = ColumnContainer.extend`
-  margin-left: ${props => `${props.marginLeft}px`};
-  transition: all 0.25s;
-`;
-
-const TopBar = styled.hr`
-  border: none;
-  height: 5px;
-  background-color: #d9b310;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-`;
 
 export default Layout;
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
-import { RowContainer } from 'components/reusable/Containers';
 import ClearButton from 'components/reusable/buttons/ClearButton';
 import { getMonth, getYear, formatMonth } from 'utils/dateHelpers';
 import MonthSelect from './MonthSelect';
@@ -25,8 +23,10 @@ const DateSelect = ({ dateString, type, onSelect }) => {
   };
 
   return (
-    <RowContainer className="m-v-q">
-      <Name>{type}</Name>
+    <div className="flex flex-row flex-wrap items-center justify-center my-1">
+      <span className="text-blue capitalize" style={{ minWidth: '50px' }}>
+        {type}
+      </span>
       <MonthSelect
         onSelect={onMonthChange}
         selectedValue={getMonth(dateString)}
@@ -37,20 +37,14 @@ const DateSelect = ({ dateString, type, onSelect }) => {
         selectedValue={getYear(dateString)}
         width={60}
       />
-      <ClearButton text={type} onClick={() => onSelect(type, '')} />
-    </RowContainer>
+      <ClearButton onClick={() => onSelect(type, '')} />
+    </div>
   );
 };
 
 DateSelect.propTypes = {
-  date: PropTypes.string,
-  type: PropTypes.oneOf(['start', 'end'])
+  date: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['start', 'end']).isRequired
 };
-
-const Name = styled.span`
-  color: #0b3c5d;
-  text-transform: capitalize;
-  min-width: 50px;
-`;
 
 export default DateSelect;

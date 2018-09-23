@@ -2,74 +2,52 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { RowContainer } from 'components/reusable/Containers';
 import ClearButton from 'components/reusable/buttons/ClearButton';
 
-const Select = ({ name, options, selectedValue, onSelect, noClear, width }) => {
+const Select = ({ name, options, selectedValue, onSelect, noClear }) => {
   const onChange = e => {
-    const { value } = e.target;
+    const {
+      target: { value }
+    } = e;
     return onSelect(value === 'all' ? '' : value);
   };
 
-  const createOption = opt => (
-    <option key={opt.value} value={opt.value}>
-      {opt.label}
+  const createOption = ({ label, value }) => (
+    <option key={value} value={value}>
+      {label}
     </option>
   );
 
   return (
-    <RowContainer ai="flex-end">
-      {!!name.length && <Name>{name}</Name>}
-      <SelectInput
-        className="m-h-h font-small"
+    <div className="flex flex-row flex-wrap items-end justify-center">
+      {!!name.length && <span className="text-blue capitalize">{name}</span>}
+      <select
+        className="bg-transparent bg-off-white border-b-blue-2 rounded-none text-sm hover:text-off-white hover:bg-blue cursor-pointer transition mx-2"
         name={name}
         onChange={onChange}
         value={selectedValue}
-        width={width}
       >
         {options.map(createOption)}
-      </SelectInput>
+      </select>
       {!noClear && <ClearButton onClick={() => onSelect('')} />}
-    </RowContainer>
+    </div>
   );
 };
 
-const Name = styled.span`
-  color: #0b3c5d;
-  text-transform: capitalize;
-`;
-
-const SelectInput = styled.select`
-  background-color: transparent;
-  background-color: #f8f8f8;
-  border: none;
-  border-radius: 0;
-  border-bottom: 3px solid #328cc1;
-  cursor: pointer;
-  outline: none;
-  text-transform: uppercase;
-  transition: all 0.25s;
-  height: 25px;
-  width: ${props => (props.width ? `${props.width}px` : '150px')};
-
-  &:hover {
-    background-color: #328cc1;
-    color: #fff;
-  }
-`;
-
 Select.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      label: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired
     })
-  ),
-  selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  onSelect: PropTypes.func,
-  noClear: PropTypes.bool.isRequired,
-  width: PropTypes.number
+  ).isRequired,
+  selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
+  onSelect: PropTypes.func.isRequired,
+  noClear: PropTypes.bool
 };
 
 Select.defaultProps = {

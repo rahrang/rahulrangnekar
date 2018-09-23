@@ -29,15 +29,19 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build:css": "tailwind build ./src/layouts/index.tailwind.css -c ./tailwind.config.js -o ./src/layouts/index.css",
+    "build": "yarn build:css && purgecss -c ./purgecss.config.js -o ./src/layouts && gatsby build",
+    "develop": "yarn build:css && gatsby develop",
     "serve": "gatsby serve",
-    "deploy": "yarn run build && yarn run serve",
+    "deploy": "yarn format && yarn build && yarn serve",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.3.1",
     "gatsby-plugin-remove-trailing-slashes": "^1.0.9",
-    "prettier": "^1.12.1"
+    "prettier": "^1.12.1",
+    "purgecss": "^1.1.0",
+    "tailwindcss": "^0.6.5"
   }
 }

@@ -40,19 +40,15 @@ export const generateYears = (
   endYear = new Date().getFullYear() + 1
 ) => {
   const yearRange = range(startYear, endYear);
-  return yearRange.map(y => {
-    return { label: y, value: y };
-  });
+  return yearRange.map(y => ({ label: y, value: y }));
 };
 
 export const generateMonths = (startMonth, endMonth = 11) => {
   const monthRange = range(startMonth, endMonth + 1);
-  return monthRange.map(m => {
-    return { label: MONTHS[m], value: m };
-  });
+  return monthRange.map(m => ({ label: MONTHS[m], value: m }));
 };
 
-export const isValid = arg => !(isEmpty(arg) || isUndefined(arg));
+export const isValid = arg => !(isUndefined(arg) || isEmpty(arg));
 
 export const getMonth = date => {
   if (isDate(date)) return date.getMonth();

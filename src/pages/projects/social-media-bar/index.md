@@ -3,8 +3,8 @@ title: 'Social Media Bar'
 key: 'social-media-bar'
 description: 'An open-source React component for external links to social media profiles.'
 tags: ['software', 'open-source']
-timespan: ['11-2017', '08-2018']
-status: 'ongoing'
+timespan: ['11-2017', '12-2017']
+status: 'deprecated'
 ---
 
 [GitHub](https://github.com/rahrang/react-social-media-bar)

@@ -4,7 +4,7 @@ key: 'life-lessons'
 description: 'A lesson a day in a Medium series.'
 tags: ['writing', 'medium']
 timespan: ['01-2018', '12-2018']
-status: 'ongoing'
+status: 'deprecated'
 ---
 
 [Go To Series](https://medium.com/series/365-life-lessons-in-2018-5c86116f7929)
