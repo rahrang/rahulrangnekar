@@ -8,7 +8,7 @@ import Navbar, { NAVBAR_WIDTH } from '../Navbar/';
 import '../../styles/index.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
-const ALT_STYLE_PATHS = ['/', '/contact'];
+const ALT_STYLE_PATHS = ['/projects'];
 class Layout extends Component {
   state = {
     navbarIsOpen: true
@@ -20,10 +20,9 @@ class Layout extends Component {
     const {
       location: { pathname }
     } = this.props;
-    const altStyle = ALT_STYLE_PATHS.includes(pathname);
     if (navbarIsOpen) return NAVBAR_WIDTH;
-    if (altStyle) return 0;
-    return 40;
+    if (ALT_STYLE_PATHS.includes(pathname)) return 40;
+    return 0;
   };
 
   render() {

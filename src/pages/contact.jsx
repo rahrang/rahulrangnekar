@@ -6,7 +6,7 @@ import LongText from '../components/reusable/inputs/LongText';
 import { FadeIn } from '../components/reusable/ui/';
 import IconLink from '../components/reusable/icons/IconLink';
 
-import CONTACT_LINKS from '../constants/contact';
+import {professional, personal} from '../constants/contact';
 
 const ContactPage = ({ location }) => {
   const content = (
@@ -70,20 +70,43 @@ const ContactPage = ({ location }) => {
           <h3 className="text-blue text-3xl font-thin my-4">
             and say hi online!
           </h3>
-          <div className="my-2 px-2 flex flex-row flex-wrap items-center justify-center">
-            {CONTACT_LINKS.map(c => (
-              <IconLink
-                key={`icon_link_${c.iconClass}`}
-                {...{
-                  iconSize: 'lg',
-                  iconColor: 'blue-dark',
-                  hoverColor: 'off-white',
-                  boxSize: 40,
-                  bgColor: 'blue-lighter',
-                  ...c
-                }}
-              />
-            ))}
+          <div className="my-8 px-2 flex flex-col md:flex-row flex-wrap items-center justify-around w-full">
+            <div className="">
+              <h6 className="text-sm uppercase text-blue">Professional</h6>
+              <div className="flex flex-row flex-wrap items-center justify-center">
+                {professional.map(c => (
+                  <IconLink
+                    key={`icon_link_professional_${c.iconClass}`}
+                    {...{
+                      iconSize: 'xl',
+                      iconColor: 'blue-dark',
+                      hoverColor: 'off-white',
+                      boxSize: 45,
+                      bgColor: 'blue-lighter',
+                      ...c
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+            <div>
+              <h6 className="text-sm uppercase text-blue">Personal</h6>
+              <div className="flex flex-row flex-wrap items-center justify-center">
+                {personal.map(c => (
+                  <IconLink
+                    key={`icon_link_personal_${c.iconClass}`}
+                    {...{
+                      iconSize: 'xl',
+                      iconColor: 'blue-dark',
+                      hoverColor: 'off-white',
+                      boxSize: 45,
+                      bgColor: 'blue-lighter',
+                      ...c
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </FadeIn>
