@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
+import _throttle from 'lodash/throttle';
 
 import Navbar, { NAVBAR_WIDTH } from '../Navbar/';
 
@@ -9,9 +10,29 @@ import '../../styles/index.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 const ALT_STYLE_PATHS = ['/projects'];
+const SMALL_BREAKPOINT = 576;
 class Layout extends Component {
   state = {
     navbarIsOpen: true
+  };
+
+  componentDidMount() {
+    this.mounted = true;
+    if (window.innerWidth < SMALL_BREAKPOINT) this.toggleNavbar(false);
+    window.addEventListener('resize', _throttle(this.checkResize, 500));
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
+  checkResize = e => {
+    const {
+      target: { innerWidth }
+    } = e;
+    if (this.mounted) {
+      if (innerWidth < SMALL_BREAKPOINT) this.toggleNavbar(false);
+    }
   };
 
   toggleNavbar = bool => this.setState({ navbarIsOpen: bool });
