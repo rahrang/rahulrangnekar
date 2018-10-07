@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import _throttle from 'lodash/throttle';
+import _isUndefined from 'lodash/isUndefined';
 
 import Navbar, { NAVBAR_WIDTH } from '../Navbar/';
 
@@ -18,8 +19,10 @@ class Layout extends Component {
 
   componentDidMount() {
     this.mounted = true;
-    if (window.innerWidth < SMALL_BREAKPOINT) this.toggleNavbar(false);
-    window.addEventListener('resize', _throttle(this.checkResize, 500));
+    if (!_isUndefined(window)) {
+      if (window.innerWidth < SMALL_BREAKPOINT) this.toggleNavbar(false);
+      window.addEventListener('resize', _throttle(this.checkResize, 500));
+    }
   }
 
   componentWillUnmount() {
@@ -42,11 +45,12 @@ class Layout extends Component {
       location: { pathname }
     } = this.props;
     if (ALT_STYLE_PATHS.includes(pathname)) {
-      if (window.innerWidth < SMALL_BREAKPOINT) return 40; // alt page, small screen
+      if (!_isUndefined(window) && window.innerWidth < SMALL_BREAKPOINT)
+        return 40; // alt page, small screen
       if (navbarIsOpen) return NAVBAR_WIDTH; // alt page, reg screen, open navbar
       return 40; // alt page, reg screen, closed navbar
     }
-    if (window.innerWidth < SMALL_BREAKPOINT) return 0; // reg page, small screen
+    if (!_isUndefined(window) && window.innerWidth < SMALL_BREAKPOINT) return 0; // reg page, small screen
     if (navbarIsOpen) return NAVBAR_WIDTH; // reg page, reg screen, open navbar
     return 0; // reg page, reg screen, closed navbar
   };
