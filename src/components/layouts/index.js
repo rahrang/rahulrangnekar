@@ -14,14 +14,14 @@ export const SMALL_BREAKPOINT = 576;
 class Layout extends Component {
   state = {
     navbarIsOpen: true,
-    windowWidth: window.innerWidth
+    windowWidth: 0
   };
 
   componentDidMount() {
     this.mounted = true;
-    const { windowWidth } = this.state;
-    debugger;
-    if (windowWidth < SMALL_BREAKPOINT) this.toggleNavbar(false);
+    const { innerWidth } = window;
+    this.setState({ windowWidth: innerWidth });
+    if (innerWidth < SMALL_BREAKPOINT) this.toggleNavbar(false);
     window.addEventListener('resize', _throttle(this.checkResize, 500));
   }
 
