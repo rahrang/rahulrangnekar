@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import _throttle from 'lodash/throttle';
-import _isUndefined from 'lodash/isUndefined';
 
 import Navbar, { NAVBAR_WIDTH } from '../Navbar/';
 
@@ -14,15 +13,16 @@ const ALT_STYLE_PATHS = ['/projects'];
 export const SMALL_BREAKPOINT = 576;
 class Layout extends Component {
   state = {
-    navbarIsOpen: true
+    navbarIsOpen: true,
+    windowWidth: window.innerWidth
   };
 
   componentDidMount() {
     this.mounted = true;
-    if (!_isUndefined(window)) {
-      if (window.innerWidth < SMALL_BREAKPOINT) this.toggleNavbar(false);
-      window.addEventListener('resize', _throttle(this.checkResize, 500));
-    }
+    const { windowWidth } = this.state;
+    debugger;
+    if (windowWidth < SMALL_BREAKPOINT) this.toggleNavbar(false);
+    window.addEventListener('resize', _throttle(this.checkResize, 500));
   }
 
   componentWillUnmount() {
@@ -35,6 +35,7 @@ class Layout extends Component {
     } = e;
     if (this.mounted) {
       if (innerWidth < SMALL_BREAKPOINT) this.toggleNavbar(false);
+      this.setState({ windowWidth: innerWidth });
     }
   };
 
@@ -44,13 +45,13 @@ class Layout extends Component {
     const {
       location: { pathname }
     } = this.props;
+    const { windowWidth } = this.state;
     if (ALT_STYLE_PATHS.includes(pathname)) {
-      if (!_isUndefined(window) && window.innerWidth < SMALL_BREAKPOINT)
-        return 40; // alt page, small screen
+      if (windowWidth < SMALL_BREAKPOINT) return 40; // alt page, small screen
       if (navbarIsOpen) return NAVBAR_WIDTH; // alt page, reg screen, open navbar
       return 40; // alt page, reg screen, closed navbar
     }
-    if (!_isUndefined(window) && window.innerWidth < SMALL_BREAKPOINT) return 0; // reg page, small screen
+    if (windowWidth < SMALL_BREAKPOINT) return 0; // reg page, small screen
     if (navbarIsOpen) return NAVBAR_WIDTH; // reg page, reg screen, open navbar
     return 0; // reg page, reg screen, closed navbar
   };
