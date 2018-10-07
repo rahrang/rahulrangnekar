@@ -22,7 +22,9 @@ const Navbar = ({ siteTitle, isOpen, toggle }) => {
       </CloseContainer>
       <h1 className="text-off-white mb-8">{siteTitle}</h1>
       <div className="flex flex-col flex-wrap items-start justify-center px-4">
-        {NAVBAR_LINKS.map(n => <NavLink key={n.to} {...n} />)}
+        {NAVBAR_LINKS.map(n => (
+          <NavLink key={n.to} {...n} />
+        ))}
       </div>
     </div>
   ) : (

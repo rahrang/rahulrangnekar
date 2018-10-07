@@ -9,7 +9,7 @@ const Descriptor = ({ iconOpts, header, description }) => (
     className="flex flex-col items-start m-3 xl:mx-6 p-2 w-full md:w-48 xl:w-64"
     // style={{ maxWidth: 225 }}
   >
-    <div className="flex justify-center w-full my-2">
+    <div className="flex justify-start w-full my-2">
       <CircleIcon {...iconOpts} />
     </div>
     {!_isEmpty(header) && (

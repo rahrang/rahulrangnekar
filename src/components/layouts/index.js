@@ -10,7 +10,7 @@ import '../../styles/index.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 const ALT_STYLE_PATHS = ['/projects'];
-const SMALL_BREAKPOINT = 576;
+export const SMALL_BREAKPOINT = 576;
 class Layout extends Component {
   state = {
     navbarIsOpen: true
@@ -41,6 +41,7 @@ class Layout extends Component {
     const {
       location: { pathname }
     } = this.props;
+    if (window.innerWidth < SMALL_BREAKPOINT) return 0;
     if (navbarIsOpen) return NAVBAR_WIDTH;
     if (ALT_STYLE_PATHS.includes(pathname)) return 40;
     return 0;

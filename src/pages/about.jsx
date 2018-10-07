@@ -87,11 +87,12 @@ const About = ({ location }) => (
           </div>
           <div className="px-4 w-full lg:w-1/2 my-4">
             <p className="leading-loose text-sm md:text-md">
-              Most recently, I'm exploring the worlds of climbing and coffee. My
-              morning workouts are at the local climbing gym, and my pre-work
-              ritual includes brewing coffee in my French press (or leaving it
-              in the fridge for overnight cold brew). I also lift weights and
-              run to stay healthy and challenge myself in half-marathons.
+              More recently, I'm exploring the worlds of climbing, coffee, and
+              chai. My morning workouts are bouldering or weightlifting at the
+              local climbing gym, my pre-work ritual is brewing coffee in my
+              French Press (or leaving it in the fridge for overnight cold
+              brew), and on the weekends I opt to make masala chai instead. I'm
+              training for the Berkeley Half Marathon in November!
             </p>
           </div>
         </div>

@@ -6,7 +6,11 @@ import LongText from '../components/reusable/inputs/LongText';
 import { FadeIn } from '../components/reusable/ui/';
 import IconLink from '../components/reusable/icons/IconLink';
 
-import {professional, personal} from '../constants/contact';
+import { professional, personal } from '../constants/contact';
+import { SMALL_BREAKPOINT } from '../components/layouts/';
+
+const BASE_IMG_URL =
+  'https://res.cloudinary.com/rahrang-dev/image/upload/f_auto,fl_force_strip,q_auto:best/website/landing_images/';
 
 const ContactPage = ({ location }) => {
   const content = (
@@ -41,7 +45,7 @@ const ContactPage = ({ location }) => {
           </div>
           <LongText
             name="message"
-            placeholder="Hello, Rahul! I loved visiting your website -- good luck in the future!"
+            placeholder="Hey Rahul! Your website is awesome -- good luck in the future!"
             label="Message"
           />
         </div>
@@ -61,7 +65,9 @@ const ContactPage = ({ location }) => {
         <div className="flex flex-row flex-wrap items-center lg:items-end relative justify-center">
           <img
             className="w-full m-0 h-full"
-            src="https://res.cloudinary.com/rahrang-dev/image/upload/f_auto,fl_force_strip,q_auto:best/website/landing_images/contact-4.jpg"
+            srcSet={`${BASE_IMG_URL}contact-576w 1080w, ${BASE_IMG_URL}contact-1440w 1440w`}
+            sizes={`(max-width: ${SMALL_BREAKPOINT}px) 100vw, 100vw`}
+            src={`${BASE_IMG_URL}contact-1440w`}
             alt="Rahul Rangnekar"
           />
           <div className="px-6 lg:mr-8 lg:absolute">{content}</div>
@@ -71,7 +77,7 @@ const ContactPage = ({ location }) => {
             and say hi online!
           </h3>
           <div className="my-8 px-2 flex flex-col md:flex-row flex-wrap items-center justify-around w-full">
-            <div className="">
+            <div className="my-2">
               <h6 className="text-sm uppercase text-blue">Professional</h6>
               <div className="flex flex-row flex-wrap items-center justify-center">
                 {professional.map(c => (
@@ -89,7 +95,7 @@ const ContactPage = ({ location }) => {
                 ))}
               </div>
             </div>
-            <div>
+            <div className="my-2">
               <h6 className="text-sm uppercase text-blue">Personal</h6>
               <div className="flex flex-row flex-wrap items-center justify-center">
                 {personal.map(c => (
