@@ -41,10 +41,14 @@ class Layout extends Component {
     const {
       location: { pathname }
     } = this.props;
-    if (window.innerWidth < SMALL_BREAKPOINT) return 0;
-    if (navbarIsOpen) return NAVBAR_WIDTH;
-    if (ALT_STYLE_PATHS.includes(pathname)) return 50;
-    return 0;
+    if (ALT_STYLE_PATHS.includes(pathname)) {
+      if (window.innerWidth < SMALL_BREAKPOINT) return 40; // alt page, small screen
+      if (navbarIsOpen) return NAVBAR_WIDTH; // alt page, reg screen, open navbar
+      return 40; // alt page, reg screen, closed navbar
+    }
+    if (window.innerWidth < SMALL_BREAKPOINT) return 0; // reg page, small screen
+    if (navbarIsOpen) return NAVBAR_WIDTH; // reg page, reg screen, open navbar
+    return 0; // reg page, reg screen, closed navbar
   };
 
   render() {
