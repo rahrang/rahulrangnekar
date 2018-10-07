@@ -43,7 +43,7 @@ class Layout extends Component {
     } = this.props;
     if (window.innerWidth < SMALL_BREAKPOINT) return 0;
     if (navbarIsOpen) return NAVBAR_WIDTH;
-    if (ALT_STYLE_PATHS.includes(pathname)) return 40;
+    if (ALT_STYLE_PATHS.includes(pathname)) return 50;
     return 0;
   };
 

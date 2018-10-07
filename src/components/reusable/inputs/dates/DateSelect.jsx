@@ -23,7 +23,7 @@ const DateSelect = ({ dateString, type, onSelect }) => {
   };
 
   return (
-    <div className="flex flex-row flex-wrap items-center justify-center my-1">
+    <div className="flex flex-row items-center justify-center my-1">
       <span className="text-blue capitalize" style={{ minWidth: '50px' }}>
         {type}
       </span>
