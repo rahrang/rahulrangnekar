@@ -6,15 +6,17 @@ import CircleIcon from './icons/CircleIcon';
 
 const Descriptor = ({ iconOpts, header, description }) => (
   <div
-    className="flex flex-col items-start my-4 mx-8"
-    style={{ maxWidth: 300 }}
+    className="flex flex-col items-start m-3 xl:mx-6 p-2 w-full md:w-48 xl:w-64"
+    // style={{ maxWidth: 225 }}
   >
-    <CircleIcon {...iconOpts} />
+    <div className="flex justify-start w-full my-2">
+      <CircleIcon {...iconOpts} />
+    </div>
     {!_isEmpty(header) && (
       <p className="text-black uppercase text-sm my-2">{header}</p>
     )}
     {!_isEmpty(description) && (
-      <p className="text-blue-light text-base font-light">{description}</p>
+      <p className="text-blue-light text-base leading-tight">{description}</p>
     )}
   </div>
 );

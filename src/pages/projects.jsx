@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layouts/';
@@ -72,12 +71,12 @@ class ProjectsPage extends Component {
   }
 
   filterData = props => {
-    const params = getParams(props);
+    const { status, tag, start, end } = getParams(props);
     let data = this.data;
-    data = filterByStatus(data, params.status);
-    data = filterByTag(data, params.tag);
-    data = filterByStartDate(data, params.start);
-    data = filterByEndDate(data, params.end);
+    data = filterByStatus(data, status);
+    data = filterByTag(data, tag);
+    data = filterByStartDate(data, start);
+    data = filterByEndDate(data, end);
     this.setState({ data });
   };
 
@@ -125,30 +124,34 @@ class ProjectsPage extends Component {
     const { location, history } = this.props;
     return (
       <Layout location={location} history={history}>
-        <ProjectsContainer className="w-full px-6 py-4">
-          <div className="flex flex-col flex-wrap items-start justify-center bg-off-white rounded-lg px-4">
-            <h1 className="mb-4">My Projects</h1>
-            <p>
+        <div className="w-full p-4">
+          <div className="flex flex-col flex-wrap items-start justify-center">
+            <h3 className="mb-4 xl:text-2xl">My Projects</h3>
+            <p className="text-sm md:text-md">
               I work on projects of all natures to provide value to my
               communities, learn new skills, improve myself, and enjoy life!
             </p>
           </div>
-          <div className="flex flex-col flex-wrap items-start justify-start self-end my-8">
-            <Select
-              name="status"
-              options={STATUS_OPTIONS}
-              selectedValue={status}
-              resetValue="all"
-              onSelect={this.setStatus}
-            />
-            <DateRangeSelect
-              start={start || DEFAULT_START}
-              end={end || DEFAULT_END}
-              onSelect={this.setDate}
-            />
-            <TagContainer onClear={this.setTag}>
-              {this.createTags()}
-            </TagContainer>
+          <div className="flex flex-col md:flex-row items-start my-8 md:my-6">
+            <div className="flex flex-col flex-wrap items-start justify-center">
+              <Select
+                name="status"
+                options={STATUS_OPTIONS}
+                selectedValue={status}
+                resetValue="all"
+                onSelect={this.setStatus}
+              />
+              <DateRangeSelect
+                start={start || DEFAULT_START}
+                end={end || DEFAULT_END}
+                onSelect={this.setDate}
+              />
+            </div>
+            <div className="m-0 md:mx-6">
+              <TagContainer onClear={this.setTag}>
+                {this.createTags()}
+              </TagContainer>
+            </div>
           </div>
           <div
             className="flex flex-col flex-wrap items-center justify-center"
@@ -162,17 +165,11 @@ class ProjectsPage extends Component {
               <EmptyState text="No projects were found. Change the filters!" />
             )}
           </div>
-        </ProjectsContainer>
+        </div>
       </Layout>
     );
   }
 }
-
-const ProjectsContainer = styled.div`
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-`;
 
 export const projectQuery = graphql`
   query ProjectIndexQuery {

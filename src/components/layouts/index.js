@@ -2,16 +2,41 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
+import _throttle from 'lodash/throttle';
 
 import Navbar, { NAVBAR_WIDTH } from '../Navbar/';
 
 import '../../styles/index.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
-const ALT_STYLE_PATHS = ['/', '/contact'];
+const ALT_STYLE_PATHS = ['/projects'];
+export const SMALL_BREAKPOINT = 576;
 class Layout extends Component {
   state = {
-    navbarIsOpen: true
+    navbarIsOpen: true,
+    windowWidth: 0
+  };
+
+  componentDidMount() {
+    this.mounted = true;
+    const { innerWidth } = window;
+    this.setState({ windowWidth: innerWidth });
+    if (innerWidth < SMALL_BREAKPOINT) this.toggleNavbar(false);
+    window.addEventListener('resize', _throttle(this.checkResize, 500));
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
+  checkResize = e => {
+    const {
+      target: { innerWidth }
+    } = e;
+    if (this.mounted) {
+      if (innerWidth < SMALL_BREAKPOINT) this.toggleNavbar(false);
+      this.setState({ windowWidth: innerWidth });
+    }
   };
 
   toggleNavbar = bool => this.setState({ navbarIsOpen: bool });
@@ -20,10 +45,15 @@ class Layout extends Component {
     const {
       location: { pathname }
     } = this.props;
-    const altStyle = ALT_STYLE_PATHS.includes(pathname);
-    if (navbarIsOpen) return NAVBAR_WIDTH;
-    if (altStyle) return 0;
-    return 40;
+    const { windowWidth } = this.state;
+    if (ALT_STYLE_PATHS.includes(pathname)) {
+      if (windowWidth < SMALL_BREAKPOINT) return 40; // alt page, small screen
+      if (navbarIsOpen) return NAVBAR_WIDTH; // alt page, reg screen, open navbar
+      return 40; // alt page, reg screen, closed navbar
+    }
+    if (windowWidth < SMALL_BREAKPOINT) return 0; // reg page, small screen
+    if (navbarIsOpen) return NAVBAR_WIDTH; // reg page, reg screen, open navbar
+    return 0; // reg page, reg screen, closed navbar
   };
 
   render() {

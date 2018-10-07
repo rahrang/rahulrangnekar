@@ -5,9 +5,9 @@ import _isEmpty from 'lodash/isEmpty';
 const ClearButton = ({ text, onClick }) =>
   _isEmpty(text) ? (
     <span
-      className="bg-off-white border border-solid text-maroon hover:bg-maroon hover:text-off-white rounded-50 m-1 text-xxs cursor-pointer flex items-center justify-center transition"
+      className="bg-off-white border border-solid text-maroon hover:bg-maroon hover:text-off-white rounded-50 m-1 cursor-pointer flex items-center justify-center transition"
       onClick={onClick}
-      style={{ height: 25, width: 25 }}
+      style={{ height: 18, width: 18, fontSize: '0.55rem' }}
     >
       <i className="fas fa-times" />
     </span>
