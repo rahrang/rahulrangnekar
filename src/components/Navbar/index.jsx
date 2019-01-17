@@ -8,18 +8,17 @@ export default class Navbar extends Component {
     return (
       <NavbarStyles>
         <div className="navbar-section">
-          <Link to="/" activeClassName="active-navlink">
-            Home
-          </Link>
           <Link to="/about" activeClassName="active-navlink">
             About
           </Link>
-        </div>
-        <h1 className="headline">Rahul Rangnekar</h1>
-        <div className="navbar-section">
           <Link to="/projects" activeClassName="active-navlink">
-            Project
+            Projects
           </Link>
+        </div>
+        <Link className="headline" to="/">
+          <h1>Rahul Rangnekar</h1>
+        </Link>
+        <div className="navbar-section">
           <Link to="/contact" activeClassName="active-navlink">
             Contact
           </Link>

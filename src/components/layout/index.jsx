@@ -19,14 +19,14 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={() => (
       <React.Fragment>
         <ThemeProvider theme={theme}>
           <React.Fragment>
             <GlobalStyle />
             <LayoutStyles>
               <Navbar />
-              {children}
+              <div className="content">{children}</div>
             </LayoutStyles>
           </React.Fragment>
         </ThemeProvider>

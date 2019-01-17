@@ -30,9 +30,9 @@ const darkTheme = {
 export default {
   colors: (time => {
     const currHour = getHours(time);
-    // if (currHour < 7 || currHour > 17) return darkTheme;
-    // return lightTheme;
-    if (currHour < 7 || currHour > 17) return lightTheme;
-    return darkTheme;
+    if (currHour < 7 || currHour > 17) return darkTheme;
+    return lightTheme;
+    // if (currHour < 7 || currHour > 17) return lightTheme;
+    // return darkTheme;
   })(Date.now())
 };

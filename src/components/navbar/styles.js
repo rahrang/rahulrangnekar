@@ -1,21 +1,33 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  margin-top: 1rem;
+  margin: 1rem 0 0;
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
   .headline {
-    font-size: 40px;
+    font-size: 1rem;
     font-family: serif;
-    margin: 0.25rem 0 0;
+    letter-spacing: 0.05rem;
+    text-align: center;
+    margin: 0;
+    padding: 0 0.5rem;
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .navbar-section {
     * {
       display: inline-block;
+    }
+
+    a:first-child {
+      margin-bottom: 0.5rem;
     }
   }
 
@@ -25,9 +37,10 @@ export default styled.div`
 
   a {
     color: ${props => props.theme.colors.textColor};
+    letter-spacing: 0.05rem;
+    padding: 0.25rem 0.5rem;
+    margin: 0 0.5rem;
     text-transform: uppercase;
-    padding: 5px 10px;
-    margin: 0 10px;
   }
 
   a.pill {

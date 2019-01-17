@@ -1,0 +1,28 @@
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+
+const Image = () => (
+  <StaticQuery
+    query={graphql`
+      query {
+        placeholderImage: file(
+          relativePath: { eq: "about/rahul-coffee.jpeg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 400) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={data => (
+      <div style={{ maxWidth: 400 }}>
+        <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+      </div>
+    )}
+  />
+);
+
+export default Image;

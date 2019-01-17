@@ -22,7 +22,7 @@ export default createGlobalStyle`
   body {
     background-color: ${props => props.theme.colors.bgColor};
     font-family: 'system-ui';
-    margin: 0;
+    margin: 0 4rem;
     padding: 0;
 
     /* TODO: add font, flex styles */
