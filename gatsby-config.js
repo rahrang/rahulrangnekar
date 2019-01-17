@@ -1,39 +1,35 @@
 module.exports = {
   siteMetadata: {
-    title: 'Rahul Rangnekar'
+    title: `Rahul Rangnekar`,
+    description: `Software Developer. Writer. Enthusiast.`,
+    author: `@rahrang`
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages'
+        name: `images`,
+        path: `${__dirname}/src/images`
       }
     },
-    'gatsby-transformer-remark',
-    'gatsby-plugin-sharp',
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1440
-            }
-          },
-          'gatsby-remark-external-links'
-        ]
+        name: `Rahul Rangnekar`,
+        short_name: `Rahul`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
       }
-    },
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography'
-      }
-    },
-    'gatsby-plugin-remove-trailing-slashes'
+    }
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.app/offline
+    // 'gatsby-plugin-offline',
   ]
 };
