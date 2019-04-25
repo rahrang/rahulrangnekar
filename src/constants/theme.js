@@ -1,4 +1,8 @@
-import getHours from 'date-fns/get_hours';
+import * as storage from './storage';
+
+const STORAGE_THEME_KEY = 'css-theme';
+export const LIGHT_THEME_KEY = 'light';
+export const DARK_THEME_KEY = 'dark';
 
 const colors = {
   black: '#262626',
@@ -7,7 +11,10 @@ const colors = {
   gold: '#F0CE3B'
 };
 
-// 7am - 6pm
+const theme = {
+  br: `4px`
+};
+
 const lightTheme = {
   bgColor: colors.white,
   textColor: colors.black,
@@ -17,7 +24,6 @@ const lightTheme = {
   linkHoverColor: colors.gold
 };
 
-// 6pm - 7am
 const darkTheme = {
   bgColor: colors.black,
   textColor: colors.white,
@@ -27,12 +33,35 @@ const darkTheme = {
   linkHoverColor: colors.blue
 };
 
-export default {
-  colors: (time => {
-    const currHour = getHours(time);
-    if (currHour < 7 || currHour > 17) return darkTheme;
-    return lightTheme;
-    // if (currHour < 7 || currHour > 17) return lightTheme;
-    // return darkTheme;
-  })(Date.now())
+const themeKeyMap = {
+  [LIGHT_THEME_KEY]: {
+    colors: {
+      ...lightTheme,
+      ...colors
+    },
+    ...theme
+  },
+  [DARK_THEME_KEY]: {
+    colors: {
+      ...darkTheme,
+      ...colors
+    },
+    ...theme
+  }
+};
+
+export const getInitialTheme = () => {
+  const themeKey = storage.get(STORAGE_THEME_KEY);
+  if (themeKey) {
+    return LIGHT_THEME_KEY;
+  }
+  return themeKey;
+};
+
+export const getTheme = themeKey => {
+  return themeKeyMap[themeKey] || themeKeyMap[LIGHT_THEME_KEY];
+};
+
+export const setTheme = themeKey => {
+  storage.set(STORAGE_THEME_KEY, themeKey);
 };
