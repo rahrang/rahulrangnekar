@@ -22,10 +22,15 @@ export default createGlobalStyle`
   body {
     background-color: ${props => props.theme.colors.bgColor};
     font-family: 'system-ui';
-    margin: 0 4rem;
+    margin: 0;
     padding: 0;
 
     /* TODO: add font, flex styles */
+
+    .content-container {
+      max-width: ${props => props.theme.contentWidth};
+      margin: 0 auto;
+    }
 
     h1, h2, h3, h4 {
       color: ${props => props.theme.colors.headingColor};

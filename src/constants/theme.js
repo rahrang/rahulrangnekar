@@ -12,6 +12,7 @@ const colors = {
 };
 
 const theme = {
+  contentWidth: '900px',
   br: `4px`
 };
 

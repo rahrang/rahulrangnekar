@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 
-import { getInitialTheme, getTheme, setTheme } from '../../constants/theme';
-import GlobalStyle from '../globalStyle';
+import { getInitialTheme, getTheme, setTheme } from 'constants/theme';
+import GlobalStyle from 'components/globalStyle';
 import LayoutStyles from './styles';
-import Navbar from '../navbar';
-import SwitchTheme from '../SwitchTheme';
+import Navbar from 'components/Navbar';
+import Footer from 'components/Footer';
+import SwitchTheme from 'components/SwitchTheme';
 
 class Layout extends React.Component {
   state = {
@@ -44,7 +45,8 @@ class Layout extends React.Component {
                     currThemeKey={themeKey}
                   />
                   <Navbar />
-                  <div className="content">{children}</div>
+                  <div className="content-container">{children}</div>
+                  <Footer />
                 </LayoutStyles>
               </React.Fragment>
             </ThemeProvider>

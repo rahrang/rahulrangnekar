@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Icon from './Icon';
 
-import { LIGHT_THEME_KEY, DARK_THEME_KEY } from '../constants/theme';
+import { LIGHT_THEME_KEY, DARK_THEME_KEY } from 'constants/theme';
 
 const SwitchButton = styled.button`
   position: absolute;
