@@ -27,9 +27,16 @@ export default createGlobalStyle`
 
     /* TODO: add font, flex styles */
 
+    .page-container {
+      margin-top: 2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
     .content-container {
       max-width: ${props => props.theme.contentWidth};
-      margin: 0 auto;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     h1, h2, h3, h4 {
@@ -38,6 +45,7 @@ export default createGlobalStyle`
 
     p {
       color: ${props => props.theme.colors.textColor};
+      line-height: 1.75rem;
     }
 
     a {

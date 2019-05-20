@@ -45,7 +45,9 @@ class Layout extends React.Component {
                     currThemeKey={themeKey}
                   />
                   <Navbar />
-                  <div className="content-container">{children}</div>
+                  <div className="content-container page-container">
+                    {children}
+                  </div>
                   <Footer />
                 </LayoutStyles>
               </React.Fragment>

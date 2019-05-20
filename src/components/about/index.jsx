@@ -8,11 +8,29 @@ const About = () => (
     <div className="wrapper">
       <CoffeeImage />
       <p>
-        I work as a software developer at
+        I am an engineer, caffeine and cheese enthusiast, and amateur athlete. I
+        am happy to spend my time running and bouldering, cooking new foods and
+        making chai or coffee, and creating projects and products to keep me
+        engaged with the latest web technologies.
+      </p>
+    </div>
+    <div className="wrapper wrapper--inverse">
+      <p>
+        I graduated from the University of California at Berkeley in May 2018
+        with B.A. degress in Computer Science and Economics. In my time at Cal,
+        I created several side projects and was an active leader in my
+        business/marketing fraternity. My studies and extracurriculars taught me
+        to work well with teammates, empathize with my products' consumers, and
+        motivate myself to follow my passions.
+      </p>
+    </div>
+    <div className="wrapper">
+      <p>
+        I work as a Fullstack Software Engineer at
         <span>
           {' '}
           <a
-            className="text-blue-lighter hover:text-blue-dark active:text-yellow transition no-underline uppercase text-xs"
+            className=""
             href="https://channelmeter.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -20,22 +38,23 @@ const About = () => (
             ChannelMeter
           </a>{' '}
         </span>
-        in San Francisco, where I build a customer relationship management
-        dashboard for brands and agencies to connect with social media content
-        creators. I contribute to all aspects of our product throughout the
-        stack, but my speciality is front-end design and development. My current
-        project has me automating the onboarding process for new clients.
-        I&#x27;m designing an intuitive user interface, writing instructional
-        copy, and validating and processing CSV files to update our databases,
-        freeing up time and energy for our engineers to build new features and
-        our salespeople to find new leads. I’ve learned a lot on the job and
-        accomplished features I previously wouldn&#x27;t have thought possible.
-        My biggest lesson so far is that{' '}
+        in San Francisco. I build a customer relationship management dashboard
+        for brands and media networks to manage and execute influencer marketing
+        campaigns with social media creators. I integrate our dashboard with
+        APIs from YouTube, Facebook, Instagram, Twitch, and Twitter, analyze and
+        massage data into valuable insights, and develop and iterate upon new
+        and important features. This allows our clients to make better and
+        quicker informed decisions so they can spend more time interacting with
+        their creators and growing their business. I&#x27;ve learned a lot on
+        the job and accomplished tasks I previously wouldn&#x27;t have thought
+        possible. My biggest lesson so far is that{' '}
         <strong>
           there is much more I can learn and do, as long as I&#x27;m willing to
           put in the work.
         </strong>
       </p>
+      <p>I blog about my challenges and experiences.</p>
+      <button>Check it out!</button>
     </div>
   </AboutStyles>
 );

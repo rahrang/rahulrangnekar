@@ -38,13 +38,13 @@ export default styled.div`
     .active-navlink {
       color: ${props => props.theme.colors.activeColor};
 
-      &::before {
+      /* &::before {
         content: '<';
       }
 
       &::after {
         content: '/>';
-      }
+      } */
     }
 
     a {

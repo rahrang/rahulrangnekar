@@ -18,7 +18,7 @@ const Image = () => (
       }
     `}
     render={data => (
-      <div style={{ maxWidth: 400 }}>
+      <div style={{ minWidth: 300, maxWidth: 400 }}>
         <Img fluid={data.placeholderImage.childImageSharp.fluid} />
       </div>
     )}
