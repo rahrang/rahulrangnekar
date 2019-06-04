@@ -13,9 +13,7 @@ export default class Navbar extends React.Component {
               <Link to="/projects" activeClassName="active-navlink">
                 Projects
               </Link>
-              <Link to="/blog" activeClassName="active-navlink">
-                Blog
-              </Link>
+              <a href="https://blog.rahulrangnekar.com">Blog</a>
             </div>
             <Link className="headline" to="/">
               <h1>Rahul Rangnekar</h1>
