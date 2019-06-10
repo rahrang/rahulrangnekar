@@ -29,20 +29,20 @@ module.exports = {
       }
     },
     'gatsby-transformer-remark',
-    // {
-    //   resolve: 'gatsby-transformer-remark',
-    //   options: {
-    //     plugins: [
-    //       {
-    //         resolve: 'gatsby-remark-images',
-    //         options: {
-    //           maxWidth: 900
-    //         }
-    //       },
-    //       'gatsby-remark-external-links'
-    //     ]
-    //   }
-    // },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 900
+            }
+          },
+          'gatsby-remark-external-links'
+        ]
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

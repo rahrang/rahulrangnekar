@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { format as formatDate } from 'date-fns';
 
 const ProjectCardLink = styled(Link)`
-  background-color: ${props => props.theme.colors.widgetBgColor};
+  background-color: ${props => props.theme.colors.offBgColor};
   width: 100%;
   border-radius: ${props => props.theme.br};
 

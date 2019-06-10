@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import ProjectCard from './ProjectCard';
@@ -22,25 +21,5 @@ class Projects extends React.Component {
     return <ProjectsWrapper>{this.renderProjectCards()}</ProjectsWrapper>;
   }
 }
-
-export const projectQuery = graphql`
-  query {
-    allMarkdownRemark {
-      totalCount
-      edges {
-        node {
-          frontmatter {
-            title
-            slug
-            description
-            status
-            tags
-            timespan
-          }
-        }
-      }
-    }
-  }
-`;
 
 export default Projects;

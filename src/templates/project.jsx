@@ -1,5 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
 import { graphql } from 'gatsby';
+
+import Layout from '../components/layout/';
+
+const MarkdownStyles = styled.div`
+  code {
+    background-color: ${props => props.theme.colors.textColor};
+    color: ${props => props.theme.colors.bgColor};
+    padding: 0.25rem;
+  }
+`;
 
 export default function ProjectTemplate({ data }) {
   const {
@@ -10,13 +21,15 @@ export default function ProjectTemplate({ data }) {
   } = data;
 
   return (
-    <div className="p-4">
-      <div className="flex flex-row flex-wrap items-start justify-center my-4">
+    <Layout>
+      <div>
         <h1>{title}</h1>
-        <div className="markdown" dangerouslySetInnerHTML={{ __html: html }} />
-        <div className="flex flex-row flex-wrap items-center justify-center" />
+        <MarkdownStyles
+          className="markdown"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </div>
-    </div>
+    </Layout>
   );
 }
 

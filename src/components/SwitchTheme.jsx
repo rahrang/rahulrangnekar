@@ -19,12 +19,12 @@ const SwitchButton = styled.button`
 
 const LightThemeButton = styled(SwitchButton)`
   width: 40px;
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.light};
 `;
 
 const DarkThemeButton = styled(SwitchButton)`
   width: 37px;
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.dark};
 `;
 
 const SwitchTheme = ({ onClick, currThemeKey }) => (

@@ -20,10 +20,6 @@ export default styled.div`
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-gap: 2rem;
 
-    &.wrapper--inverse {
-      /* grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); */
-    }
-
     p {
       margin: 0;
     }

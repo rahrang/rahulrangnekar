@@ -49,7 +49,7 @@ export default createGlobalStyle`
       color: ${props => props.theme.colors.headingColor};
     }
 
-    p {
+    p, ol, ul, li {
       color: ${props => props.theme.colors.textColor};
       line-height: 1.75rem;
     }
