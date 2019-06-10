@@ -1,4 +1,5 @@
 import * as storage from './storage';
+import _includes from 'lodash/includes';
 
 const STORAGE_THEME_KEY = 'css-theme';
 export const LIGHT_THEME_KEY = 'light';
@@ -13,25 +14,29 @@ const colors = {
 
 const theme = {
   contentWidth: '900px',
-  br: `4px`
+  br: `0.25rem`
 };
 
 const lightTheme = {
+  bxs: '0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23)',
   bgColor: colors.white,
   textColor: colors.black,
   headingColor: colors.blue,
   linkColor: colors.blue,
   activeColor: colors.blue,
-  linkHoverColor: colors.gold
+  linkHoverColor: colors.gold,
+  widgetBgColor: 'white'
 };
 
 const darkTheme = {
+  bxs: '0px 0px 2px 1px white',
   bgColor: colors.black,
   textColor: colors.white,
   headingColor: colors.white,
   linkColor: colors.gold,
   activeColor: colors.gold,
-  linkHoverColor: colors.blue
+  linkHoverColor: colors.blue,
+  widgetBgColor: colors.black
 };
 
 const themeKeyMap = {
@@ -53,10 +58,10 @@ const themeKeyMap = {
 
 export const getInitialTheme = () => {
   const themeKey = storage.get(STORAGE_THEME_KEY);
-  if (themeKey) {
-    return LIGHT_THEME_KEY;
+  if (_includes([LIGHT_THEME_KEY, DARK_THEME_KEY], themeKey)) {
+    return themeKey;
   }
-  return themeKey;
+  return LIGHT_THEME_KEY;
 };
 
 export const getTheme = themeKey => {

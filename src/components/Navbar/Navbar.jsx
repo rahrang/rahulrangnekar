@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import NavbarStyles from './styles';
+import ExternalLinkButton from '../ExternalLinkButton';
 
 export default class Navbar extends React.Component {
   render() {
@@ -10,25 +11,35 @@ export default class Navbar extends React.Component {
         <div className="content-container">
           <div className="navbar">
             <div className="navbar-section">
-              <Link to="/projects" activeClassName="active-navlink">
+              <Link
+                className="navlink"
+                to="/projects"
+                activeClassName="navlink--active"
+              >
                 Projects
               </Link>
-              <a href="https://blog.rahulrangnekar.com">Blog</a>
+              <a className="navlink" href="https://blog.rahulrangnekar.com">
+                Blog
+              </a>
             </div>
-            <Link className="headline" to="/">
+            <Link className="headline navlink" to="/">
               <h1>Rahul Rangnekar</h1>
             </Link>
             <div className="navbar-section">
-              <Link to="/about" activeClassName="active-navlink">
+              <Link
+                className="navlink"
+                to="/about"
+                activeClassName="navlink--active"
+              >
                 About
               </Link>
-              <Link
-                className="pill"
-                to="/resume"
-                activeClassName="active-navlink"
+              <ExternalLinkButton
+                href="/resume"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Resume
-              </Link>
+              </ExternalLinkButton>
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@ const Image = () => (
     query={graphql`
       query {
         placeholderImage: file(
-          relativePath: { eq: "images/about/rahul-coffee.jpeg" }
+          relativePath: { eq: "images/about/rahul-grad.jpg" }
         ) {
           childImageSharp {
             fluid(maxWidth: 400) {

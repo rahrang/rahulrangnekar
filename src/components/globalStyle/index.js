@@ -29,8 +29,14 @@ export default createGlobalStyle`
 
     .page-container {
       margin-top: 2rem;
-      padding-left: 2rem;
-      padding-right: 2rem;
+      margin-bottom: 4rem;
+      padding-left: 0;
+      padding-right: 0;
+
+      @media (max-width: ${props => props.theme.contentWidth}) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
     }
 
     .content-container {
@@ -55,6 +61,35 @@ export default createGlobalStyle`
       &:hover {
         color: ${props => props.theme.colors.linkHoverColor};
       }
+    }
+
+    .flex-row {
+      display: flex;
+    }
+    .flex-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .items-baseline {
+      align-items: baseline;
+    }
+    .items-start {
+      align-items: flex-start;
+    }
+    .items-end {
+      align-items: flex-end;
+    }
+    .items-center {
+      align-items: center;
+    }
+    .content-start {
+      justify-content: flex-start;
+    }
+    .content-end {
+      justify-content: flex-end;
+    }
+    .content-center {
+      justify-content: center;
     }
   }
 `;
