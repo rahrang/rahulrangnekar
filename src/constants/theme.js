@@ -7,7 +7,7 @@ export const DARK_THEME_KEY = 'dark';
 
 const colors = {
   dark: '#262626',
-  darker: '#1A1A1A',
+  darker: '#121212',
   light: '#FAFAED',
   lighter: '#FFF',
   blue: '#4B75B9',

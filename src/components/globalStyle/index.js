@@ -32,17 +32,17 @@ export default createGlobalStyle`
       margin-bottom: 4rem;
       padding-left: 0;
       padding-right: 0;
-
-      @media (max-width: ${props => props.theme.contentWidth}) {
-        padding-left: 2rem;
-        padding-right: 2rem;
-      }
     }
 
     .content-container {
       max-width: ${props => props.theme.contentWidth};
       margin-left: auto;
       margin-right: auto;
+
+      @media (max-width: ${props => props.theme.contentWidth}) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
     }
 
     h1, h2, h3, h4 {
