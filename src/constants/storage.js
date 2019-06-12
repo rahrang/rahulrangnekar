@@ -1,10 +1,10 @@
 export const exists = (() => {
   const TEST_STORAGE_KEY = '__rahul-rangnekar__';
   const TEST_STORAGE_VALUE = 'local storage exists';
-  if (localStorage) {
+  if (window.localStorage) {
     try {
-      localStorage.setItem(TEST_STORAGE_KEY, TEST_STORAGE_VALUE);
-      localStorage.removeItem(TEST_STORAGE_KEY);
+      window.localStorage.setItem(TEST_STORAGE_KEY, TEST_STORAGE_VALUE);
+      window.localStorage.removeItem(TEST_STORAGE_KEY);
       return true;
     } catch (err) {
       return false;
@@ -15,7 +15,7 @@ export const exists = (() => {
 
 export const get = key => {
   if (exists) {
-    const valueAsJSON = localStorage.getItem(key);
+    const valueAsJSON = window.localStorage.getItem(key);
     if (!valueAsJSON) {
       return undefined;
     }
@@ -30,12 +30,12 @@ export const get = key => {
 
 export const set = (key, value) => {
   if (exists) {
-    localStorage.setItem(key, JSON.stringify(value));
+    window.localStorage.setItem(key, JSON.stringify(value));
   }
 };
 
 export const remove = key => {
   if (exists) {
-    localStorage.removeItem(key);
+    window.localStorage.removeItem(key);
   }
 };
