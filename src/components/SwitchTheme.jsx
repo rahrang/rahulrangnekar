@@ -8,7 +8,7 @@ import { LIGHT_THEME_KEY, DARK_THEME_KEY } from 'constants/theme';
 const SwitchButton = styled.button`
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 20px;
 
   background-color: transparent;
 

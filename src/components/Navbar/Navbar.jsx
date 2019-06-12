@@ -10,7 +10,7 @@ export default class Navbar extends React.Component {
     return (
       <NavbarStyles>
         <div className="content-container">
-          <div className="navbar navbar--desktop">
+          <div className="navbar">
             <div className="navbar-section">
               <Link
                 className="navlink"
@@ -46,6 +46,9 @@ export default class Navbar extends React.Component {
           </div>
           <div className="mobile-only">
             <MobileNavbar />
+            <Link className="headline navlink" to="/">
+              <h1>Rahul Rangnekar</h1>
+            </Link>
           </div>
         </div>
       </NavbarStyles>

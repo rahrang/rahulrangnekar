@@ -2,9 +2,33 @@ import styled from 'styled-components';
 
 export default styled.div`
   .mobile-only {
-    display: block;
-    @media (min-width: ${props => props.theme.contentWidth}) {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    @media (min-width: 1000px) {
       display: none;
+    }
+  }
+
+  .navlink {
+    font-size: 0.875rem;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    margin: 0.75rem 0;
+    padding: 0.25rem 0.5rem;
+    font-weight: 600;
+
+    &.headline {
+      text-align: center;
+      margin: 0;
+      padding: 0 0.5rem;
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
     }
   }
 
@@ -15,7 +39,7 @@ export default styled.div`
       background: transparent;
       color: ${props => props.theme.colors.blue};
       cursor: pointer;
-      margin-top: 1rem;
+      /* margin-top: 1rem; */
 
       transition: all 0.25s;
 
@@ -25,44 +49,47 @@ export default styled.div`
     }
 
     .mobile-navbar {
-      position: absolute;
-      top: 20px;
-      left: 80px;
+      .overlay {
+      }
 
-      z-index: 5;
+      .content {
+        position: absolute;
+        top: 0;
+        left: 80px;
 
-      background-color: ${props => props.theme.colors.textColor};
-      border-radius: ${props => props.theme.br};
-      box-shadow: ${props => props.theme.bxs};
-      display: flex;
-      flex-direction: column;
+        z-index: 5;
 
-      width: 250px;
-      padding: 0 1rem 1rem;
+        background-color: ${props => props.theme.colors.textColor};
+        border-radius: ${props => props.theme.br};
+        box-shadow: ${props => props.theme.bxs};
+        display: flex;
+        flex-direction: column;
 
-      .navlink {
-        color: ${props => props.theme.colors.bgColor};
-        letter-spacing: 0.05rem;
-        text-transform: uppercase;
-        margin: 0.75rem 0;
-        padding: 0.25rem 0.5rem;
-        font-weight: 600;
+        width: 250px;
+        padding: 0 1rem 1rem;
 
-        &:hover,
-        &:hover * {
-          color: ${props => props.theme.colors.linkHoverColor};
+        .navlink {
+          color: ${props => props.theme.colors.bgColor};
+
+          &:hover,
+          &:hover * {
+            color: ${props => props.theme.colors.linkHoverColor};
+          }
+        }
+
+        .navlink--active {
+          color: ${props => props.theme.colors.activeColor};
         }
       }
     }
   }
 
   .navbar {
-    @media (max-width: ${props => props.theme.contentWidth}) {
+    @media (max-width: 1000px) {
       display: none;
     }
 
     margin: 1rem 0 0;
-    font-size: 0.875rem;
 
     display: flex;
     flex-direction: row;
@@ -71,26 +98,10 @@ export default styled.div`
 
     .navlink {
       color: ${props => props.theme.colors.textColor};
-      letter-spacing: 0.05rem;
-      text-transform: uppercase;
-      margin: 0 0.5rem;
-      padding: 0.25rem 0.5rem;
-      font-weight: 600;
 
       &:hover,
       &:hover * {
         color: ${props => props.theme.colors.linkHoverColor};
-      }
-
-      &.headline {
-        text-align: center;
-        margin: 0;
-        padding: 0 0.5rem;
-
-        * {
-          margin: 0;
-          padding: 0;
-        }
       }
     }
 
@@ -102,12 +113,6 @@ export default styled.div`
       * {
         display: inline-block;
       }
-    }
-  }
-
-  .mobile {
-    .hamburger {
-      color: ;
     }
   }
 `;
