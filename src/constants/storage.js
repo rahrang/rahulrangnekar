@@ -3,6 +3,10 @@ import _isUndefined from 'lodash/isUndefined';
 export const exists = (() => {
   const TEST_STORAGE_KEY = '__rahul-rangnekar__';
   const TEST_STORAGE_VALUE = 'local storage exists';
+  if (typeof window === 'undefined') {
+    return false;
+  }
+
   if (_isUndefined(window) || _isUndefined(window.localStorage)) {
     return false;
   }
