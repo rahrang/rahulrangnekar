@@ -10,7 +10,8 @@ const colors = {
   darker: '#121212',
   light: '#FAFAED',
   lighter: '#FFF',
-  blue: '#4B75B9',
+  lightblue: '#29b6f6',
+  darkblue: '#4B75B9',
   gold: '#F0CE3B'
 };
 
@@ -23,22 +24,24 @@ const lightTheme = {
   bxs: '0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23)',
   bgColor: colors.light,
   textColor: colors.dark,
-  headingColor: colors.blue,
-  linkColor: colors.blue,
-  activeColor: colors.blue,
+  headingColor: colors.darkblue,
+  linkColor: colors.darkblue,
+  activeColor: colors.darkblue,
   linkHoverColor: colors.gold,
-  offBgColor: colors.lighter
+  offBgColor: colors.lighter,
+  blue: colors.darkblue
 };
 
 const darkTheme = {
   bxs: '0px 0px 2px 1px white',
   bgColor: colors.darker,
   textColor: colors.light,
-  headingColor: colors.light,
-  linkColor: colors.gold,
-  activeColor: colors.gold,
-  linkHoverColor: colors.blue,
-  offBgColor: colors.dark
+  headingColor: colors.lightblue,
+  linkColor: colors.lightblue,
+  activeColor: colors.lightblue,
+  linkHoverColor: colors.gold,
+  offBgColor: colors.dark,
+  blue: colors.lightblue
 };
 
 const themeKeyMap = {

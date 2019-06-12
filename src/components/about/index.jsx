@@ -61,12 +61,12 @@ const About = () => (
         </strong>
       </p>
     </div>
-    <hr />
     <div className="actions flex-row items-baseline">
       <p>I blog about my challenges and experiences.</p>
       <ExternalLinkButton
         className="link-btn"
         href="https://blog.rahulrangnekar.com"
+        alt
       >
         Read My Blog!
       </ExternalLinkButton>

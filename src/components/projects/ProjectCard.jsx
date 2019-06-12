@@ -37,7 +37,7 @@ const ProjectCardLink = styled(Link)`
     justify-content: space-between;
 
     .tag {
-      background-color: ${props => props.theme.colors.linkColor};
+      background-color: ${props => props.theme.colors.textColor};
       color: ${props => props.theme.colors.bgColor};
       padding: 0.25rem;
       border-radius: ${props => props.theme.br};
@@ -57,6 +57,7 @@ const ProjectCardLink = styled(Link)`
 
     .timespan {
       font-size: 0.75rem;
+      color: ${props => props.theme.colors.textColor};
     }
   }
 `;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import NavbarStyles from './styles';
+import MobileNavbar from './MobileNavbar';
 import ExternalLinkButton from '../ExternalLinkButton';
 
 export default class Navbar extends React.Component {
@@ -9,7 +10,7 @@ export default class Navbar extends React.Component {
     return (
       <NavbarStyles>
         <div className="content-container">
-          <div className="navbar">
+          <div className="navbar navbar--desktop">
             <div className="navbar-section">
               <Link
                 className="navlink"
@@ -37,10 +38,14 @@ export default class Navbar extends React.Component {
                 href="/resume"
                 target="_blank"
                 rel="noopener noreferrer"
+                alt
               >
                 Resume
               </ExternalLinkButton>
             </div>
+          </div>
+          <div className="mobile-only">
+            <MobileNavbar />
           </div>
         </div>
       </NavbarStyles>

@@ -29,7 +29,7 @@ export default createGlobalStyle`
 
     .page-container {
       margin-top: 2rem;
-      margin-bottom: 4rem;
+      margin-bottom: 8rem;
       padding-left: 0;
       padding-right: 0;
     }

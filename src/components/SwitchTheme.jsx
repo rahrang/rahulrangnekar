@@ -7,14 +7,18 @@ import { LIGHT_THEME_KEY, DARK_THEME_KEY } from 'constants/theme';
 
 const SwitchButton = styled.button`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
 
   background-color: transparent;
 
   border: none;
   cursor: pointer;
   padding: 10px;
+
+  &:hover {
+    color: ${props => props.theme.colors.blue};
+  }
 `;
 
 const LightThemeButton = styled(SwitchButton)`

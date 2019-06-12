@@ -2,14 +2,20 @@ import styled from 'styled-components';
 
 export default styled.div`
   background-color: ${props => props.theme.colors.darker};
-  color: ${props => props.theme.colors.lighter};
+  color: ${props => props.theme.colors.light};
   padding-top: 2rem;
   padding-bottom: 2rem;
 
+  border-top: 1px solid white;
+
   .footer {
-    border-top: 0.5px solid ${props => props.theme.colors.light};
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 2rem;
+
+    h3 {
+      color: ${props => props.theme.colors.light};
+    }
 
     .contact-form {
       width: 100%;
@@ -17,10 +23,6 @@ export default styled.div`
       padding: 1rem;
       padding-top: 0;
       border-radius: ${props => props.theme.br};
-
-      h3 {
-        color: ${props => props.theme.colors.lighter};
-      }
 
       form.contact {
         label {
@@ -86,13 +88,38 @@ export default styled.div`
           cursor: pointer;
           margin-top: 1rem;
           padding: 0.5rem 1rem;
-          /* width: 100%; */
 
           transition: 0.25s ease-in-out;
 
           &:hover {
             background-color: ${props => props.theme.colors.darker};
             color: ${props => props.theme.colors.light};
+          }
+        }
+      }
+    }
+
+    .online {
+      .social-icons {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+
+        .link {
+          color: ${props => props.theme.colors.light};
+          margin-right: 1rem;
+          width: 25px;
+
+          svg {
+            height: 25px;
+          }
+
+          .platform {
+            visibility: hidden;
+          }
+
+          &:hover {
+            color: ${props => props.theme.colors.blue};
           }
         }
       }

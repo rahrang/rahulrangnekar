@@ -1,6 +1,9 @@
 import React from 'react';
+import _map from 'lodash/map';
 
 import FooterStyles from './styles';
+import Icon from '../Icon';
+import links from './links';
 
 export default class Footer extends React.Component {
   render() {
@@ -40,6 +43,22 @@ export default class Footer extends React.Component {
                   <button type="submit">Send It!</button>
                 </div>
               </form>
+            </div>
+            <div className="online">
+              <h3>Find Me Online!</h3>
+              <div className="social-icons">
+                {_map(links, l => (
+                  <a
+                    className="link"
+                    href={l.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon iconKey={l.icon} />
+                    <span className="platform">{l.platform}</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
