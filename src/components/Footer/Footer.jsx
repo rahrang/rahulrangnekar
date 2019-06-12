@@ -18,6 +18,7 @@ export default class Footer extends React.Component {
                 name="contact"
                 method="POST"
                 data-netlify="true"
+                data-netlify-recaptcha="true"
               >
                 <div className="row-1">
                   <div className="input-wrapper">
@@ -39,6 +40,7 @@ export default class Footer extends React.Component {
                     <textarea name="message" id="message" />
                   </label>
                 </div>
+                <div data-netlify-recaptcha="true" />
                 <div className="button-wrapper">
                   <button type="submit">Send It!</button>
                 </div>
