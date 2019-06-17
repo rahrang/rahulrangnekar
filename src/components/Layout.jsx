@@ -46,7 +46,7 @@ class Layout extends React.Component {
                     onClick={this.switchTheme}
                     currThemeKey={themeKey}
                   />
-                  <Navbar />
+                  <Navbar from="website" />
                   <div className="content-container page-container">
                     {children}
                   </div>
