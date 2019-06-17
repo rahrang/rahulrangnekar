@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from 'components/layout';
 
-import Projects from '../../components/projects/Projects';
+import Layout from 'components/Layout';
+import Projects from 'components/projects/Projects';
 
 class ProjectsPage extends React.Component {
   render() {

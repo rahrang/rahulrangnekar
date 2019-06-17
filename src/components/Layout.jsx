@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
-
-import { getInitialTheme, getTheme, setTheme } from 'constants/theme';
-import GlobalStyle from 'components/globalStyle';
-import LayoutStyles from './styles';
-import Navbar from 'components/Navbar';
-import Footer from 'components/Footer';
-import SwitchTheme from 'components/SwitchTheme';
+import {
+  getInitialTheme,
+  getTheme,
+  setTheme,
+  GlobalStyle,
+  Navbar,
+  Footer,
+  SwitchThemeButton
+} from '@rahrang/frame';
 
 class Layout extends React.Component {
   state = {
@@ -39,8 +41,8 @@ class Layout extends React.Component {
             <ThemeProvider theme={getTheme(themeKey)}>
               <React.Fragment>
                 <GlobalStyle />
-                <LayoutStyles>
-                  <SwitchTheme
+                <div>
+                  <SwitchThemeButton
                     onClick={this.switchTheme}
                     currThemeKey={themeKey}
                   />
@@ -49,7 +51,7 @@ class Layout extends React.Component {
                     {children}
                   </div>
                   <Footer />
-                </LayoutStyles>
+                </div>
               </React.Fragment>
             </ThemeProvider>
           </React.Fragment>

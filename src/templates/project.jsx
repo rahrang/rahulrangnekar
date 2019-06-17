@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout/';
+import Layout from 'components/Layout';
 
 const MarkdownStyles = styled.div`
   code {

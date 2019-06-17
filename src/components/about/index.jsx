@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { ExternalLinkButton } from '@rahrang/frame';
 
 import AboutStyles from './styles';
 import CoffeeImage from './CoffeeImage';
 import GradImage from './GradImage';
 import PortlandImage from './PortlandImage';
-import ExternalLinkButton from '../ExternalLinkButton';
 
 const About = () => (
   <AboutStyles>
@@ -66,7 +66,7 @@ const About = () => (
       <ExternalLinkButton
         className="link-btn"
         href="https://blog.rahulrangnekar.com"
-        alt
+        alternate
       >
         Read My Blog!
       </ExternalLinkButton>

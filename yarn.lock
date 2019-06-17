@@ -817,6 +817,11 @@
     string-width "^2.0.0"
     strip-ansi "^3"
 
+"@rahrang/frame@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@rahrang/frame/-/frame-1.0.5.tgz#16a6ccde31c3db830c93132cf5c385bdbae041de"
+  integrity sha512-vtEYTJ/pIZUQzWGVDB2D8u8vBsqjIJJVoYoHvUzdHHPeFeEIgK8fsJ4oIsblTkrF61tBJGmG3N4pdVsdbkISyA==
+
 "@reach/router@^1.1.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.2.1.tgz#34ae3541a5ac44fa7796e5506a5d7274a162be4e"
