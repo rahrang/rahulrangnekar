@@ -14,6 +14,12 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/constants/typography`
+      }
+    },
+    {
       resolve: `gatsby-plugin-root-import`,
       options: {
         src: path.join(__dirname, 'src'),
