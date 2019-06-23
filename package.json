@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Rahul Rangnekar <rahrang.dev@gmail.com>",
   "dependencies": {
-    "@rahrang/frame": "^1.0.7",
+    "@rahrang/frame": "^1.0.13",
     "date-fns": "^1.30.1",
     "dotenv": "^8.0.0",
     "gatsby": "^2.0.76",
@@ -50,6 +50,7 @@
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby-plugin-root-import": "^2.0.5",
     "gatsby-plugin-styled-components": "^3.0.4",
+    "gatsby-source-contentful": "^2.0.71",
     "prettier": "^1.15.2",
     "styled-components": "^4.3.1"
   },

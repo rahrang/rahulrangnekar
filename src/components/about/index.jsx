@@ -11,7 +11,7 @@ const About = () => (
   <AboutStyles>
     <div className="wrapper">
       <CoffeeImage />
-      <p>
+      <p className="m-0">
         I am an engineer, caffeine and cheese enthusiast, and amateur athlete. I
         love to run outdoors with my girlfriend Kimi or boulder indoors solo
         daily. I enjoy a strong cup of homemade chai or coffee every morning,
@@ -23,7 +23,7 @@ const About = () => (
       </p>
     </div>
     <div className="wrapper wrapper--inverse">
-      <p>
+      <p className="m-0">
         I graduated from the University of California at Berkeley in May 2018
         with B.A. degress in Computer Science and Economics. In my time at Cal,
         I created several side projects and was an active leader in my
@@ -35,7 +35,7 @@ const About = () => (
     </div>
     <div className="wrapper">
       <PortlandImage />
-      <p>
+      <p className="m-0">
         I work as a Full Stack Software Engineer at
         <span>
           {' '}
@@ -62,7 +62,7 @@ const About = () => (
       </p>
     </div>
     <div className="actions flex-row items-baseline">
-      <p>I blog about my challenges and experiences.</p>
+      <p className="m-0">I blog about my challenges and experiences.</p>
       <ExternalLinkButton
         className="link-btn"
         href="https://blog.rahulrangnekar.com"

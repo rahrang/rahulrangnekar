@@ -12,19 +12,25 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_API_ACCESS_TOKEN
+      }
+    },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/constants/typography`
+        pathToConfigModule: `src/util/typography`
       }
     },
     {
       resolve: `gatsby-plugin-root-import`,
       options: {
         src: path.join(__dirname, 'src'),
-        components: path.join(__dirname, 'src/components'),
-        constants: path.join(__dirname, 'src/constants')
+        components: path.join(__dirname, 'src/components')
       }
     },
     {
