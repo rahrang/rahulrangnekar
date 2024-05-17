@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Inter-Regular.woff2") format("woff2");
+  font-feature-settings: "ss01", "ss03", "cv02", "cv03", "cv04", "cv05", "cv06",
+    "cv08", "cv09";
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/Inter-SemiBold.woff2") format("woff2");
+  font-feature-settings: "ss01", "ss03", "cv02", "cv03", "cv04", "cv05", "cv06",
+    "cv08", "cv09";
+}
+
+@layer base {
+  body {
+    font-family: "Inter", "sans-serif";
+  }
+
+  :root {
+    --accent: theme("colors.emerald.400");
+  }
+}
