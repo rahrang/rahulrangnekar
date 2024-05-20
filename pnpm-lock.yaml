@@ -14,6 +14,9 @@ dependencies:
   astro:
     specifier: ^4.8.5
     version: 4.8.5(typescript@5.4.5)
+  astro-fathom:
+    specifier: ^2.0.0
+    version: 2.0.0
   sharp:
     specifier: ^0.33.3
     version: 0.33.4
@@ -1477,6 +1480,10 @@ packages:
 
   /array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
+    dev: false
+
+  /astro-fathom@2.0.0:
+    resolution: {integrity: sha512-Z0UXgAKrfJ43IRPhPzoXWOapVXF250AefvLaphsJViok551UpzIIDuxkUYX2CBXDtqIhH54KYPDaA9V9XyclgA==}
     dev: false
 
   /astro@4.8.5(typescript@5.4.5):
