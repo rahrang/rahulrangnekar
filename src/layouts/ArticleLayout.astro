@@ -1,0 +1,44 @@
+---
+import { getEntry } from "astro:content";
+import Layout from "~/layouts/Layout.astro";
+import Prose from "~/components/Prose.astro";
+import type { Post } from "~/content/post-config";
+import { formatDateString } from "~/utils/formatters";
+import { blogRoute } from "~/routes";
+import H1 from "~/components/H1.astro";
+
+type Props = {
+  post: Post;
+};
+
+const { post } = Astro.props;
+
+const category = await getEntry("categories", post.category.id);
+---
+
+<Layout title={post.title}>
+  <div class="container mx-auto pb-16 px-4">
+    <div class="flex items-center content-center w-full text-center">
+      <a
+        class="text-xs uppercase font-semibold tracking-wide text-accent-foreground"
+        href={blogRoute()}
+      >
+        {category.data.title}
+      </a>
+    </div>
+
+    <Prose>
+      <H1 class="text-5xl font-bold mb-12">{post.title}</H1>
+
+      <p class="prose-base mt-0">{post.description}</p>
+
+      {
+        post.publishDate && (
+          <p class="prose-sm">{formatDateString(post.publishDate)}</p>
+        )
+      }
+
+      <slot />
+    </Prose>
+  </div>
+</Layout>

@@ -1,29 +1,48 @@
 ---
 import { Fathom } from "astro-fathom";
 import "../styles/globals.css";
+import Header from "~/components/Header.astro";
+
+import { ExcludeNullish } from "~/utils/typescript";
+
+const SITE_TITLE = "Rahul Rangnekar";
 
 interface Props {
-  title: string;
+  title?: string;
+  includeSiteTitle?: boolean;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  includeSiteTitle = true,
+  description = "I am a software engineer by trade, and a software engineer and blogger by hobby.",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="I am a software engineer by trade, and a software engineer and blogger by hobby."
-    />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <title>
+      {
+        [title, includeSiteTitle ? SITE_TITLE : null]
+          .filter(ExcludeNullish)
+          .join(" | ")
+      }
+    </title>
 
     <Fathom site={import.meta.env.FATHOM_SITE} />
   </head>
-  <body>
+
+  <body class="min-h-screen">
+    <Header />
+
     <slot />
   </body>
 </html>
