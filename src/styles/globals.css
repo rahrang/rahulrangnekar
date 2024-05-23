@@ -26,10 +26,25 @@
 
     a {
       color: var(--accent-foreground);
+
+      /* classname & data attribute automatically generated in markdown */
+      &.data-footnote-backref,
+      &[data-footnote-ref=""] {
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      &:target {
+        text-decoration: underline;
+      }
     }
 
     hr {
       border-color: var(--accent-foreground);
+    }
+
+    section.footnotes {
+      font-size: theme("fontSize.sm");
     }
   }
 
