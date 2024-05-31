@@ -1,0 +1,55 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import type { Post } from '~/content/post-config';
+import { postRoute } from '~/routes';
+import H1 from '~/components/H1.astro';
+import { formatDateString } from '~/utils/formatters';
+
+const excludePostByPublishStatus: (post: Post) => boolean =
+  import.meta.env.MODE === 'development'
+    ? () => false
+    : (post) => {
+        return !post.published;
+      };
+
+const allPosts = (
+  await getCollection('posts', (entry) => {
+    if (excludePostByPublishStatus(entry.data)) {
+      return false;
+    }
+    return true;
+  })
+).sort((a, b) => {
+  if (b.data.publishDate && a.data.publishDate) {
+    return b.data.publishDate.valueOf() > a.data.publishDate.valueOf() ? -1 : 1;
+  }
+  return -1;
+});
+---
+
+<Layout title="Blog">
+  <main class="container px-4 max-w-[600px] mx-auto">
+    <H1 class="px-2">Blog</H1>
+
+    <ul class="space-y-4">
+      {
+        allPosts.map((post) => (
+          <li>
+            <a
+              class="block hover:bg-accent-background focus:bg-accent-background p-2 rounded-md"
+              href={postRoute(post.slug)}
+            >
+              <div class="font-semibold text-lg">{post.data.title}</div>
+              {post.data.publishDate && (
+                <div class="text-sm text-secondary-foreground">
+                  {formatDateString(post.data.publishDate)}
+                </div>
+              )}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>

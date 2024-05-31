@@ -1,0 +1,20 @@
+---
+import { blogRoute, homeRoute } from '~/routes';
+import NavLink from './NavLink.astro';
+---
+
+<header class="py-6 border-t-4 border-accent-foreground">
+  <div
+    class="flex flex-col sm:flex-row items-baseline justify-between container mx-auto space-y-4 sm:space-y-0 space-x-0 sm:space-x-8 px-4"
+  >
+    <a
+      href={homeRoute()}
+      class="text-3xl font-semibold hover:text-accent-foreground focus:text-accent-foreground"
+      >Rahul Rangnekar</a
+    >
+
+    <nav>
+      <NavLink href={blogRoute()} exact>Blog</NavLink>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,11 @@
+---
+import { cn } from '~/utils/css';
+
+type Props = {
+  class?: string;
+};
+
+const { class: className } = Astro.props;
+---
+
+<h1 class={cn('text-5xl font-bold mb-8', className)}><slot /></h1>

@@ -14,11 +14,15 @@
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.8.5",
     "astro-fathom": "^2.0.0",
+    "clsx" :"^2.1.1",
     "sharp": "^0.33.3",
     "tailwindcss": "^3.4.3",
+    "tailwind-merge": "^2.3.0",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.13"
+    "@tailwindcss/typography": "^0.5.13",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.14"
   }
 }

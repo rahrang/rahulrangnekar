@@ -1,0 +1,23 @@
+---
+import { cn } from '~/utils/css';
+
+type Props = {
+  href: string;
+  exact?: boolean;
+};
+
+const { href, exact = false } = Astro.props;
+const pathname = new URL(Astro.request.url).pathname;
+
+const isActive = exact ? pathname === href : pathname.startsWith(href);
+---
+
+<a
+  class={cn(
+    'text-lg hover:underline focus:underline',
+    isActive && 'text-accent-foreground underline'
+  )}
+  href={href}
+>
+  <slot />
+</a>
