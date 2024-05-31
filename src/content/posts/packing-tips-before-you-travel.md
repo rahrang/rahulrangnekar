@@ -1,7 +1,7 @@
 ---
 title: 'Packing Tips Before You Travel'
 published: true
-publishDate: 2024-05-23
+publishDate: 2024-05-30
 category: travel
 ---
 
