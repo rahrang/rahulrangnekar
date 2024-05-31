@@ -55,7 +55,7 @@ This is a list of my packing tips for when I'm home before I set off to travel. 
 
 6. **Pack storage bags**
 
-   This may be better suited in a bigger "packing list" post, but I want to explicitly call out how often I've been in the middle of a trip and wished I had an extra Ziploc bag or tote or drawstring bag. I've found that
+   This may be better suited in a bigger "packing list" post, but I want to explicitly call out the extra Ziploc bags, tote, or drawstring bag I pack always come in handy during my trip. Ziplocs are useful for storing food souvenirs or toiletries, totes are vital for quick grocery trips and picnics, and drawstring bags work as a secondary "dirty clothes" bag if necessary. All of these pack light and tight, and I often just keep these in the luggage once I'm back home from travel.
 
 7. **Pack an extra backpack**
 
