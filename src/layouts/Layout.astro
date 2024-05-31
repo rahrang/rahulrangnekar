@@ -1,11 +1,11 @@
 ---
-import { Fathom } from "astro-fathom";
-import "../styles/globals.css";
-import Header from "~/components/Header.astro";
+import { Fathom } from 'astro-fathom';
+import '../styles/globals.css';
+import Header from '~/components/Header.astro';
 
-import { ExcludeNullish } from "~/utils/typescript";
+import { ExcludeNullish } from '~/utils/typescript';
 
-const SITE_TITLE = "Rahul Rangnekar";
+const SITE_TITLE = 'Rahul Rangnekar';
 
 interface Props {
   title?: string;
@@ -16,7 +16,7 @@ interface Props {
 const {
   title,
   includeSiteTitle = true,
-  description = "I am a software engineer by trade, and a software engineer and blogger by hobby.",
+  description = 'I am a software engineer by trade, and a software engineer and blogger by hobby.',
 } = Astro.props;
 ---
 
@@ -33,7 +33,7 @@ const {
       {
         [title, includeSiteTitle ? SITE_TITLE : null]
           .filter(ExcludeNullish)
-          .join(" | ")
+          .join(' | ')
       }
     </title>
 

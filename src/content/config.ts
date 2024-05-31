@@ -1,5 +1,5 @@
-import { categoryCollection } from "./category-config";
-import { postCollection } from "./post-config";
+import { categoryCollection } from './category-config';
+import { postCollection } from './post-config';
 
 export const collections = {
   categories: categoryCollection,

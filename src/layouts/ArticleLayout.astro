@@ -1,11 +1,11 @@
 ---
-import { getEntry } from "astro:content";
-import Layout from "~/layouts/Layout.astro";
-import Prose from "~/components/Prose.astro";
-import type { Post } from "~/content/post-config";
-import { formatDateString } from "~/utils/formatters";
-import { blogRoute } from "~/routes";
-import H1 from "~/components/H1.astro";
+import { getEntry } from 'astro:content';
+import Layout from '~/layouts/Layout.astro';
+import Prose from '~/components/Prose.astro';
+import type { Post } from '~/content/post-config';
+import { formatDateString } from '~/utils/formatters';
+import H1 from '~/components/H1.astro';
+import { blogRoute } from '~/routes';
 
 type Props = {
   post: Post;
@@ -13,18 +13,24 @@ type Props = {
 
 const { post } = Astro.props;
 
-const category = await getEntry("categories", post.category.id);
+const category = await getEntry('categories', post.category.id);
 ---
 
 <Layout title={post.title}>
-  <div class="container mx-auto pb-16 px-4">
-    <div class="flex items-center content-center w-full text-center">
+  <div class="container mx-auto pt-8 pb-16 px-4">
+    <div
+      class="flex items-center space-x-2 content-center w-full text-center text-xs uppercase font-semibold tracking-wider mb-2"
+    >
       <a
+        class="text-secondary-foreground hover:text-accent-foreground hover:underline focus:text-accent-foreground focus:underline"
+        href={blogRoute()}>Blog</a
+      >
+      <span>/</span>
+      <span
         class="text-xs uppercase font-semibold tracking-wide text-accent-foreground"
-        href={blogRoute()}
       >
         {category.data.title}
-      </a>
+      </span>
     </div>
 
     <Prose>

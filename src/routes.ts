@@ -1,4 +1,4 @@
-export const homeRoute = () => "/";
+export const homeRoute = () => '/';
 
 export const blogRoute = () => `/blog`;
 

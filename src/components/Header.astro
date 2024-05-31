@@ -1,6 +1,6 @@
 ---
-import { blogRoute, homeRoute } from "~/routes";
-import NavLink from "./NavLink.astro";
+import { blogRoute, homeRoute } from '~/routes';
+import NavLink from './NavLink.astro';
 ---
 
 <header class="py-6 border-t-4 border-accent-foreground">
@@ -9,12 +9,12 @@ import NavLink from "./NavLink.astro";
   >
     <a
       href={homeRoute()}
-      class="text-2xl font-semibold hover:text-accent-foreground focus:text-accent-foreground"
+      class="text-3xl font-semibold hover:text-accent-foreground focus:text-accent-foreground"
       >Rahul Rangnekar</a
     >
 
     <nav>
-      <NavLink href={blogRoute()}>Blog</NavLink>
+      <NavLink href={blogRoute()} exact>Blog</NavLink>
     </nav>
   </div>
 </header>

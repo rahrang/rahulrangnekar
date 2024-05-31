@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z } from 'astro:content';
 
 export const categorySchema = z.object({
   title: z.string(),
@@ -7,6 +7,6 @@ export const categorySchema = z.object({
 export type Category = z.infer<typeof categorySchema>;
 
 export const categoryCollection = defineCollection({
-  type: "data",
+  type: 'data',
   schema: categorySchema,
 });

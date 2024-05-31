@@ -4,11 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        "primary-foreground": "var(--primary-foreground)",
-        "secondary-foreground": "var(--secondary-foreground)",
-        "muted-foreground": "var(--muted-foreground)",
-        "accent-foreground": "var(--accent-foreground)",
-        "accent-background": "var(--accent-background)",
+        primary: {
+          foreground: "var(--primary-foreground)",
+        },
+        secondary: {
+          foreground: "var(--secondary-foreground)",
+        },
+        muted: {
+          foreground: "var(--muted-foreground)",
+        },
+        accent: {
+          foreground: "var(--accent-foreground)",
+          background: "var(--accent-background)",
+        },
       },
     },
   },

@@ -12,7 +12,7 @@
     --secondary-foreground: theme("colors.slate.700");
     --muted-foreground: theme("colors.slate.500");
     --accent-foreground: theme("colors.teal.600");
-    --accent-background: theme("colors.teal.300");
+    --accent-background: theme("colors.teal.100");
   }
 
   body {

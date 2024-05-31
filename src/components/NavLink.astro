@@ -1,5 +1,5 @@
 ---
-import { cn } from "~/utils/css";
+import { cn } from '~/utils/css';
 
 type Props = {
   href: string;
@@ -14,8 +14,8 @@ const isActive = exact ? pathname === href : pathname.startsWith(href);
 
 <a
   class={cn(
-    "hover:underline focus:underline",
-    isActive && "text-accent-foreground underline"
+    'text-lg hover:underline focus:underline',
+    isActive && 'text-accent-foreground underline'
   )}
   href={href}
 >
