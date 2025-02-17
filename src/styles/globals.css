@@ -1,35 +1,76 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/typography';
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+
+  --color-accent: var(--accent-default);
+  --color-accent-50: var(--accent-50);
+  --color-accent-100: var(--accent-100);
+  --color-accent-200: var(--accent-200);
+  --color-accent-300: var(--accent-300);
+  --color-accent-400: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600);
+  --color-accent-700: var(--accent-700);
+  --color-accent-800: var(--accent-800);
+  --color-accent-900: var(--accent-900);
+  --color-accent-950: var(--accent-950);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
     font-family: Inter, sans-serif;
-    font-feature-settings: "ss01", "ss03", "cv02", "cv03", "cv04", "cv05",
-      "cv06", "cv08", "cv09";
+    font-feature-settings:
+      'ss01', 'ss03', 'cv02', 'cv03', 'cv04', 'cv05', 'cv06', 'cv08', 'cv09';
 
-    --primary-foreground: theme("colors.slate.900");
-    --secondary-foreground: theme("colors.slate.700");
-    --muted-foreground: theme("colors.slate.500");
-    --accent-foreground: theme("colors.teal.600");
-    --accent-background: theme("colors.teal.100");
+    --accent-50: var(--color-indigo-50);
+    --accent-100: var(--color-indigo-100);
+    --accent-200: var(--color-indigo-200);
+    --accent-300: var(--color-indigo-300);
+    --accent-400: var(--color-indigo-400);
+    --accent-500: var(--color-indigo-500);
+    --accent-600: var(--color-indigo-600);
+    --accent-700: var(--color-indigo-700);
+    --accent-800: var(--color-indigo-800);
+    --accent-900: var(--color-indigo-900);
+    --accent-950: var(--color-indigo-950);
+
+    --accent-default: var(--color-indigo-500);
+
+    --primary: var(--color-slate-900);
+    --secondary: var(--color-slate-700);
+    --muted: var(--color-slate-500);
+  }
+
+  :root.dark {
+    --primary: var(--color-white);
+    --secondary: var(--color-slate-200);
+    --muted: var(--color-slate-400);
+
+    --accent-default: var(--color-indigo-300);
   }
 
   body {
-    font-family: "Inter", "sans-serif";
+    font-family: 'Inter', 'sans-serif';
   }
 
   .markdown {
     li::marker {
-      color: var(--primary-foreground);
+      color: var(--primary);
     }
 
     a {
-      color: var(--accent-foreground);
+      color: var(--accent-default);
 
       /* classname & data attribute automatically generated in markdown */
       &.data-footnote-backref,
-      &[data-footnote-ref=""] {
+      &[data-footnote-ref=''] {
         text-decoration: none;
         font-weight: bold;
       }
@@ -40,11 +81,11 @@
     }
 
     hr {
-      border-color: var(--accent-foreground);
+      border-color: var(--accent-default);
     }
 
     section.footnotes {
-      font-size: theme("fontSize.sm");
+      font-size: var(--text-sm);
     }
   }
 

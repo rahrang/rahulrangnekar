@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import type { Post } from '~/content/post-config';
+import type { Post } from '~/content/post.config';
 import { postRoute } from '~/routes';
 import H1 from '~/components/H1.astro';
 import { formatDateString } from '~/utils/formatters';
@@ -29,7 +29,7 @@ const allPosts = (
 ---
 
 <Layout title="Blog">
-  <main class="container px-4 max-w-[600px] mx-auto">
+  <main class="container px-4 max-w-3xl mx-auto">
     <H1 class="px-2">Blog</H1>
 
     <ul class="space-y-4">
@@ -37,12 +37,12 @@ const allPosts = (
         allPosts.map((post) => (
           <li>
             <a
-              class="block hover:bg-accent-background focus:bg-accent-background p-2 rounded-md"
-              href={postRoute(post.slug)}
+              class="block hover:bg-accent-300 focus:bg-accent-300 dark:hover:bg-accent-950 dark:focus:bg-accent-950 p-2 rounded-md"
+              href={postRoute(post.id)}
             >
               <div class="font-semibold text-lg">{post.data.title}</div>
               {post.data.publishDate && (
-                <div class="text-sm text-secondary-foreground">
+                <div class="text-sm text-secondary">
                   {formatDateString(post.data.publishDate)}
                 </div>
               )}
