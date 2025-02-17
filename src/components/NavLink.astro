@@ -14,8 +14,8 @@ const isActive = exact ? pathname === href : pathname.startsWith(href);
 
 <a
   class={cn(
-    'text-lg hover:underline focus:underline',
-    isActive && 'text-accent-foreground underline'
+    'text-sm uppercase tracking-wide font-semibold hover:underline focus:underline',
+    isActive && 'text-accent'
   )}
   href={href}
 >

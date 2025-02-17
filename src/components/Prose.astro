@@ -1,5 +1,7 @@
-<div
-  class="markdown prose prose-base prose-slate prose-a:text-accent-foreground prose-img:rounded-xl"
->
+---
+import { PROSE_CLASSNAME } from '~/utils/prose';
+---
+
+<div class={PROSE_CLASSNAME}>
   <slot />
 </div>

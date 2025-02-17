@@ -1,22 +1,24 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
-import profileImage from "../images/rahul.jpg";
-import H1 from "~/components/H1.astro";
+import profileImage from '../images/rahul-stressba.png';
+import H1 from '~/components/H1.astro';
+import { cn } from '~/utils/css';
+import { PROSE_CLASSNAME } from '~/utils/prose';
 ---
 
 <Layout>
   <main
     class="container mx-auto px-4 sm:px-8 pt-8 pb-16 flex flex-col items-center"
   >
-    <section class="prose prose-base flex flex-col items-center">
+    <section class={cn(PROSE_CLASSNAME, 'flex flex-col items-center')}>
       <Image
         src={profileImage}
         alt="Rahul Rangnekar"
         height={300}
         width={300}
-        class="rounded-full border-8 border-accent-foreground p-2"
+        class="rounded-full border-4 border-accent p-1"
       />
 
       <H1 class="text-center">👋🏽 Hi, I’m Rahul</H1>
@@ -24,31 +26,15 @@ import H1 from "~/components/H1.astro";
       <p>I live in San Francisco with my amazing wife, Kimi.</p>
 
       <p>
-        I create fun side projects, read about credit cards, (practice) booking
-        award travel, watch the NBA, and follow many shiba inu accounts on
-        social media. During the day, I build product for <a
-          href="https://www.lattice.com"
+        I enjoy creating fun side projects, reading about credit cards, booking
+        award travel, and following countless shiba inu accounts on social
+        media. During the day, I build product for <a
+          href="https://www.vanta.com"
           target="_blank"
-          class="underline decoration-accent-foreground hover:text-accent-foreground focus:text-accent-foreground"
-          >Lattice</a
+          class="underline decoration-accent hover:text-accent focus:text-accent"
+          >Vanta</a
         >.
       </p>
-
-      <p class="mb-12">
-        I’m fundraising for the American Red Cross as I train for the 2024
-        Chicago Marathon! If you’d like, you can make a charitable donation
-        below. Thank you!
-      </p>
-
-      <div class="text-center">
-        <a
-          href="https://americanredcross.donordrive.com/index.cfm?fuseaction=donorDrive.personalCampaign&participantID=8093"
-          target="_blank"
-          class="border border-black text-black rounded-md px-4 py-2 hover:bg-accent-background focus:bg-accent-background no-underline"
-        >
-          Donate now
-        </a>
-      </div>
     </section>
   </main>
 </Layout>

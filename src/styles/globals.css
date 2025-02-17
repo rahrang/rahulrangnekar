@@ -2,26 +2,26 @@
 
 @plugin '@tailwindcss/typography';
 
-@theme {
-  --color-primary-foreground: var(--primary-foreground);
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
 
-  --color-secondary-foreground: var(--secondary-foreground);
-
-  --color-muted-foreground: var(--muted-foreground);
-
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent-background: var(--accent-background);
+  --color-accent: var(--accent-default);
+  --color-accent-50: var(--accent-50);
+  --color-accent-100: var(--accent-100);
+  --color-accent-200: var(--accent-200);
+  --color-accent-300: var(--accent-300);
+  --color-accent-400: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600);
+  --color-accent-700: var(--accent-700);
+  --color-accent-800: var(--accent-800);
+  --color-accent-900: var(--accent-900);
+  --color-accent-950: var(--accent-950);
 }
 
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
@@ -29,11 +29,31 @@
     font-feature-settings:
       'ss01', 'ss03', 'cv02', 'cv03', 'cv04', 'cv05', 'cv06', 'cv08', 'cv09';
 
-    --primary-foreground: var(--color-slate-900);
-    --secondary-foreground: var(--color-slate-700);
-    --muted-foreground: var(--color-slate-500);
-    --accent-foreground: var(--color-teal-600);
-    --accent-background: var(--color-teal-100);
+    --accent-50: var(--color-indigo-50);
+    --accent-100: var(--color-indigo-100);
+    --accent-200: var(--color-indigo-200);
+    --accent-300: var(--color-indigo-300);
+    --accent-400: var(--color-indigo-400);
+    --accent-500: var(--color-indigo-500);
+    --accent-600: var(--color-indigo-600);
+    --accent-700: var(--color-indigo-700);
+    --accent-800: var(--color-indigo-800);
+    --accent-900: var(--color-indigo-900);
+    --accent-950: var(--color-indigo-950);
+
+    --accent-default: var(--color-indigo-500);
+
+    --primary: var(--color-slate-900);
+    --secondary: var(--color-slate-700);
+    --muted: var(--color-slate-500);
+  }
+
+  :root.dark {
+    --primary: var(--color-white);
+    --secondary: var(--color-slate-200);
+    --muted: var(--color-slate-400);
+
+    --accent-default: var(--color-indigo-300);
   }
 
   body {
@@ -42,11 +62,11 @@
 
   .markdown {
     li::marker {
-      color: var(--primary-foreground);
+      color: var(--primary);
     }
 
     a {
-      color: var(--accent-foreground);
+      color: var(--accent-default);
 
       /* classname & data attribute automatically generated in markdown */
       &.data-footnote-backref,
@@ -61,7 +81,7 @@
     }
 
     hr {
-      border-color: var(--accent-foreground);
+      border-color: var(--accent-default);
     }
 
     section.footnotes {

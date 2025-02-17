@@ -4,6 +4,7 @@ import '../styles/globals.css';
 import Header from '~/components/Header.astro';
 
 import { ExcludeNullish } from '~/utils/typescript';
+import LucideIcons from '~/scripts/LucideIcons.astro';
 
 const SITE_TITLE = 'Rahul Rangnekar';
 
@@ -40,9 +41,11 @@ const {
     <Fathom site={import.meta.env.FATHOM_SITE} />
   </head>
 
-  <body class="min-h-screen">
+  <body class="min-h-screen bg-white text-primary dark:bg-slate-900">
     <Header />
 
     <slot />
+
+    <LucideIcons />
   </body>
 </html>

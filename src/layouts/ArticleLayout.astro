@@ -6,6 +6,7 @@ import type { Post } from '~/content/post.config';
 import { formatDateString } from '~/utils/formatters';
 import H1 from '~/components/H1.astro';
 import { blogRoute } from '~/routes';
+import { assertExists } from '~/utils/assert-exists';
 
 type Props = {
   post: Post;
@@ -14,24 +15,20 @@ type Props = {
 const { post } = Astro.props;
 
 const category = await getEntry('categories', post.category.id);
-if (!category) {
-  throw new Error('Missing category');
-}
+assertExists(category, 'Category not found');
 ---
 
 <Layout title={post.title}>
-  <div class="container mx-auto pt-8 pb-16 px-4">
+  <div class="container max-w-3xl mx-auto pt-8 pb-16 px-4">
     <div
       class="flex items-center space-x-2 content-center w-full text-center text-xs uppercase font-semibold tracking-wider mb-2"
     >
       <a
-        class="text-secondary-foreground hover:text-accent-foreground hover:underline focus:text-accent-foreground focus:underline"
+        class="text-secondary hover:text-accent hover:underline focus:text-accent focus:underline"
         href={blogRoute()}>Blog</a
       >
       <span>/</span>
-      <span
-        class="text-xs uppercase font-semibold tracking-wide text-accent-foreground"
-      >
+      <span class="text-xs uppercase font-semibold tracking-wide text-accent">
         {category.data.title}
       </span>
     </div>
@@ -39,13 +36,9 @@ if (!category) {
     <Prose>
       <H1 class="text-5xl font-bold mb-12">{post.title}</H1>
 
-      <p class="prose-base mt-0">{post.description}</p>
+      <p class="mt-0">{post.description}</p>
 
-      {
-        post.publishDate && (
-          <p class="prose-sm">{formatDateString(post.publishDate)}</p>
-        )
-      }
+      {post.publishDate && <p>{formatDateString(post.publishDate)}</p>}
 
       <slot />
     </Prose>
