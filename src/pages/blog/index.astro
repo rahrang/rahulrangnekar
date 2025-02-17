@@ -38,7 +38,7 @@ const allPosts = (
           <li>
             <a
               class="block hover:bg-accent-background focus:bg-accent-background p-2 rounded-md"
-              href={postRoute(post.slug)}
+              href={postRoute(post.id)}
             >
               <div class="font-semibold text-lg">{post.data.title}</div>
               {post.data.publishDate && (

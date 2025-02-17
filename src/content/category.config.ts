@@ -8,6 +8,6 @@ export const categorySchema = z.object({
 export type Category = z.infer<typeof categorySchema>;
 
 export const categoryCollection = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './categories' }),
+  loader: glob({ pattern: '**/*.json', base: 'src/content/categories' }),
   schema: categorySchema,
 });

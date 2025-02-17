@@ -14,6 +14,9 @@ type Props = {
 const { post } = Astro.props;
 
 const category = await getEntry('categories', post.category.id);
+if (!category) {
+  throw new Error('Missing category');
+}
 ---
 
 <Layout title={post.title}>

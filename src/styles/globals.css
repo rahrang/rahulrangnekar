@@ -1,22 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-background: var(--accent-background);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 @layer base {
   :root {
     font-family: Inter, sans-serif;
-    font-feature-settings: "ss01", "ss03", "cv02", "cv03", "cv04", "cv05",
-      "cv06", "cv08", "cv09";
+    font-feature-settings:
+      'ss01', 'ss03', 'cv02', 'cv03', 'cv04', 'cv05', 'cv06', 'cv08', 'cv09';
 
-    --primary-foreground: theme("colors.slate.900");
-    --secondary-foreground: theme("colors.slate.700");
-    --muted-foreground: theme("colors.slate.500");
-    --accent-foreground: theme("colors.teal.600");
-    --accent-background: theme("colors.teal.100");
+    --primary-foreground: var(--color-slate-900);
+    --secondary-foreground: var(--color-slate-700);
+    --muted-foreground: var(--color-slate-500);
+    --accent-foreground: var(--color-teal-600);
+    --accent-background: var(--color-teal-100);
   }
 
   body {
-    font-family: "Inter", "sans-serif";
+    font-family: 'Inter', 'sans-serif';
   }
 
   .markdown {
@@ -29,7 +50,7 @@
 
       /* classname & data attribute automatically generated in markdown */
       &.data-footnote-backref,
-      &[data-footnote-ref=""] {
+      &[data-footnote-ref=''] {
         text-decoration: none;
         font-weight: bold;
       }
@@ -44,7 +65,7 @@
     }
 
     section.footnotes {
-      font-size: theme("fontSize.sm");
+      font-size: var(--text-sm);
     }
   }
 
