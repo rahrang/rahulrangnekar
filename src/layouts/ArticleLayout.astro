@@ -14,11 +14,11 @@ type Props = {
 
 const { post } = Astro.props;
 
-const category = await getEntry('categories', post.category.id);
+const category = await getEntry('categories', post.data.category.id);
 assertExists(category, 'Category not found');
 ---
 
-<Layout title={post.title}>
+<Layout title={post.data.title}>
   <div class="container max-w-3xl mx-auto pt-8 pb-16 px-4">
     <div
       class="flex items-center space-x-2 content-center w-full text-center text-xs uppercase font-semibold tracking-wider mb-2"
@@ -34,11 +34,23 @@ assertExists(category, 'Category not found');
     </div>
 
     <Prose>
-      <H1 class="text-5xl font-bold mb-12">{post.title}</H1>
+      <H1 class="text-5xl font-bold mb-4">{post.data.title}</H1>
 
-      <p class="mt-0">{post.description}</p>
+      {
+        post.data.subtitle != null && (
+          <p class="mt-0 text-muted">{post.data.subtitle}</p>
+        )
+      }
 
-      {post.publishDate && <p>{formatDateString(post.publishDate)}</p>}
+      {
+        post.data.publishDate != null && (
+          <p class="text-sm text-muted">
+            {formatDateString(post.data.publishDate)}
+          </p>
+        )
+      }
+
+      <hr />
 
       <slot />
     </Prose>

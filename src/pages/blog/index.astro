@@ -1,12 +1,12 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import type { Post } from '~/content/post.config';
 import { postRoute } from '~/routes';
 import H1 from '~/components/H1.astro';
 import { formatDateString } from '~/utils/formatters';
+import { postIdToSlug, type Post } from '~/content/post.config';
 
-const excludePostByPublishStatus: (post: Post) => boolean =
+const excludePostByPublishStatus: (post: Post['data']) => boolean =
   import.meta.env.MODE === 'development'
     ? () => false
     : (post) => {
@@ -22,7 +22,7 @@ const allPosts = (
   })
 ).sort((a, b) => {
   if (b.data.publishDate && a.data.publishDate) {
-    return b.data.publishDate.valueOf() > a.data.publishDate.valueOf() ? -1 : 1;
+    return a.data.publishDate.valueOf() > b.data.publishDate.valueOf() ? -1 : 1;
   }
   return -1;
 });
@@ -38,7 +38,7 @@ const allPosts = (
           <li>
             <a
               class="block hover:bg-accent-300 focus:bg-accent-300 dark:hover:bg-accent-950 dark:focus:bg-accent-950 p-2 rounded-md"
-              href={postRoute(post.id)}
+              href={postRoute(postIdToSlug(post.id))}
             >
               <div class="font-semibold text-lg">{post.data.title}</div>
               {post.data.publishDate && (

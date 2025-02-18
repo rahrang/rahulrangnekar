@@ -1,4 +1,4 @@
-import { glob } from 'astro/loaders';
+import { file } from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
 
 export const categorySchema = z.object({
@@ -8,6 +8,6 @@ export const categorySchema = z.object({
 export type Category = z.infer<typeof categorySchema>;
 
 export const categoryCollection = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: 'src/content/categories' }),
+  loader: file('src/content/categories.json'),
   schema: categorySchema,
 });

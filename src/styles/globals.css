@@ -61,10 +61,6 @@
   }
 
   .markdown {
-    li::marker {
-      color: var(--primary);
-    }
-
     a {
       color: var(--accent-default);
 
