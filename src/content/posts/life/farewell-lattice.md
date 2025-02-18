@@ -1,7 +1,7 @@
 ---
 title: 'Farewell, Lattice'
 subtitle: 'Reflecting on over 5 years with the company.'
-published: false
+published: true
 publishDate: '2025-02-17'
 category: life
 ---
