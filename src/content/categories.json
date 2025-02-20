@@ -6,5 +6,9 @@
   {
     "id": "life",
     "title": "Life"
+  },
+  {
+    "id": "finance",
+    "title": "Personal Finance"
   }
 ]
