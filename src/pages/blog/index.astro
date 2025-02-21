@@ -37,7 +37,7 @@ const allPosts = (
         allPosts.map((post) => (
           <li>
             <a
-              class="block hover:bg-accent-300 focus:bg-accent-300 dark:hover:bg-accent-950 dark:focus:bg-accent-950 p-2 rounded-md"
+              class="block hover:bg-accent-300 focus:bg-accent/20 hover:bg-accent/20 py-3 px-2 rounded-md"
               href={postRoute(postIdToSlug(post.id))}
             >
               <div class="font-semibold text-lg">{post.data.title}</div>
