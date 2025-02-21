@@ -1,5 +1,5 @@
 ---
-title: 'How to Roll Over an ADP 401(k) to Fidelity'
+title: 'How to Roll Over an ADP 401(k) to a Fidelity IRA'
 published: true
 publishDate: '2025-02-20'
 category: finance

@@ -26,6 +26,11 @@ const allPosts = (
   }
   return -1;
 });
+
+const allCategories = await getCollection('categories');
+const categoriesMap = new Map(
+  allCategories.map((category) => [category.id, category.data])
+);
 ---
 
 <Layout title="Blog">
@@ -34,21 +39,37 @@ const allPosts = (
 
     <ul class="space-y-4">
       {
-        allPosts.map((post) => (
-          <li>
-            <a
-              class="block hover:bg-accent-300 focus:bg-accent/20 hover:bg-accent/20 py-3 px-2 rounded-md"
-              href={postRoute(postIdToSlug(post.id))}
-            >
-              <div class="font-semibold text-lg">{post.data.title}</div>
-              {post.data.publishDate && (
-                <div class="text-sm text-secondary">
-                  {formatDateString(post.data.publishDate)}
-                </div>
-              )}
-            </a>
-          </li>
-        ))
+        allPosts.map((post) => {
+          const category = categoriesMap.get(post.data.category.id);
+
+          return (
+            <li>
+              <a
+                class="block focus:bg-accent/10 hover:bg-accent/10 py-3 px-2 rounded-md space-y-[0.125rem]"
+                href={postRoute(postIdToSlug(post.id))}
+              >
+                {category && (
+                  <div>
+                    <span class="text-xs uppercase tracking-wide text-accent">
+                      {category.title}
+                    </span>
+                  </div>
+                )}
+                <div class="font-semibold text-lg">{post.data.title}</div>
+                {post.data.publishDate && (
+                  <div class="text-sm text-muted">
+                    {formatDateString(post.data.publishDate)}
+                  </div>
+                )}
+                {post.data.published === false && (
+                  <div class="text-xs text-red-700 dark:text-red-300">
+                    Unpublished
+                  </div>
+                )}
+              </a>
+            </li>
+          );
+        })
       }
     </ul>
   </main>
