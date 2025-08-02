@@ -9,6 +9,8 @@ import {
 const postSchema = z.object({
   title: z.string(),
   subtitle: z.string().optional(),
+  seoDescription: z.string().optional(),
+  seoKeywords: z.string().array().optional(),
   published: z.boolean(),
   publishDate: z.coerce.date().optional(),
   category: reference('categories'),

@@ -1,6 +1,13 @@
 ---
 title: 'How to Minimize Hertz Toll Fees in the Bay Area'
 subtitle: 'Don’t let Hertz hurt you with junk fees.'
+seoDescription: 'A guide to avoiding the Hertz toll junk fee in the San Francisco Bay Area'
+seoKeywords:
+  - Hertz junk fees
+  - Hertz toll fees
+  - Hertz PlatePass
+  - Rental car junk fees
+  - Rental car toll
 published: true
 publishDate: 2025-02-28
 category: travel
@@ -72,7 +79,7 @@ But as I’d started a new job recently, it slipped my mind. Finally on Feb 8<su
 
 At this point (as it was at every point), it’s not about the money. It’s about the principle and my hatred of junk fees that drives me to get that administrative fee refunded.
 
-I’ll follow up if/when I get it.
+Update: I received the refund a few weeks after.
 
 ## What’s the best option?
 

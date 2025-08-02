@@ -16,9 +16,15 @@ const { post } = Astro.props;
 
 const category = await getEntry('categories', post.data.category.id);
 assertExists(category, 'Category not found');
+
+console.log(post.data);
 ---
 
-<Layout title={post.data.title}>
+<Layout
+  title={post.data.title}
+  description={post.data.subtitle}
+  keywords={post.data.seoKeywords}
+>
   <div class="container max-w-3xl mx-auto pt-8 pb-16 px-4">
     {
       post.data.published === false && (

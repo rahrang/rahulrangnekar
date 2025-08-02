@@ -12,12 +12,14 @@ interface Props {
   title?: string;
   includeSiteTitle?: boolean;
   description?: string;
+  keywords?: string[];
 }
 
 const {
   title,
   includeSiteTitle = true,
   description = 'I am a software engineer by trade, and a software engineer and blogger by hobby.',
+  keywords,
 } = Astro.props;
 ---
 
@@ -26,6 +28,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords?.join(', ')} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://rsms.me/" />
