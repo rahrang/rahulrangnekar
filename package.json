@@ -10,23 +10,23 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@tailwindcss/postcss": "^4.1.11",
-    "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.12.8",
+    "@astrojs/check": "^0.9.6",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.17.1",
     "astro-fathom": "^2.0.0",
     "clsx": "^2.1.1",
-    "lucide": "^0.536.0",
+    "@lucide/astro": "^0.563.0",
     "postcss": "^8.5.6",
-    "sharp": "^0.34.3",
-    "tailwind-merge": "^3.3.1",
-    "tailwindcss": "^4.1.11",
-    "typescript": "^5.9.2"
+    "sharp": "^0.34.5",
+    "tailwind-merge": "^3.4.0",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.16",
-    "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.6.14"
+    "@tailwindcss/typography": "^0.5.19",
+    "prettier": "^3.8.1",
+    "prettier-plugin-tailwindcss": "^0.7.2"
   },
   "engines": {
     "pnpm": ">=9",

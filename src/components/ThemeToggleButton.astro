@@ -1,15 +1,14 @@
 ---
-import SunIcon from './icons/SunIcon.astro';
-import MoonIcon from './icons/MoonIcon.astro';
+import { Sun, Moon } from '@lucide/astro';
 ---
 
 <button
   id="theme-toggle"
-  class="w-8 h-8 cursor-pointer hover:bg-accent/10 focus:bg-accent/10 p-2 rounded-md"
+  class="w-8 h-8 cursor-pointer hover:bg-accent/10 focus:bg-accent/10 p-2 rounded-md inline-flex items-center justify-center top-1.5 relative"
   aria-label="Toggle theme"
 >
-  <SunIcon class="hidden dark:block" />
-  <MoonIcon class="dark:hidden block" />
+  <Sun class="hidden dark:block" />
+  <Moon class="dark:hidden block" />
 </button>
 
 <script is:inline>
