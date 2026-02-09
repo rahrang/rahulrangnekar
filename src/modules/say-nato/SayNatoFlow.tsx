@@ -86,7 +86,7 @@ function WordDisplay({ word }: { word: string }) {
 
   return (
     <div>
-      <p className="text-md mb-1 font-mono uppercase">{word}</p>
+      <p className="text-md mb-1 pl-2 font-mono uppercase">{word}</p>
       <ul className="list-disc">
         {characters.map((character) => {
           return <CharacterDisplay key={character} character={character} />;
