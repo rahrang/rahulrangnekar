@@ -6,9 +6,12 @@ import profileImage from '../images/rahul-stressba.png';
 import H1 from '~/components/H1.astro';
 import { cn } from '~/utils/css';
 import { PROSE_CLASSNAME } from '~/utils/prose';
+import { projectsRoute } from '~/routes';
 ---
 
-<Layout>
+<Layout
+  description="I am a software engineer by trade, and a software engineer and blogger by hobby."
+>
   <main
     class="container mx-auto px-4 sm:px-8 pt-8 pb-16 flex flex-col items-center"
   >
@@ -21,14 +24,18 @@ import { PROSE_CLASSNAME } from '~/utils/prose';
         class="rounded-full border-4 border-accent p-1"
       />
 
-      <H1 class="text-center">👋🏽 Hi, I’m Rahul</H1>
+      <H1 class="text-center mb-4">👋🏽 Hi, I’m Rahul</H1>
 
       <p>I live in San Francisco with my amazing wife, Kimi.</p>
 
       <p>
-        I enjoy creating fun side projects, reading about credit cards, booking
-        award travel, and following countless shiba inu accounts on social
-        media. During the day, I build product for <a
+        I enjoy creating <a
+          href={projectsRoute()}
+          class="underline decoration-accent hover:text-accent focus:text-accent"
+          >fun side projects</a
+        >, reading about credit cards, booking award travel, and following
+        countless shiba inu accounts on social media. During the day, I build
+        product for <a
           href="https://www.vanta.com"
           target="_blank"
           class="underline decoration-accent hover:text-accent focus:text-accent"

@@ -1,0 +1,35 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import H1 from '~/components/H1.astro';
+import List from '~/components/List.astro';
+import ListItem from '~/components/ListItem.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => {
+  return a.data.title.localeCompare(b.data.title);
+});
+
+const title = 'Projects';
+const description =
+  "I've built these for my personal use cases, or just for fun 😊";
+---
+
+<Layout title={title} description={description}>
+  <main class="container px-4 max-w-3xl mx-auto">
+    <H1 class="px-2 mb-4">{title}</H1>
+
+    <List>
+      {
+        projects.map((project) => {
+          return (
+            <ListItem
+              href={project.data.href}
+              title={project.data.title}
+              description={project.data.description}
+            />
+          );
+        })
+      }
+    </List>
+  </main>
+</Layout>

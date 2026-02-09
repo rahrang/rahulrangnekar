@@ -10,23 +10,18 @@ const SITE_TITLE = 'Rahul Rangnekar';
 interface Props {
   title?: string;
   includeSiteTitle?: boolean;
-  description?: string;
+  description: string | undefined;
   keywords?: string[];
 }
 
-const {
-  title,
-  includeSiteTitle = true,
-  description = 'I am a software engineer by trade, and a software engineer and blogger by hobby.',
-  keywords,
-} = Astro.props;
+const { title, includeSiteTitle = true, description, keywords } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
+    {description && <meta name="description" content={description} />}
     <meta name="keywords" content={keywords?.join(', ')} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
