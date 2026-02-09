@@ -12,8 +12,9 @@ const { project } = Astro.props;
 
 <Layout title={project.title} description={project.description}>
   <div class="container max-w-3xl mx-auto pt-8 pb-16 px-4">
-    <H1 class="mb-1">{project.title}</H1>
-    <p class="text-muted mb-8">{project.description}</p>
+    <H1 class="mb-2">{project.title}</H1>
+    <p class="text-muted mb-2">{project.description}</p>
+    <p class="text-muted mb-8">{project.motivation}</p>
 
     <slot />
   </div>

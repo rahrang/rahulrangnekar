@@ -1,14 +1,14 @@
 ---
-import { CookieVisualizationFlow } from '../../modules/cookie-visualization/CookieVisualizationFlow';
+import { SayNatoFlow } from '~/modules/say-nato/SayNatoFlow';
 import ProjectLayout from '~/layouts/ProjectLayout.astro';
 import { getEntry } from 'astro:content';
 
-const project = await getEntry('projects', 'cookies-visualization');
+const project = await getEntry('projects', 'say-nato');
 if (!project) {
   return new Response(null, { status: 404 });
 }
 ---
 
 <ProjectLayout project={project.data}>
-  <CookieVisualizationFlow client:only="react" />
+  <SayNatoFlow client:only="react" />
 </ProjectLayout>

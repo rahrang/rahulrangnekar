@@ -2,7 +2,15 @@
   {
     "id": "cookies-visualization",
     "title": "🍪 Cookie Visualization 👀",
-    "description": "Visualize your `document.cookie`, the `cookie` header from an HTTP request, or the `set-cookie` header from an HTTP response",
+    "description": "Visualize the `document.cookie`, the `cookie` header from an HTTP request, or the `set-cookie` header from an HTTP response.",
+    "motivation": "This is useful when I’m investigating how a website uses cookies to communicate with its backend APIs.",
     "href": "/cookies"
+  },
+  {
+    "id": "say-nato",
+    "title": "🗣️ Say NATO",
+    "description": "Convert text to NATO phonetic alphabet.",
+    "motivation": "This is especially useful when I need to read out a confirmation or reference number to a customer service agent.",
+    "href": "/say-nato"
   }
 ]
