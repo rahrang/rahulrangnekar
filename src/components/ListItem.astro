@@ -1,0 +1,31 @@
+---
+interface Props {
+  href: string;
+  eyebrow?: string;
+  title: string;
+  description: string | undefined;
+}
+
+const { href, eyebrow, title, description } = Astro.props;
+---
+
+<li>
+  <a
+    class="block focus:bg-accent/10 hover:bg-accent/10 py-3 px-2 rounded-md space-y-0.5"
+    href={href}
+  >
+    {
+      eyebrow && (
+        <div>
+          <span class="text-xs uppercase tracking-wide text-accent">
+            {eyebrow}
+          </span>
+        </div>
+      )
+    }
+    <div class="font-semibold text-lg">{title}</div>
+    {description && <div class="text-sm text-muted">{description}</div>}
+
+    <slot />
+  </a>
+</li>

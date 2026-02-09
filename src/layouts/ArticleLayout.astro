@@ -16,8 +16,6 @@ const { post } = Astro.props;
 
 const category = await getEntry('categories', post.data.category.id);
 assertExists(category, 'Category not found');
-
-console.log(post.data);
 ---
 
 <Layout
@@ -45,7 +43,7 @@ console.log(post.data);
     </div>
 
     <Prose>
-      <H1 class="text-5xl font-bold mb-4">{post.data.title}</H1>
+      <H1 class="mb-4">{post.data.title}</H1>
 
       {
         post.data.subtitle != null && (

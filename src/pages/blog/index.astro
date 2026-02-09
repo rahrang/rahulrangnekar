@@ -3,8 +3,10 @@ import Layout from '~/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { postRoute } from '~/routes';
 import H1 from '~/components/H1.astro';
+import List from '~/components/List.astro';
 import { formatDateString } from '~/utils/formatters';
 import { postIdToSlug, type Post } from '~/content/post.config';
+import ListItem from '~/components/ListItem.astro';
 
 const excludePostByPublishStatus: (post: Post['data']) => boolean =
   import.meta.env.MODE === 'development'
@@ -33,44 +35,35 @@ const categoriesMap = new Map(
 );
 ---
 
-<Layout title="Blog">
+<Layout title="Blog" description={undefined}>
   <main class="container px-4 max-w-3xl mx-auto">
-    <H1 class="px-2">Blog</H1>
+    <H1 class="px-2 mb-4">Blog</H1>
 
-    <ul class="space-y-4">
+    <List>
       {
         allPosts.map((post) => {
           const category = categoriesMap.get(post.data.category.id);
 
           return (
-            <li>
-              <a
-                class="block focus:bg-accent/10 hover:bg-accent/10 py-3 px-2 rounded-md space-y-0.5"
-                href={postRoute(postIdToSlug(post.id))}
-              >
-                {category && (
-                  <div>
-                    <span class="text-xs uppercase tracking-wide text-accent">
-                      {category.title}
-                    </span>
-                  </div>
-                )}
-                <div class="font-semibold text-lg">{post.data.title}</div>
-                {post.data.publishDate && (
-                  <div class="text-sm text-muted">
-                    {formatDateString(post.data.publishDate)}
-                  </div>
-                )}
-                {post.data.published === false && (
-                  <div class="text-xs text-red-700 dark:text-red-300">
-                    Unpublished
-                  </div>
-                )}
-              </a>
-            </li>
+            <ListItem
+              href={postRoute(postIdToSlug(post.id))}
+              eyebrow={category?.title}
+              title={post.data.title}
+              description={
+                post.data.publishDate
+                  ? formatDateString(post.data.publishDate)
+                  : undefined
+              }
+            >
+              {post.data.published === false && (
+                <div class="text-xs text-red-700 dark:text-red-300">
+                  Unpublished
+                </div>
+              )}
+            </ListItem>
           );
         })
       }
-    </ul>
+    </List>
   </main>
 </Layout>

@@ -1,5 +1,5 @@
 ---
-import { blogRoute, homeRoute } from '~/routes';
+import { blogRoute, homeRoute, projectsRoute } from '~/routes';
 import NavLink from './NavLink.astro';
 import ThemeToggleButton from './ThemeToggleButton.astro';
 ---
@@ -15,6 +15,7 @@ import ThemeToggleButton from './ThemeToggleButton.astro';
     >
 
     <nav class="flex items-baseline gap-x-8">
+      <NavLink href={projectsRoute()} exact>Projects</NavLink>
       <NavLink href={blogRoute()} exact>Blog</NavLink>
       <ThemeToggleButton />
     </nav>

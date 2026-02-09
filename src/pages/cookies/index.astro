@@ -1,0 +1,16 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { CookieVisualizationFlow } from '../../modules/cookie-visualization/CookieVisualizationFlow';
+import { getCollection } from 'astro:content';
+import ProjectLayout from '~/layouts/ProjectLayout.astro';
+import { getEntry } from 'astro:content';
+
+const project = await getEntry('projects', 'cookies-visualization');
+if (!project) {
+  return new Response(null, { status: 404 });
+}
+---
+
+<ProjectLayout project={project.data}>
+  <CookieVisualizationFlow client:only="react" />
+</ProjectLayout>
