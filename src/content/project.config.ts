@@ -5,6 +5,7 @@ export const projectSchema = z.object({
   id: z.string().min(1),
   title: z.string().min(1),
   description: z.string().min(1),
+  motivation: z.string().min(1),
   href: z.string().min(1).startsWith('/'),
 });
 

@@ -45,7 +45,7 @@ export function CookieVisualizationFlow() {
                   })
                   .map(([key, value]) => {
                     return (
-                      <tr className="border-b last:border-none">
+                      <tr key={key} className="border-b last:border-none">
                         <td className="bg-background sticky left-0 border-r p-2 pr-4">
                           {key}
                         </td>
