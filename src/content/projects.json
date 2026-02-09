@@ -2,7 +2,7 @@
   {
     "id": "cookies-visualization",
     "title": "🍪 Cookie Visualization 👀",
-    "description": "Quickly visualize the `set-cookie` header from an HTTP response",
+    "description": "Visualize your `document.cookie`, the `cookie` header from an HTTP request, or the `set-cookie` header from an HTTP response",
     "href": "/cookies"
   }
 ]
